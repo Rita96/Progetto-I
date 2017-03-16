@@ -1,10 +1,10 @@
 package progetto;
 
-public class Frase {
+public class Stato {
 
     private String ID, text;
 
-    public Frase(String ID, String text) {
+    public Stato(String ID, String text) {
         this.ID = ID;
         this.text = text;
     }
