@@ -1,6 +1,7 @@
 package progetto;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class LetturaOggetti 
 {
@@ -15,6 +16,8 @@ public class LetturaOggetti
     
     public ArrayList<Oggetto> lettura()
     {
+        ArrayList<Oggetto> Oggetti=new ArrayList<>();
+        
         try
         {
             inputStream=new BufferedReader(new FileReader(nomefile));
@@ -26,10 +29,23 @@ public class LetturaOggetti
         
         try
         {
+            StringTokenizer st;
             String stringa=inputStream.readLine();
             while(stringa!=null)
             {
-                
+                st = new StringTokenizer(stringa, "\t\n");
+                while(st.hasMoreElements())
+                {
+                    String nome=st.nextToken();
+                    String attributo=st.nextToken();
+                    String fileDomande=st.nextToken();
+                    String fileScelte=st.nextToken();
+                    String fileAdiacenze=st.nextToken();
+                    
+                    Oggetto O=new Oggetto(nome,attributo,fileDomande,fileScelte,fileAdiacenze);
+                    Oggetti.add(O);
+                }
+                stringa=inputStream.readLine();
             }
             inputStream.close();
         }
@@ -37,7 +53,7 @@ public class LetturaOggetti
         {
             System.exit(0);
         }
-        return null;
+        return Oggetti;
     }
     
 }

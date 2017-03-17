@@ -18,6 +18,16 @@ public class Oggetto
         fileAdiacenze=f3;
     }
     
+    public String getNome()
+    {
+        return nome;
+    }
+    
+    public String getAttributo()
+    {
+        return attributo;        
+    }
+    
     public String getFileDomande()
     {
         return fileDomande;
