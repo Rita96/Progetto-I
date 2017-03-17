@@ -8,6 +8,7 @@ public class Main {
     {
         LetturaOggetti lo=new LetturaOggetti();
         ArrayList<Oggetto> Oggetti=new ArrayList<>();
+        ArrayList<Scelta> Scelte=new ArrayList<>();
         Oggetti=lo.lettura();
         
         int i;
@@ -18,6 +19,17 @@ public class Main {
             System.out.println(Oggetti.get(i).getFileDomande());
             System.out.println(Oggetti.get(i).getFileScelte());
             System.out.println(Oggetti.get(i).getFileAdiacenze());
+            System.out.println();
+        }
+        
+        LetturaScelte sc=new LetturaScelte(Oggetti.get(0).getFileScelte());
+        Scelte=sc.lettura();
+       
+        for(i=0;i<Scelte.size();i++)
+        {
+            System.out.println(Scelte.get(i).getCodS());
+            System.out.println(Scelte.get(i).getTestoS());
+            System.out.println();
         }
         
     }

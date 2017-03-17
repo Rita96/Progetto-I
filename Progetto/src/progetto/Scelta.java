@@ -11,4 +11,14 @@ public class Scelta
         testoS=s;
     }
     
+    public String getCodS()
+    {
+        return codS;
+    }
+    
+    public String getTestoS()
+    {
+        return testoS;
+    }
+    
 }
