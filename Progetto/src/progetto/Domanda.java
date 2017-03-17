@@ -20,8 +20,7 @@ public class Domanda {
         return codD;
     }
 
-    @Override
-    public String toString() {
+    public String getTestoD() {
         return testoD;
     }
     
@@ -41,5 +40,10 @@ public class Domanda {
     public void addAdiacenza(Domanda d)
     {
         adiacenzeD.add(d);
+    }
+    
+    public ArrayList<Scelta> getScelteD()
+    {
+        return scelteD;
     }
 }

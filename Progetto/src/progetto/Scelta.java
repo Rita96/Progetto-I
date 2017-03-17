@@ -21,4 +21,12 @@ public class Scelta
         return testoS;
     }
     
+    public boolean controllo(String cod)
+    {
+        if(cod==codS)
+            return true;
+        else
+            return false;
+    }
+    
 }
