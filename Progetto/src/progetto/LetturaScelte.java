@@ -1,7 +1,6 @@
 package progetto;
 
-public class Progetto 
+public class LetturaScelte 
 {
-    
     
 }

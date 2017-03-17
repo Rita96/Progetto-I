@@ -1,0 +1,4 @@
+Scelta1	Sì
+Scelta2	No
+Scelta3	Forse
+Scelta4	FINE

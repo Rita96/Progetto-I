@@ -1,3 +1,0 @@
-cod1	cod2	cod3
-cod2
-cod3	cod2
