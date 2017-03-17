@@ -1,0 +1,4 @@
+cod0	Domanda0?
+cod1	Domanda1?
+cod2	Domanda2?
+cod3	Domanda3?
