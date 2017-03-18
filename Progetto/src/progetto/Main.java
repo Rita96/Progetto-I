@@ -41,12 +41,12 @@ public class Main {
         {
             System.out.println(Domande.get(i).getCodD());
             System.out.println(Domande.get(i).getTestoD());
-            int k;/*
+            int k;
             for(k=0;k<Domande.get(i).getScelteD().size();k++)
             {
                 System.out.println(Domande.get(i).getScelteD().get(k).getCodS());
                 System.out.println(Domande.get(i).getScelteD().get(k).getTestoS());
-            }*/
+            }
             System.out.println();
         }
     }

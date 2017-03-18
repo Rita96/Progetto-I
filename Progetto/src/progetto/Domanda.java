@@ -26,7 +26,7 @@ public class Domanda {
     
     public boolean controllo(String cod)
     {
-        if(cod==codD)
+        if(cod.equals(codD))
             return true;
         else
             return false;

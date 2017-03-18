@@ -41,7 +41,6 @@ public class LetturaDomande
                 while(st.hasMoreElements())
                 {
                     int num=st.countTokens();
-                    //System.out.println("Conteggio: "+num);
                     int n=0;
                     int i;
                     int k;
@@ -51,23 +50,21 @@ public class LetturaDomande
                     {
                         String codS=st.nextToken();
                         codScelte.add(codS);
-                        //System.out.println(codS);
                         n++;
                     }
                     Domanda D=new Domanda(cod,text);
                     
-                    
-                    
-                    /*
                     for(i=0;i<codScelte.size();i++) 
                     {
                         for(k=0;k<s.size();k++)
                         {
                             if(s.get(k).controllo(codScelte.get(i))==true)
+                            {
                                 D.addScelta(s.get(k));
+                            }
                         }
                     }
-                    codScelte.clear();*/
+                    codScelte.clear();
                     Domande.add(D);
                 }
                 

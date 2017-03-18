@@ -23,7 +23,7 @@ public class Scelta
     
     public boolean controllo(String cod)
     {
-        if(cod==codS)
+        if(cod.equals(codS))
             return true;
         else
             return false;
