@@ -1,0 +1,12 @@
+Risoluotre di Problemi - Caso d'Uso:
+
+Un utente accede all'applicazione tramite internet o terminale. Nella pagina principale deve selezionare un generico oggetto che presenta un problema e di cui è intenzionato ad ottenere una soluzione. Dopo aver confermato i dati inseriti all'utente verranno poste una serie di domande, ciascuna con un numero variabile di risposte possibili. Procedendo con le domande andrà a delinearsi la natura del problema.
+
+Nel susseguirsi delle domande all'utente è concesso di: 
+- visualizzare le risposte precedenti;
+- modificare le risposte date: ciò cancellarà tutte le risposte date dopo quella determinata domanda e modificherà le domande sucessive, che non saranno le stesse a cui l'utente ha già risposto andate perse nella modifica.
+- selezionare una domanda precedente al fine di modificarne la risposta data.
+
+Giunti al termine della sequenza, l'applicazione sarà in grado di restituire una possibile soluzione al problema. All'utente verrà chiesto se il problema è stato risolto e, in caso contrario, gli verrà suggerito di affidarsi ad assistenza tecnica.
+
+
