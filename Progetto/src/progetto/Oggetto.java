@@ -1,7 +1,11 @@
 package progetto;
 
 import java.util.ArrayList;
-
+/**
+ * L'elemento Oggetto prende i prorpi dati dal file Oggetti.txt ed è strutturato così:
+ * nome(esempio lavatrice) attributo (esempio modello lavatrice) file testo delle domande file testo delle scelte file testo delle adiacenze
+ * Le adiacenze vanno a rappresentare pre ogni domanda a quali altre domande sono collegate 
+ */
 public class Oggetto
 {
     private String nome;
@@ -45,12 +49,15 @@ public class Oggetto
     {
         return fileAdiacenze;
     }
-    
+/**
+* Metodo che aggiunge all'Oggetto l'elenco di tutte le sue domande
+* @param d ArrayList di domanda
+*/
     public void addDomande(ArrayList<Domanda> d)
     {
         domande.addAll(d);
     }
-
+    
     public ArrayList<Domanda> getDomande()
     {
         return domande;
