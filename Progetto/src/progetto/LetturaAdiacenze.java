@@ -30,7 +30,7 @@ public class LetturaAdiacenze
         
         try
         {
-            ArrayList<String> codScelte=new ArrayList<>();
+            ArrayList<String> codAdiacenze=new ArrayList<>();
             StringTokenizer st;
             String stringa=inputStream.readLine();
             while(stringa!=null)
@@ -46,29 +46,29 @@ public class LetturaAdiacenze
                     String cod=st.nextToken();
                     while(n<num-1)
                     {
-                        String codS=st.nextToken();
-                        codScelte.add(codS);
+                        String codA=st.nextToken();
+                        codAdiacenze.add(codA);
                         n++;
                     }
                     
-                    for(i=0;i<codScelte.size();i++) 
+                    for(i=0;i<codAdiacenze.size();i++) 
                     {
                         for(k=0;k<d.size();k++)
                         {
-                            if(d.get(k).controllo(codScelte.get(i))==true)
+                            if(d.get(k).controllo(codAdiacenze.get(i))==true)
                             {
                                 adiacenze.add(d.get(k));
                             }
                         }
                     }
                     
-                    for(Domanda dom:d)
+                    for(Domanda dom:d)//for(i=0;i<d.size();i++)
                     {
-                        if(dom.getCodD().equals(cod)){
+                        if(dom.controllo(cod)==true){
                             dom.addAdiacenze(adiacenze);
                         }
                     }
-                    codScelte.clear();
+                    codAdiacenze.clear();
                     adiacenze.clear();
                     
                 }
