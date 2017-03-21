@@ -3,7 +3,7 @@ package progetto;
 import java.util.StringTokenizer;
 import java.io.*;
 import java.util.ArrayList;
-
+//c
 public class LetturaAdiacenze
 {
     private String nomefile;
