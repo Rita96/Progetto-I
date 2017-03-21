@@ -4,31 +4,15 @@ import java.util.ArrayList;
 
 public class Progetto 
 {
-    
     private Oggetto oggetto;
     private ArrayList<Scelta> scelte;
     private ArrayList<Domanda> domande;
 
-    public Progetto(Oggetto o)
+    public Progetto(Oggetto o, ArrayList<Domanda> d, ArrayList<Scelta> s)
     {
         oggetto=o;
-        domande=new ArrayList<>();
-        scelte=new ArrayList<>();
-    }
-    
-    public void letture()
-    {
-        
-        LetturaScelte sc=new LetturaScelte(oggetto.getFileScelte());
-        scelte=sc.lettura();
-
-        LetturaDomande dm=new LetturaDomande(oggetto.getFileDomande());
-        domande=dm.lettura(scelte);
-
-        LetturaAdiacenze ad=new LetturaAdiacenze(oggetto.getFileAdiacenze());
-        ad.lettura(domande);
-
-        oggetto.addDomande(domande);
+        domande=d;
+        scelte=s;
     }
     
     public Oggetto getOggetto()
