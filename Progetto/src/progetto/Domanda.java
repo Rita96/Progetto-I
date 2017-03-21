@@ -9,21 +9,24 @@ public class Domanda {
     private ArrayList<Domanda> adiacenzeD;
     private ArrayList<Scelta> scelteD;
 
-    public Domanda(String id, String text) {
+    public Domanda(String id, String text)
+    {
         codD = id;
         testoD = text;
-        adiacenzeD=new ArrayList<>();
-        scelteD=new ArrayList<>();
+        adiacenzeD = new ArrayList<>();
+        scelteD = new ArrayList<>();
     }
 
-    public String getCodD() {
+    public String getCodD()
+    {
         return codD;
     }
 
-    public String getTestoD() {
+    public String getTestoD() 
+    {
         return testoD;
     }
-    
+
     public boolean controllo(String cod)
     {
         if(cod.equals(codD))
@@ -31,32 +34,32 @@ public class Domanda {
         else
             return false;
     }
-    
+
     public void addScelta(Scelta s)
     {
         scelteD.add(s);
     }
-    
+
     public void addScelte(ArrayList<Scelta> s)
     {
         scelteD.addAll(s);
     }
-    
+
     public void addAdiacenza(Domanda d)
     {
         adiacenzeD.add(d);
     }
-    
+
     public void addAdiacenze(ArrayList<Domanda> d)
     {
         adiacenzeD.addAll(d);
     }
-    
+
     public ArrayList<Scelta> getScelteD()
     {
         return scelteD;
     }
-    
+
     public ArrayList<Domanda> getAdiacenzeD()
     {
         return adiacenzeD;

@@ -1,7 +1,10 @@
 package progetto;
 
 import java.util.StringTokenizer;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LetturaDomande
@@ -30,7 +33,6 @@ public class LetturaDomande
         
         try
         {
-           
             ArrayList<String> codScelte=new ArrayList<>();
             StringTokenizer st;
             String stringa=inputStream.readLine();
@@ -45,12 +47,14 @@ public class LetturaDomande
                     int k;
                     String cod=st.nextToken();
                     String text=st.nextToken();
+                    
                     while(n<num-2)
                     {
                         String codS=st.nextToken();
                         codScelte.add(codS);
                         n++;
                     }
+                    
                     Domanda d=new Domanda(cod,text);
                     
                     for(i=0;i<codScelte.size();i++) 
@@ -67,7 +71,6 @@ public class LetturaDomande
                     domande.add(d);
                 }
                 
-                
                 stringa=inputStream.readLine();
             }
             inputStream.close();
@@ -76,6 +79,7 @@ public class LetturaDomande
         {
             System.exit(0);
         }
+        
         return domande;
     }
     

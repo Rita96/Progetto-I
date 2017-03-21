@@ -14,15 +14,15 @@ public class Progetto
         domande=d;
         scelte=s;
     }
-    
+
     public Oggetto getOggetto()
     {
         return oggetto;
     }
-    
+
     @Override
-    public String toString() {
-        
+    public String toString()
+    {
         String string=null;
         
         System.out.println("OGGETTO: "+oggetto.getNome()+" "+oggetto.getAttributo());
