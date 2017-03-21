@@ -18,7 +18,7 @@ public class LetturaDomande
     
     public ArrayList<Domanda> lettura(ArrayList<Scelta> s)
     {
-        ArrayList<Domanda> Domande=new ArrayList<>();
+        ArrayList<Domanda> domande=new ArrayList<>();
         
         try
         {
@@ -65,7 +65,7 @@ public class LetturaDomande
                         }
                     }
                     codScelte.clear();
-                    Domande.add(D);
+                    domande.add(D);
                 }
                 
                 
@@ -77,7 +77,7 @@ public class LetturaDomande
         {
             System.exit(0);
         }
-        return Domande;
+        return domande;
     }
     
 }

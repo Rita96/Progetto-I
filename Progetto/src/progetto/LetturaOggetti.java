@@ -16,7 +16,7 @@ public class LetturaOggetti
     
     public ArrayList<Oggetto> lettura()
     {
-        ArrayList<Oggetto> Oggetti=new ArrayList<>();
+        ArrayList<Oggetto> oggetti=new ArrayList<>();
         
         try
         {
@@ -42,8 +42,8 @@ public class LetturaOggetti
                     String fileScelte=st.nextToken();
                     String fileAdiacenze=st.nextToken();
                     
-                    Oggetto O=new Oggetto(nome,attributo,fileDomande,fileScelte,fileAdiacenze);
-                    Oggetti.add(O);
+                    Oggetto o=new Oggetto(nome,attributo,fileDomande,fileScelte,fileAdiacenze);
+                    oggetti.add(o);
                 }
                 stringa=inputStream.readLine();
             }
@@ -53,7 +53,7 @@ public class LetturaOggetti
         {
             System.exit(0);
         }
-        return Oggetti;
+        return oggetti;
     }
     
 }

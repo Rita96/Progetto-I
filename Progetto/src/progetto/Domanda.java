@@ -37,13 +37,28 @@ public class Domanda {
         scelteD.add(s);
     }
     
+    public void addScelte(ArrayList<Scelta> s)
+    {
+        scelteD.addAll(s);
+    }
+    
     public void addAdiacenza(Domanda d)
     {
         adiacenzeD.add(d);
     }
     
+    public void addAdiacenze(ArrayList<Domanda> d)
+    {
+        adiacenzeD.addAll(d);
+    }
+    
     public ArrayList<Scelta> getScelteD()
     {
         return scelteD;
+    }
+    
+    public ArrayList<Domanda> getAdiacenzeD()
+    {
+        return adiacenzeD;
     }
 }

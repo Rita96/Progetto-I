@@ -20,7 +20,7 @@ public class LetturaScelte
     
     public ArrayList<Scelta> lettura()
     {
-        ArrayList<Scelta> Scelte=new ArrayList<>();
+        ArrayList<Scelta> scelte=new ArrayList<>();
         
         try
         {
@@ -43,8 +43,8 @@ public class LetturaScelte
                     String cod=st.nextToken();
                     String text=st.nextToken();
                                         
-                    Scelta S=new Scelta(cod,text);
-                    Scelte.add(S);
+                    Scelta s=new Scelta(cod,text);
+                    scelte.add(s);
                 }
                 stringa=inputStream.readLine();
             }
@@ -54,7 +54,7 @@ public class LetturaScelte
         {
             System.exit(0);
         }
-        return Scelte;
+        return scelte;
     }
   
 }

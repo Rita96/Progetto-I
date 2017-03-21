@@ -7,47 +7,50 @@ public class Main {
     public static void main(String[] args) 
     {
         LetturaOggetti lo=new LetturaOggetti();
-        ArrayList<Oggetto> Oggetti=new ArrayList<>();
-        ArrayList<Scelta> Scelte=new ArrayList<>();
-        ArrayList<Domanda> Domande=new ArrayList<>();
-        Oggetti=lo.lettura();
+        ArrayList<Oggetto> oggetti=new ArrayList<>();
+        ArrayList<Scelta> scelte=new ArrayList<>();
+        ArrayList<Domanda> domande=new ArrayList<>();
+        oggetti=lo.lettura();
         
-        int i;
-        for(i=0;i<Oggetti.size();i++)
+        LetturaScelte sc=new LetturaScelte(oggetti.get(0).getFileScelte());
+        scelte=sc.lettura();
+        
+        LetturaDomande dm=new LetturaDomande(oggetti.get(0).getFileDomande());
+        domande=dm.lettura(scelte);
+        
+        LetturaAdiacenze ad=new LetturaAdiacenze(oggetti.get(0).getFileAdiacenze());
+        ad.lettura(domande);
+        
+        for(Domanda d:domande)
         {
-            System.out.println(Oggetti.get(i).getNome());
-            System.out.println(Oggetti.get(i).getAttributo());
-            System.out.println(Oggetti.get(i).getFileDomande());
-            System.out.println(Oggetti.get(i).getFileScelte());
-            System.out.println(Oggetti.get(i).getFileAdiacenze());
-            System.out.println();
-        }
-        
-        LetturaScelte sc=new LetturaScelte(Oggetti.get(0).getFileScelte());
-        Scelte=sc.lettura();
-       
-        for(i=0;i<Scelte.size();i++)
-        {
-            System.out.println(Scelte.get(i).getCodS());
-            System.out.println(Scelte.get(i).getTestoS());
-            System.out.println();
-        }
-        
-        LetturaDomande dm=new LetturaDomande(Oggetti.get(0).getFileDomande());
-        Domande=dm.lettura(Scelte);
-      
-        
-        for(i=0;i<Domande.size();i++)
-        {
-            System.out.println(Domande.get(i).getCodD());
-            System.out.println(Domande.get(i).getTestoD());
-            int k;
-            for(k=0;k<Domande.get(i).getScelteD().size();k++)
+            for(Scelta s: scelte)
             {
-                System.out.println(Domande.get(i).getScelteD().get(k).getCodS());
-                System.out.println(Domande.get(i).getScelteD().get(k).getTestoS());
+                if(d.getCodD().equals(s.getCodS()))
+                {
+                    d.addScelta(s);
+                }
             }
-            System.out.println();
         }
+        
+        oggetti.get(0).addDomande(domande);
+        
+        for(Oggetto o:oggetti)
+        {
+            System.out.println("OGGETTO: "+o.getNome()+" "+o.getAttributo());
+            for(Domanda d:o.getDomande())
+            {
+                System.out.println("DOMANDA: "+d.getCodD()+" "+d.getTestoD());
+                for(Scelta s:d.getScelteD())
+                {
+                    System.out.println("SCELTA: "+s.getCodS()+" "+s.getTestoS());
+                }
+                for(Domanda adiacenza:d.getAdiacenzeD())
+                {
+                    System.out.println("ADIACENZA: "+adiacenza.getCodD());
+                }
+                System.out.println();
+            }
+        }
+        
     }
 }
