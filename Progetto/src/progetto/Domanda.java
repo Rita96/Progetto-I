@@ -10,8 +10,8 @@ public class Domanda {
     private ArrayList<Scelta> scelteD;
 
     public Domanda(String id, String text) {
-        this.codD = id;
-        this.testoD = text;
+        codD = id;
+        testoD = text;
         adiacenzeD=new ArrayList<>();
         scelteD=new ArrayList<>();
     }

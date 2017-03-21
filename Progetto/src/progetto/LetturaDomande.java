@@ -1,9 +1,8 @@
 package progetto;
-import java.util.Scanner;
+
 import java.util.StringTokenizer;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 
 public class LetturaDomande
 {
@@ -52,7 +51,7 @@ public class LetturaDomande
                         codScelte.add(codS);
                         n++;
                     }
-                    Domanda D=new Domanda(cod,text);
+                    Domanda d=new Domanda(cod,text);
                     
                     for(i=0;i<codScelte.size();i++) 
                     {
@@ -60,12 +59,12 @@ public class LetturaDomande
                         {
                             if(s.get(k).controllo(codScelte.get(i))==true)
                             {
-                                D.addScelta(s.get(k));
+                                d.addScelta(s.get(k));
                             }
                         }
                     }
                     codScelte.clear();
-                    domande.add(D);
+                    domande.add(d);
                 }
                 
                 
