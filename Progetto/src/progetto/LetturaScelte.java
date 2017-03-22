@@ -9,12 +9,12 @@ import java.util.StringTokenizer;
 
 public class LetturaScelte 
 {
-    private String nomefile;
+    private String nomeFile;
     private BufferedReader inputStream;
     
-    public LetturaScelte(String fileScelte)
+    public LetturaScelte(String nomeFile)
     {
-        nomefile=fileScelte;
+        this.nomeFile=nomeFile;
         inputStream=null;
     }
     
@@ -24,7 +24,7 @@ public class LetturaScelte
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomefile));
+            inputStream=new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {

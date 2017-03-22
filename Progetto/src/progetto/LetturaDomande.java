@@ -9,12 +9,12 @@ import java.util.ArrayList;
 
 public class LetturaDomande
 {
-    private String nomefile;
+    private String nomeFile;
     private BufferedReader inputStream;
     
-    public LetturaDomande(String fileDomande)
+    public LetturaDomande(String nomeFile)
     {
-        nomefile=fileDomande;
+        this.nomeFile=nomeFile;
         inputStream=null;
     }
     
@@ -24,7 +24,7 @@ public class LetturaDomande
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomefile));
+            inputStream=new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {
@@ -38,7 +38,7 @@ public class LetturaDomande
             String stringa=inputStream.readLine();
             while(stringa!=null)
             {
-                st = new StringTokenizer(stringa, "\t");
+                st = new StringTokenizer(stringa, "\n\t");
                 while(st.hasMoreElements())
                 {
                     int num=st.countTokens();

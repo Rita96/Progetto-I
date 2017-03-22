@@ -9,12 +9,12 @@ import java.util.StringTokenizer;
 
 public class LetturaOggetti 
 {
-    private String nomefile;
+    private String nomeFile;
     private BufferedReader inputStream;
     
     public LetturaOggetti()
     {
-        nomefile="Oggetti.txt";
+        nomeFile="Oggetti.txt";
         inputStream=null;
     }
     
@@ -24,7 +24,7 @@ public class LetturaOggetti
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomefile));
+            inputStream=new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {

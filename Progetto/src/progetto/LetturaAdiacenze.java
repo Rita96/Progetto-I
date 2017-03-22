@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
-//c
 
 public class LetturaAdiacenze 
 {
@@ -14,13 +13,13 @@ public class LetturaAdiacenze
     private String nomeFile;
     private BufferedReader inputStream;
 
-    public LetturaAdiacenze(String fileAdiacenze) 
+    public LetturaAdiacenze(String nomeFile) 
     {
-        nomeFile = fileAdiacenze;
+        this.nomeFile = nomeFile;
         inputStream = null;
     }
 
-    public void lettura(ArrayList<Domanda> d)
+    public ArrayList<Domanda> lettura(ArrayList<Domanda> domande)
     {
         ArrayList<Domanda> adiacenze = new ArrayList<>();
 
@@ -35,7 +34,7 @@ public class LetturaAdiacenze
 
         try
         {
-            ArrayList<String> codAdiacenze = new ArrayList<>();
+            ArrayList<String> codici = new ArrayList<>();
             StringTokenizer st;
             String stringa = inputStream.readLine();
             
@@ -44,38 +43,32 @@ public class LetturaAdiacenze
                 st = new StringTokenizer(stringa, "\t\n");
                 while (st.hasMoreElements()) 
                 {
-                    int num = st.countTokens();
                     int n = 0;
-                    int i;
-                    int k;
-                    String cod = st.nextToken();
+                    String codice = st.nextToken();
                     
-                    while (n < num - 1)
+                    while (n < st.countTokens() - 1)
                     {
-                        String codA = st.nextToken();
-                        codAdiacenze.add(codA);
+                        codice = st.nextToken();
+                        codici.add(codice);
                         n++;
                     }
 
-                    for (i = 0; i < codAdiacenze.size(); i++) 
-                    {
-                        for (k = 0; k < d.size(); k++)
-                        {
-                            if (d.get(k).controllo(codAdiacenze.get(i)) == true)
-                            {
-                                adiacenze.add(d.get(k));
+                    for (String c : codici) {
+                        for (Domanda d : domande) {
+                            if (d.controllo(c)) {
+                                adiacenze.add(d);
                             }
                         }
                     }
 
-                    for (Domanda dom : d)//for(i=0;i<d.size();i++)
+                    for (Domanda d : domande)//for(i=0;i<d.size();i++)
                     {
-                        if (dom.controllo(cod) == true)
+                        if (d.controllo(codice))
                         {
-                            dom.addAdiacenze(adiacenze);
+                            d.addAdiacenze(adiacenze);
                         }
                     }
-                    codAdiacenze.clear();
+                    codici.clear();
                     adiacenze.clear();
                 }
                 stringa = inputStream.readLine();
@@ -86,5 +79,6 @@ public class LetturaAdiacenze
         {
             System.exit(0);
         }
+        return domande;
     }
 }

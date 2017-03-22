@@ -2,9 +2,9 @@ package progetto;
 
 import java.util.ArrayList;
 /**
- * L'elemento Oggetto prende i prorpi dati dal file Oggetti.txt ed è strutturato così:
+ * L'elemento Oggetto prende i propri dati dal file Oggetti.txt ed è strutturato così:
  * nome(esempio lavatrice) attributo (esempio modello lavatrice) file testo delle domande file testo delle scelte file testo delle adiacenze
- * Le adiacenze vanno a rappresentare pre ogni domanda a quali altre domande sono collegate 
+ * Le adiacenze vanno indicano quali altre domande sono collegate a ciascuna domanda
  */
 public class Oggetto
 {
@@ -14,15 +14,15 @@ public class Oggetto
     private String fileScelte;
     private String fileAdiacenze;
     private ArrayList<Domanda> domande;
-    
-    public Oggetto(String n,String a,String f1,String f2,String f3)
+
+    public Oggetto(String nome, String attributo, String fileDomande, String fileScelte, String fileAdiacenze)
     {
-        nome=n;
-        attributo=a;
-        fileDomande=f1;
-        fileScelte=f2;
-        fileAdiacenze=f3;
-        domande = new ArrayList<>();
+        this.nome=nome;
+        this.attributo=attributo;
+        this.fileDomande=fileDomande;
+        this.fileScelte=fileScelte;
+        this.fileAdiacenze=fileAdiacenze;
+        domande=new ArrayList();
     }
     
     public String getNome()
@@ -49,17 +49,28 @@ public class Oggetto
     {
         return fileAdiacenze;
     }
-/**
-* Metodo che aggiunge all'Oggetto l'elenco di tutte le sue domande
-* @param d ArrayList di domanda
-*/
-    public void addDomande(ArrayList<Domanda> d)
+    /**
+    * Metodo che aggiunge all'Oggetto l'elenco di tutte le sue domande
+    * @param domande: ArrayList di Domanda
+    */
+    public void addDomande(ArrayList<Domanda> domande)
     {
-        domande.addAll(d);
+        this.domande.addAll(domande);
     }
     
     public ArrayList<Domanda> getDomande()
     {
         return domande;
+    }
+    
+    @Override
+    public String toString()
+    {
+        String string="OGGETTO: "+nome+" "+attributo;
+        for(Domanda d : domande)
+        {
+            string="\n"+d.toString();
+        }
+        return string;
     }
 }

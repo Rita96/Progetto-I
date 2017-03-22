@@ -4,64 +4,76 @@ import java.util.ArrayList;
 
 public class Domanda {
 
-    private String codD;
-    private String testoD;
-    private ArrayList<Domanda> adiacenzeD;
-    private ArrayList<Scelta> scelteD;
+    private String codice;
+    private String testo;
+    private ArrayList<Domanda> adiacenze;
+    private ArrayList<Scelta> scelte;
 
-    public Domanda(String id, String text)
+    public Domanda(String codice, String testo)
     {
-        codD = id;
-        testoD = text;
-        adiacenzeD = new ArrayList<>();
-        scelteD = new ArrayList<>();
+        this.codice=codice;
+        this.testo=testo;
+        adiacenze=new ArrayList<>();
+        scelte=new ArrayList<>();
     }
 
-    public String getCodD()
+    public String getCodice()
     {
-        return codD;
+        return codice;
     }
 
-    public String getTestoD() 
+    public String getTesto() 
     {
-        return testoD;
+        return testo;
     }
-
-    public boolean controllo(String cod)
+    /**
+    * Metodo che controlla se una stringa è uguale al codice della Domanda
+    * @param codice: String
+    */    
+    public boolean controllo(String codice)
     {
-        if(cod.equals(codD))
-            return true;
-        else
-            return false;
+        return this.codice.equals(codice);
     }
 
     public void addScelta(Scelta s)
     {
-        scelteD.add(s);
+        scelte.add(s);
     }
 
     public void addScelte(ArrayList<Scelta> s)
     {
-        scelteD.addAll(s);
+        scelte.addAll(s);
     }
 
     public void addAdiacenza(Domanda d)
     {
-        adiacenzeD.add(d);
+        adiacenze.add(d);
     }
 
     public void addAdiacenze(ArrayList<Domanda> d)
     {
-        adiacenzeD.addAll(d);
+        adiacenze.addAll(d);
     }
 
-    public ArrayList<Scelta> getScelteD()
+    public ArrayList<Scelta> getScelte()
     {
-        return scelteD;
+        return scelte;
     }
 
-    public ArrayList<Domanda> getAdiacenzeD()
+    public ArrayList<Domanda> getAdiacenze()
     {
-        return adiacenzeD;
+        return adiacenze;
+    }
+    
+    @Override
+    public String toString()
+    {
+        String string="DOMANDA: "+testo;
+        string+="\nSCELTE: ";
+        for(Scelta s:scelte)
+        {
+            string+="\n"+s.toString();
+        }
+        return string;
     }
 }

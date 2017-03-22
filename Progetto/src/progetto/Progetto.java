@@ -5,38 +5,43 @@ import java.util.ArrayList;
 public class Progetto 
 {
     private Oggetto oggetto;
+    private ArrayList<RispostaData> risposte;
 
-    public Progetto(Oggetto o)
+    public Progetto(Oggetto oggetto)
     {
-        oggetto=o;
+        this.oggetto=oggetto;
+        risposte = new ArrayList();
     }
 
     public Oggetto getOggetto()
     {
         return oggetto;
     }
+    
+    public void lettura()
+    {
+        ArrayList<Scelta> scelte=null;
+        ArrayList<Domanda> domande=null;
+        
+        LetturaScelte letturaS=new LetturaScelte(oggetto.getFileScelte());
+        scelte=letturaS.lettura();
+        LetturaDomande letturaD=new LetturaDomande(oggetto.getFileDomande());
+        domande=letturaD.lettura(scelte);
+        
+        LetturaAdiacenze letturaA=new LetturaAdiacenze(oggetto.getFileAdiacenze());
+        domande=letturaA.lettura(domande);
+        
+        oggetto.addDomande(domande);
+    }
+    
+    public void addRisposta(RispostaData risposta) {
+        risposte.add(risposta);
+    }
 
     @Override
     public String toString()
     {
-        String string=null;
-        int i=0;
-        System.out.println("OGGETTO: "+oggetto.getNome()+" "+oggetto.getAttributo());
-        System.out.println();
-        for(Domanda d:oggetto.getDomande())
-        {
-            System.out.println("DOMANDA "+(i+1)+": "+d.getCodD()+" "+d.getTestoD());
-            for(Scelta s:d.getScelteD())
-            {
-                System.out.println("SCELTA: "+s.getCodS()+" "+s.getTestoS());
-            }
-            for(Domanda adiacenza:d.getAdiacenzeD())
-            {
-                System.out.println("ADIACENZA: "+adiacenza.getCodD());
-            }
-            System.out.println();
-            i++;
-        }
+        String string=oggetto.toString();
         return string;
     }
     

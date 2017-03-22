@@ -1,32 +1,43 @@
 package progetto;
 
+/**
+ * L'elemento Scelta prende i propri dati dal file ScelteOggetto[i].txt (dove i è l'indice dell'Oggetto) ed è strutturato così:
+ * codice(identificatore univoco della scelta) testo (testo della scelta)
+ */
+
 public class Scelta 
 {
-    private String codS;
-    private String testoS;
+    private String codice;
+    private String testo;
     
-    public Scelta(String c, String s)
+    public Scelta(String codice, String testo)
     {
-        codS=c;
-        testoS=s;
+        this.codice=codice;
+        this.testo=testo;
     }
     
-    public String getCodS()
+    public String getCodice()
     {
-        return codS;
+        return codice;
     }
     
-    public String getTestoS()
+    public String getTesto()
     {
-        return testoS;
+        return testo;
+    }
+    /**
+    * Metodo che controlla se una stringa è uguale al codice della Scelta
+    * @param codice: String
+    */    
+    public boolean controllo(String codice)
+    {
+        return this.codice.equals(codice);
     }
     
-    public boolean controllo(String cod)
+    @Override
+    public String toString()
     {
-        if(cod.equals(codS))
-            return true;
-        else
-            return false;
+        return testo;
     }
     
 }
