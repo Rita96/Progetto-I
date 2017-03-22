@@ -28,21 +28,5 @@ public class Main {
         progetto.lettura();
         Domanda domanda = progetto.getOggetto().getDomande().get(0);
         
-        while(true)
-        {
-            System.out.println(domanda);
-
-            input = new Scanner(System.in);
-            String s = input.nextLine();
-            ArrayList<Scelta> scelte = domanda.getScelte();
-
-            for(int i = 0; i < scelte.size(); i++)
-            {
-                if(s.equals(scelte.get(i).getCodice()))
-                {
-                    domanda = domanda.getAdiacenze().get(i);
-                }
-            }
-        }
     }
 }
