@@ -1,32 +1,48 @@
 package progetto;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args)
     {
-        ArrayList<Scelta> scelte = new ArrayList<>();
-        ArrayList<Domanda> domande = new ArrayList<>();
-        
+                
         LetturaOggetti lo=new LetturaOggetti();
         ArrayList<Oggetto> oggetti=new ArrayList<>();
         
         oggetti=lo.lettura();
-        Oggetto oggetto=oggetti.get(0);
         
-        LetturaScelte sc=new LetturaScelte(oggetto.getFileScelte());
-        scelte=sc.lettura();
+        System.out.println("Selezionare l'oggetto difettoso: ");
+        
+        for(int i = 0; i < oggetti.size(); i++)
+        {
+            System.out.println(i+" "+oggetti.get(i));
+        }
+        
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        Oggetto oggetto = oggetti.get(n);
+        
+        Progetto progetto = new Progetto(oggetto);
+        progetto.lettura();
+        Domanda domanda = progetto.getOggetto().getDomande().get(0);
+        
+        while(true)
+        {
+            System.out.println(domanda);
 
-        LetturaDomande dm=new LetturaDomande(oggetto.getFileDomande());
-        domande=dm.lettura(scelte);
-        
-        LetturaAdiacenze ad=new LetturaAdiacenze(oggetto.getFileAdiacenze());
-        ad.lettura(domande);
-        
-        oggetto.addDomande(domande);
-        
-        Progetto p = new Progetto(oggetto,domande,scelte);
-        p.toString();
+            input = new Scanner(System.in);
+            String s = input.nextLine();
+            ArrayList<Scelta> scelte = domanda.getScelte();
+
+            for(int i = 0; i < scelte.size(); i++)
+            {
+                if(s.equals(scelte.get(i).getCodice()))
+                {
+                    domanda = domanda.getAdiacenze().get(i);
+                }
+            }
+        }
     }
 }
