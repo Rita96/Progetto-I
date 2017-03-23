@@ -2,8 +2,8 @@ package progetto;
 
 public class RispostaData
 {
-    Domanda domanda;
-    Scelta scelta;
+    private Domanda domanda;
+    private Scelta scelta;
 
     public RispostaData(Domanda domanda, Scelta scelta)
     {

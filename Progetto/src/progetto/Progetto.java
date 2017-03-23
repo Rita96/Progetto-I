@@ -41,8 +41,7 @@ public class Progetto
     @Override
     public String toString()
     {
-        String string=oggetto.toString();
-        return string;
+        return oggetto.toString();
     }
     
 }

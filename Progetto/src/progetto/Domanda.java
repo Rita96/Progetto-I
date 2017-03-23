@@ -11,10 +11,10 @@ public class Domanda {
 
     public Domanda(String codice, String testo)
     {
-        this.codice=codice;
-        this.testo=testo;
-        adiacenze=new ArrayList<>();
-        scelte=new ArrayList<>();
+        this.codice = codice;
+        this.testo = testo;
+        adiacenze = new ArrayList<>();
+        scelte = new ArrayList<>();
     }
 
     public String getCodice()
@@ -68,12 +68,14 @@ public class Domanda {
     @Override
     public String toString()
     {
-        String string="DOMANDA: "+testo;
-        string+="\nSCELTE: ";
-        for(Scelta s:scelte)
+        String string = "DOMANDA: "+testo;
+        string += "\nSCELTE: ";
+        
+        for(Scelta s : scelte)
         {
-            string+="\n"+s.toString();
+            string += "\n"+s.toString();
         }
+        
         return string;
     }
 }
