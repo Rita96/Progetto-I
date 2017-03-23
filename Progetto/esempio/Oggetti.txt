@@ -1,1 +1,1 @@
-Oggetto1	AttributoOggeto1	DomandeOggetto1.txt	ScelteOggetto1.txt	AdiacenzeOggetto1.txt
+Oggetto1	AttributoOggeto1	esempio/DomandeOggetto1.txt	esempio/ScelteOggetto1.txt	esempio/AdiacenzeOggetto1.txt

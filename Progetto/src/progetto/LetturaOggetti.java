@@ -14,7 +14,7 @@ public class LetturaOggetti
     
     public LetturaOggetti()
     {
-        nomeFile="Oggetti.txt";
+        nomeFile="esempio/Oggetti.txt";
         inputStream=null;
     }
     
