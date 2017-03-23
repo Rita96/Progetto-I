@@ -1,0 +1,6 @@
+A	Q	
+Q	R	U	AA
+R	DD	CC
+U	V	DD
+AA	EE	DD
+DD	Z	ZZ
