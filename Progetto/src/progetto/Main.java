@@ -43,4 +43,5 @@ public class Main {
             System.out.println(progetto.getOggetto().getDomande().get(i).toString());
         }
     }
+    //prova git bash
 }
