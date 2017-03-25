@@ -50,7 +50,7 @@ public class Progetto
         if(d.getScelte().isEmpty())
         {
             System.out.println("FINE");
-            exit(0);
+            System.exit(0);
         }
         else
         {
@@ -82,10 +82,6 @@ public class Progetto
         {
             return d.getAdiacenze().get(n);
         }
-        else
-        {
-            exit(0);
-        }
         return null;
     }
     
@@ -97,6 +93,11 @@ public class Progetto
     public void cambioRisposta(int i)
     {
         
+    }
+
+    public Oggetto getOggetto()
+    {
+        return oggetto;
     }
 
     @Override
