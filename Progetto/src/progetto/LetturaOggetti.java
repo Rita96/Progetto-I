@@ -7,14 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class LetturaOggetti 
+public class LetturaOggetti
 {
     private String nomeFile;
     private BufferedReader inputStream;
     
-    public LetturaOggetti()
+    public LetturaOggetti(String nomeFile)
     {
-        nomeFile="esempio/Oggetti.txt";
+        this.nomeFile=nomeFile;
         inputStream=null;
     }
     

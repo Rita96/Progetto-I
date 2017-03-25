@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class LetturaScelte 
+public class LetturaScelte
 {
     private String nomeFile;
     private BufferedReader inputStream;

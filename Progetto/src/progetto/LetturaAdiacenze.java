@@ -44,28 +44,30 @@ public class LetturaAdiacenze
                 while (st.hasMoreElements()) 
                 {
                     int n = 0;
+                    int nTokens = st.countTokens();
                     String codice = st.nextToken();
                     
-                    while (n < st.countTokens() - 1)
+                    while (n < nTokens - 1)
                     {
-                        codice = st.nextToken();
-                        codici.add(codice);
+                        String line = st.nextToken();
+                        codici.add(line);
                         n++;
                     }
 
                     for (String c : codici) {
-                        for (Domanda d : domande) {
+                        for (Domanda d : domande) { 
                             if (d.controllo(c)) {
                                 adiacenze.add(d);
                             }
                         }
                     }
 
-                    for (Domanda d : domande)//for(i=0;i<d.size();i++)
+                    for (Domanda d : domande)
                     {
                         if (d.controllo(codice))
                         {
                             d.addAdiacenze(adiacenze);
+                            
                         }
                     }
                     codici.clear();

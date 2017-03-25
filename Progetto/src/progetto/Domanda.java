@@ -2,8 +2,8 @@ package progetto;
 
 import java.util.ArrayList;
 
-public class Domanda {
-
+public class Domanda
+{
     private String codice;
     private String testo;
     private ArrayList<Domanda> adiacenze;
@@ -11,24 +11,17 @@ public class Domanda {
 
     public Domanda(String codice, String testo)
     {
-        this.codice = codice;
-        this.testo = testo;
-        adiacenze = new ArrayList<>();
-        scelte = new ArrayList<>();
+        this.codice=codice;
+        this.testo=testo;
+        adiacenze=new ArrayList<>();
+        scelte=new ArrayList<>();
     }
-
-    public String getCodice()
-    {
-        return codice;
-    }
-
-    public String getTesto() 
-    {
-        return testo;
-    }
+    
     /**
-    * Metodo che controlla se una stringa è uguale al codice della Domanda
+    * Metodo che controlla se una stringa è uguale al codice della domanda:
+    * se è uguale, il metodo restituisce true, latrimenti false
     * @param codice: String
+    * @return boolean
     */    
     public boolean controllo(String codice)
     {
@@ -40,19 +33,14 @@ public class Domanda {
         scelte.add(s);
     }
 
-    public void addScelte(ArrayList<Scelta> s)
-    {
-        scelte.addAll(s);
-    }
-
-    public void addAdiacenza(Domanda d)
-    {
-        adiacenze.add(d);
-    }
-
     public void addAdiacenze(ArrayList<Domanda> d)
     {
         adiacenze.addAll(d);
+    }
+
+    public String getCodice()
+    {
+        return codice;
     }
 
     public ArrayList<Scelta> getScelte()
@@ -64,18 +52,19 @@ public class Domanda {
     {
         return adiacenze;
     }
-    
-    @Override
-    public String toString()
+
+    public String getTesto()
     {
-        String string = "DOMANDA: "+testo;
-        string += "\nSCELTE: ";
-        
-        for(Scelta s : scelte)
+        return testo;
+    }
+
+    @Override
+    public String toString() {
+        String stringa = testo;
+        for(Scelta s:scelte)
         {
-            string += "\n"+s.toString();
+            stringa+="\n"+s.toString();
         }
-        
-        return string;
+        return stringa;
     }
 }

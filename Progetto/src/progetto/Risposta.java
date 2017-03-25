@@ -1,11 +1,11 @@
 package progetto;
 
-public class RispostaData
+public class Risposta
 {
     private Domanda domanda;
     private Scelta scelta;
 
-    public RispostaData(Domanda domanda, Scelta scelta)
+    public Risposta(Domanda domanda, Scelta scelta)
     {
         this.domanda = domanda;
         this.scelta = scelta;

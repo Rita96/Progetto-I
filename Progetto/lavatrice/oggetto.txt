@@ -1,1 +1,1 @@
-Lavatrice	AAA	domande.txt	risposte.txt	adiacenze.txt
+Lavatrice	AAA	lavatrice/domande.txt	lavatrice/risposte.txt	lavatrice/adiacenze.txt
