@@ -1,4 +1,4 @@
-A	Q	
+A	Q
 Q	R	U	AA
 R	DD	CC
 U	V	DD

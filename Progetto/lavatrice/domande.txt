@@ -1,4 +1,4 @@
-A	Quale problema hai riscontrato? 6
+﻿A	Quale problema hai riscontrato?	6
 Q	Si blocca durante il lavaggio o si accende da sola?	1	2	3
 R	Ha provato a resettare la macchina?	4	5
 U	C'è stato un blackout momentaneo, è stato riacceso l'interruttore della rete elettrica o la spina è stata reinserita?	4	5

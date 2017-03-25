@@ -28,6 +28,7 @@ public class LetturaDomande
         }
         catch(FileNotFoundException e)
         {
+            System.out.println("File domande non trovato");
             System.exit(0);                    
         }
         
