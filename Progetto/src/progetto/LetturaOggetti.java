@@ -28,7 +28,6 @@ public class LetturaOggetti
         }
         catch(FileNotFoundException e)
         {
-            System.out.println("File Oggetti non trovato");
             System.exit(0);                    
         }
         

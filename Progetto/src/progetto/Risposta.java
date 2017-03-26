@@ -1,7 +1,8 @@
 package progetto;
 
 public class Risposta
-{
+{   //gli oggetti di tipo risposta tengono in memoria la risposta (selezione) data ad una determinata domanda da parte dell'utente
+    //nella classe progetto infatti c'è un attributo che tiene in memoria l'intero percorso
     private Domanda domanda;
     private Scelta scelta;
 

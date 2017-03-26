@@ -30,7 +30,6 @@ public class LetturaAdiacenze
         catch (FileNotFoundException e)
         {
             
-            System.out.println("File adiacenze non trovato");
             System.exit(0);
         }
 

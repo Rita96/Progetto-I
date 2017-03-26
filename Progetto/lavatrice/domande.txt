@@ -1,8 +1,8 @@
-ï»¿A	Quale problema hai riscontrato?	6
+A	Quale problema hai riscontrato?	6
 Q	Si blocca durante il lavaggio o si accende da sola?	1	2	3
 R	Ha provato a resettare la macchina?	4	5
-U	C'Ã¨ stato un blackout momentaneo, Ã¨ stato riacceso l'interruttore della rete elettrica o la spina Ã¨ stata reinserita?	4	5
-V	Nel caso di una mancanza di rete elettrica, reinserimento della spina o riaccensione dellâ€™ interruttore a muro, se la macchina era in stato di off oppure in stand by torna ad accendersi	
+U	C'è stato un blackout momentaneo, è stato riacceso l'interruttore della rete elettrica o la spina è stata reinserita?	4	5
+V	Nel caso di una mancanza di rete elettrica, reinserimento della spina o riaccensione dell’ interruttore a muro, se la macchina era in stato di off oppure in stand by torna ad accendersi	
 Z	Contattare l'assistenza tecnica	
 AA	Arriva corrente alla presa? Ha provato a collegare un altro elettrodomestico?	4	5
 CC	Staccare la spina, aspettare 10 sec, ricollegare e riprovare a programmare la macchina	

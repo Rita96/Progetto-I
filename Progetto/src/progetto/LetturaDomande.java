@@ -27,8 +27,7 @@ public class LetturaDomande
             inputStream=new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
-        {
-            System.out.println("File domande non trovato");
+        {  
             System.exit(0);                    
         }
         

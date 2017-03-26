@@ -28,7 +28,6 @@ public class LetturaScelte
         }
         catch(FileNotFoundException e)
         {
-            System.out.println("File Scelte non trovato");
             System.exit(0);                    
         }
         
