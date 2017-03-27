@@ -38,11 +38,6 @@ public class Domanda
         adiacenze.addAll(d);
     }
 
-    public String getCodice()
-    {
-        return codice;
-    }
-
     public ArrayList<Scelta> getScelte()
     {
         return scelte;
@@ -51,11 +46,6 @@ public class Domanda
     public ArrayList<Domanda> getAdiacenze()
     {
         return adiacenze;
-    }
-
-    public String getTesto()
-    {
-        return testo;
     }
 
     @Override

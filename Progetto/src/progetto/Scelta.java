@@ -25,16 +25,6 @@ public class Scelta
     {
         return this.codice.equals(codice);
     }
-
-    public String getCodice()
-    {
-        return codice;
-    }
-
-    public String getTesto()
-    {
-        return testo;
-    }
     
     @Override
     public String toString()

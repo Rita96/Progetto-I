@@ -56,7 +56,7 @@ public class Progetto
         {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
-            if(n < d.getScelte().size())
+            if(n < d.getScelte().size())    //controllo sulle Scelte
             {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
                 Scelta s = d.getScelte().get(n);
                 Risposta r = new Risposta(d, s);
@@ -78,8 +78,7 @@ public class Progetto
     
     public Domanda getDomanda(Domanda d, int n)
     {   //a questo metodo viene passata una domanda e la scelta presa tra le varie possibilità di questa domanda
-        //l'if è inspiegabilmente inutile per come è strutturato l'intero codice ma ehi, io uso codice ridondante e vengo corretto
-        //questo invece rimane
+        //controllo aggiuntivo sulle Adiacenze
         if(n < d.getAdiacenze().size())
         {
             return d.getAdiacenze().get(n);
@@ -97,22 +96,9 @@ public class Progetto
         
     }
 
-    public Oggetto getOggetto()
-    {
-        return oggetto;
-    }
-
     @Override
     public String toString()
     {
         return oggetto.toString();
-    }
-
-    public Domanda getAttuale() {
-        return attuale;
-    }
-
-    public ArrayList<Risposta> getRisposte() {
-        return risposte;
     }
 }
