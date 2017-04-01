@@ -10,12 +10,12 @@ public class Progetto
     private Oggetto oggetto;
     //l'attributo ArrayList Riposta risposte salva il percorso fatto dall'utente man mano che risponde alle domande
     private ArrayList<Risposta> risposte;
+    private ArrayList<Oggetto> oggetti;
 
     public Progetto(Oggetto o)
     {
-        oggetto=o;
         risposte = new ArrayList();
-        attuale = null;
+        oggetti=new ArrayList();
     }
     
     public void lettura() //Questo metodo va a leggere per l'Oggetto che è attributo di Progetto dai rispettivi file di testo
@@ -37,12 +37,6 @@ public class Progetto
         attuale = oggetto.getDomande().get(0);
     }
     
-    public void poniDomanda()
-    {   //questo metodo mostra all'utente la domanda attuale e chiama il metodo scelta per far rispondere alla domanda l'utente
-        System.out.println(attuale);
-        scelta(attuale);
-    }
-    
     public void scelta(Domanda d)
     {   //questo metodo viene usato per rispondere alle varie domande e proseguire nel percorso fino ad arrivare
         //alla soluzione finale
@@ -60,8 +54,8 @@ public class Progetto
             {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
                 Scelta s = d.getScelte().get(n);
                 Risposta r = new Risposta(d, s);
-                addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
-                attuale = getDomanda(d, n);
+                /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
+                attuale = getDomanda(d, n);*/
             }
             else
             {
@@ -71,19 +65,9 @@ public class Progetto
         }
     }
     
-    public void addRisposta(Risposta risposta)  //(1)
-    {
-        risposte.add(risposta);
-    }
-    
-    public Domanda getDomanda(Domanda d, int n)
-    {   //a questo metodo viene passata una domanda e la scelta presa tra le varie possibilità di questa domanda
-        //controllo aggiuntivo sulle Adiacenze
-        if(n < d.getAdiacenze().size())
-        {
-            return d.getAdiacenze().get(n);
-        }
-        return null;
+    public Domanda prossimaDomanda(int scelta)
+    {   
+        return attuale.getProssimaAdiacenza(scelta);
     }
     
     public Risposta getRisposta(int i)
@@ -94,11 +78,5 @@ public class Progetto
     public void cambioRisposta(int i)
     {   //metodo ancora da implementare
         
-    }
-
-    @Override
-    public String toString()
-    {
-        return oggetto.toString();
     }
 }
