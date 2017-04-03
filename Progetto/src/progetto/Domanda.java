@@ -47,6 +47,10 @@ public class Domanda
     {
         return adiacenze;
     }
+    
+    public Domanda getProssimaAdiacenza(int n) {
+        return adiacenze.get(n);
+    }
 
     @Override
     public String toString() {

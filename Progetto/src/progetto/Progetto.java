@@ -37,10 +37,10 @@ public class Progetto
         attuale = oggetto.getDomande().get(0);
     }
     
-    public void scelta(Domanda d)
+    public void scelta()
     {   //questo metodo viene usato per rispondere alle varie domande e proseguire nel percorso fino ad arrivare
         //alla soluzione finale
-        if(d.getScelte().isEmpty())
+        if(attuale.getScelte().isEmpty())
         {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
             //se non ne ha vuol dire che siamo arrivati ad una risoluzione del problema ed esce dal programma
             System.out.println("FINE");
@@ -50,10 +50,10 @@ public class Progetto
         {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
-            if(n < d.getScelte().size())    //controllo sulle Scelte
+            if(n < attuale.getScelte().size())    //controllo sulle Scelte
             {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
-                Scelta s = d.getScelte().get(n);
-                Risposta r = new Risposta(d, s);
+                Scelta s = attuale.getScelte().get(n);
+                Risposta r = new Risposta(attuale, s);
                 /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
                 attuale = getDomanda(d, n);*/
             }

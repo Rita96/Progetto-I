@@ -28,7 +28,7 @@ public class Main {
         
         while(true)
         {
-            p.poniDomanda();    
+            p.scelta();    
         }
     }
 }
