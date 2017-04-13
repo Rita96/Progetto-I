@@ -79,4 +79,14 @@ public class Progetto
     {   //metodo ancora da implementare
         
     }
+    
+    //metodo che ripulisce tutte le informazioni tranne l'arraylist di oggetti
+    //in modo da poter partire da capo a risolvere problemi di un altro oggetto
+    //dopo aver chiamato questo metodo bisogna chiamare lettura per inizializzare un nuovo oggetto
+    public void returnHome()
+    {
+        attuale = null;
+        oggetto = null;
+        risposte.clear();
+    }
 }
