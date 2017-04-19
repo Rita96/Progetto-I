@@ -12,4 +12,8 @@ public class Risposta
         this.scelta = scelta;
     }
     
+    public Domanda getDomanda()
+    {
+        return domanda;
+    }
 }

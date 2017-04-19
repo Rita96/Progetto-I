@@ -51,14 +51,23 @@ public class Domanda
     public Domanda getProssimaAdiacenza(int n) {
         return adiacenze.get(n);
     }
-
-    @Override
-    public String toString() {
-        String stringa = testo;
-        for(Scelta s:scelte)
+    
+    public String getCodice()
+    {
+        return codice;
+    }
+    
+    public String getTesto()
+    {
+        return testo;
+    }
+    
+    public void mostraScelte()//TEXT
+    {
+        int i;
+        for(i=0;i<scelte.size();i++)
         {
-            stringa+="\n"+s.toString();
+            System.out.println(scelte.get(i).getTesto());
         }
-        return stringa;
     }
 }
