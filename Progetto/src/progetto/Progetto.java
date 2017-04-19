@@ -26,19 +26,20 @@ public class Progetto
         LetturaOggetti lo = new LetturaOggetti(s);
         ArrayList<Oggetto> oggetti = new ArrayList<>();
         oggetti = lo.lettura();
-        int n=0;
+        int n;
         do
         {
             System.out.println("Inserire numero oggetto difettoso 0,1, ...");
-            
             Scanner inputN = new Scanner(System.in);
             n = inputN.nextInt();
             if(n<oggetti.size())
+            {
                 oggetto = oggetti.get(n);
+            }
             else
                 System.out.println("Inserire un numero oggetto valido");
         }
-        while(n<oggetti.size());
+        while(n>oggetti.size()-1);
     }
     
     public void lettura() //Questo metodo va a leggere per l'Oggetto che è attributo di Progetto dai rispettivi file di testo
