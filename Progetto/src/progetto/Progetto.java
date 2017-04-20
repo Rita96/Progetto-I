@@ -110,42 +110,48 @@ public class Progetto
         return risposte.get(i);
     }
     
-    public void cambioRisposta(int i)
-    {   //metodo ancora da implementare
+    public void cambioRisposta(int posizione_risposta)
+    {  
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        if(n < attuale.getScelte().size()){
+            Scelta s=attuale.getScelte().get(n);
+            risposte.get(posizione_risposta).setPreferenza(s);
+            ClearRoute();
+        }
+        
+        
         
     }
     
     //metodo che ripulisce tutte le informazioni tranne l'arraylist di oggetti
     //in modo da poter partire da capo a risolvere problemi di un altro oggetto
     //dopo aver chiamato questo metodo bisogna chiamare lettura per inizializzare un nuovo oggetto
-    public void returnHome()
+    public void returnHome() //<3
     {
         attuale = null;
         oggetto = null;
-        risposte.clear();
+        risposte.clear(); 
     }
     
-    public void ClearRoute(boolean b)//il booleano indica se c'è stato un cambiamento nelle risposte date in precedenza
+    public void ClearRoute()
     {
-        if(b==true)
+        int n=risposte.size();
+        int i;
+        int c=n;
+
+        for(i=0;i<n;i++)//trova da che domanda in poi bisogna cancellare le risposte(compresa attuale)
         {
-            int n=risposte.size();
-            int i;
-            int c=n;
-        
-            for(i=0;i<n;i++)//trova da che domanda in poi bisogna cancellare le risposte(compresa attuale)
+            if(attuale.getCodice().equals(risposte.get(i).getDomanda().getCodice()))
             {
-                if(attuale.getCodice().equals(risposte.get(i).getDomanda().getCodice()))
-                {
-                    c=i;
-                    i=n++;
-                }
+                c=i;
+                i=n++;
             }
-            
-            for(;c<n;c++)//cancella le risposte sucessive(compresa attuale)
-            {
-                risposte.remove(c);
-            }
+        }
+
+        for(;c<n;c++)//cancella le risposte sucessive(compresa attuale)
+        {
+            risposte.remove(c);
         }
     }
 }

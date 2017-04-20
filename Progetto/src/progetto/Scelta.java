@@ -30,5 +30,10 @@ public class Scelta
     {
         return testo;
     }
+
+    public String getCodice() {
+        return codice;
+    }
+    
     
 }

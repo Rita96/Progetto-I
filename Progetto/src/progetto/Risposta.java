@@ -16,4 +16,12 @@ public class Risposta
     {
         return domanda;
     }
+    
+    public Scelta getScelta(){
+        return scelta;
+    }
+
+    public void setPreferenza(Scelta scelta){
+        this.scelta=scelta;
+    }
 }

@@ -19,7 +19,7 @@ public class Domanda
     
     /**
     * Metodo che controlla se una stringa è uguale al codice della domanda:
-    * se è uguale, il metodo restituisce true, latrimenti false
+    * se è uguale, il metodo restituisce true, altrimenti false
     * @param codice: String
     * @return boolean
     */    

@@ -55,14 +55,4 @@ public class Oggetto
         return domande;
     }
     
-    @Override
-    public String toString()
-    {
-        String string="OGGETTO: "+nome+" "+attributo;
-        for(Domanda d : domande)
-        {
-            string="\n"+d.toString();
-        }
-        return string;
-    }
 }
