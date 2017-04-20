@@ -7,15 +7,15 @@ import java.util.Scanner;
 
 public class Progetto
 {   //l'attributo Domanda attuale indica la domanda che viene posta al momento all'utente
-    private Domanda attuale;
+    private Stato attuale;
     private Oggetto oggetto;
     //l'attributo ArrayList Riposta risposte salva il percorso fatto dall'utente man mano che risponde alle domande
-    private ArrayList<Risposta> risposte;
+    private ArrayList<Tappa> percorso;
     private ArrayList<Oggetto> oggetti;
 
     public Progetto()
     {
-        risposte = new ArrayList();
+        percorso = new ArrayList();
         oggetti=new ArrayList();
     }
     
@@ -46,51 +46,51 @@ public class Progetto
     { //tutte le domande relative, le scelte e le adiacenze alle domande usando le classi di lettura delle Scelte, Domande ed Adiacenze
         
         ArrayList<Scelta> scelte=null;
-        ArrayList<Domanda> domande=null;
+        ArrayList<Stato> stati=null;
         
         LetturaScelte letturaS=new LetturaScelte(oggetto.getFileScelte());
         scelte=letturaS.lettura();
-        LetturaDomande letturaD=new LetturaDomande(oggetto.getFileDomande());
-        domande=letturaD.lettura(scelte);
+        LetturaStati letturaD=new LetturaStati(oggetto.getFileStati());
+        stati=letturaD.lettura(scelte);
         
         LetturaAdiacenze letturaA=new LetturaAdiacenze(oggetto.getFileAdiacenze());
-        domande=letturaA.lettura(domande);
+        stati=letturaA.lettura(stati);
         
-        oggetto.addDomande(domande);
+        oggetto.addStato(stati);
         //la domanda in posizione 0 cioè la prima nel file testo diventa la prima domanda da fare all'utente
-        attuale = oggetto.getDomande().get(0);
+        attuale = oggetto.getStati().get(0);
     }
     
-    public void poniDomanda()//TEXT
+    public void stampaStato()//TEXT
     {
         System.out.println(attuale.getTesto());
         System.out.println();
         attuale.mostraScelte();
     }
     
-    public void scelta() throws IOException
+    public void esecuzione() throws IOException
     {   //questo metodo viene usato per rispondere alle varie domande e proseguire nel percorso fino ad arrivare
         //alla soluzione finale
         if(attuale.getScelte().isEmpty())
         {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
             //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
             //per uscire premere ancora invio
-            poniDomanda();
+            stampaStato();
             System.in.read();
             System.exit(0);
         }
         else
         {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
-            poniDomanda();
+            stampaStato();
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             if(n < attuale.getScelte().size())    //controllo sulle Scelte
             {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
                 Scelta s = attuale.getScelte().get(n);
-                Risposta r = new Risposta(attuale, s);
+                Tappa r = new Tappa(attuale, s);
                 /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
                 attuale = getDomanda(d, n);*/
-                prossimaDomanda(n);
+                prossimoStato(n);
             }
             else
             {
@@ -100,24 +100,24 @@ public class Progetto
         }
     }
     
-    public void prossimaDomanda(int scelta)
+    public void prossimoStato(int scelta)
     {   
         attuale=attuale.getProssimaAdiacenza(scelta);
     }
     
-    public Risposta getRisposta(int i)
+    public Tappa getRisposta(int i)
     {
-        return risposte.get(i);
+        return percorso.get(i);
     }
     
-    public void cambioRisposta(int posizione_risposta)
+    public void cambioTappa(int posizione_tappa)
     {  
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
         if(n < attuale.getScelte().size()){
             Scelta s=attuale.getScelte().get(n);
-            risposte.get(posizione_risposta).setPreferenza(s);
-            ClearRoute();
+            percorso.get(posizione_tappa).setScelta(s);
+            pulisciPercorso();
         }
         
         
@@ -131,18 +131,18 @@ public class Progetto
     {
         attuale = null;
         oggetto = null;
-        risposte.clear(); 
+        percorso.clear(); 
     }
     
-    public void ClearRoute()
+    public void pulisciPercorso()
     {
-        int n=risposte.size();
+        int n=percorso.size();
         int i;
         int c=n;
 
         for(i=0;i<n;i++)//trova da che domanda in poi bisogna cancellare le risposte(compresa attuale)
         {
-            if(attuale.getCodice().equals(risposte.get(i).getDomanda().getCodice()))
+            if(attuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
             {
                 c=i;
                 i=n++;
@@ -151,7 +151,7 @@ public class Progetto
 
         for(;c<n;c++)//cancella le risposte sucessive(compresa attuale)
         {
-            risposte.remove(c);
+            percorso.remove(c);
         }
     }
 }

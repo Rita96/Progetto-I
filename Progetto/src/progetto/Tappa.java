@@ -1,27 +1,27 @@
 package progetto;
 
-public class Risposta
+public class Tappa
 {   //gli oggetti di tipo risposta tengono in memoria la risposta (selezione) data ad una determinata domanda da parte dell'utente
     //nella classe progetto infatti c'è un attributo che tiene in memoria l'intero percorso
-    private Domanda domanda;
+    private Stato stato;
     private Scelta scelta;
 
-    public Risposta(Domanda domanda, Scelta scelta)
+    public Tappa(Stato stato, Scelta scelta)
     {
-        this.domanda = domanda;
+        this.stato = stato;
         this.scelta = scelta;
     }
     
-    public Domanda getDomanda()
+    public Stato getStato()
     {
-        return domanda;
+        return stato;
     }
     
     public Scelta getScelta(){
         return scelta;
     }
 
-    public void setPreferenza(Scelta scelta){
+    public void setScelta(Scelta scelta){
         this.scelta=scelta;
     }
 }

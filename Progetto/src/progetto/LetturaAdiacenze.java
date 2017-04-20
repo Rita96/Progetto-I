@@ -19,9 +19,9 @@ public class LetturaAdiacenze
         inputStream = null;
     }
 
-    public ArrayList<Domanda> lettura(ArrayList<Domanda> domande)
+    public ArrayList<Stato> lettura(ArrayList<Stato> stati)
     {
-        ArrayList<Domanda> adiacenze = new ArrayList<>();
+        ArrayList<Stato> adiacenze = new ArrayList<>();
 
         try
         {
@@ -56,14 +56,14 @@ public class LetturaAdiacenze
                     }
 
                     for (String c : codici) {
-                        for (Domanda d : domande) { 
+                        for (Stato d : stati) { 
                             if (d.controllo(c)) {
                                 adiacenze.add(d);
                             }
                         }
                     }
 
-                    for (Domanda d : domande)
+                    for (Stato d : stati)
                     {
                         if (d.controllo(codice))
                         {
@@ -82,6 +82,6 @@ public class LetturaAdiacenze
         {
             System.exit(0);
         }
-        return domande;
+        return stati;
     }
 }

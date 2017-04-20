@@ -2,14 +2,14 @@ package progetto;
 
 import java.util.ArrayList;
 
-public class Domanda
+public class Stato //testo + dimanda della domanda da porre
 {
     private String codice;
     private String testo;
-    private ArrayList<Domanda> adiacenze;
+    private ArrayList<Stato> adiacenze;
     private ArrayList<Scelta> scelte;
 
-    public Domanda(String codice, String testo)
+    public Stato(String codice, String testo)
     {
         this.codice=codice;
         this.testo=testo;
@@ -33,7 +33,7 @@ public class Domanda
         scelte.add(s);
     }
 
-    public void addAdiacenze(ArrayList<Domanda> d)
+    public void addAdiacenze(ArrayList<Stato> d)
     {
         adiacenze.addAll(d);
     }
@@ -43,12 +43,12 @@ public class Domanda
         return scelte;
     }
 
-    public ArrayList<Domanda> getAdiacenze()
+    public ArrayList<Stato> getAdiacenze()
     {
         return adiacenze;
     }
     
-    public Domanda getProssimaAdiacenza(int n) {
+    public Stato getProssimaAdiacenza(int n) {
         return adiacenze.get(n);
     }
     

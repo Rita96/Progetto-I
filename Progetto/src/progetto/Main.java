@@ -13,12 +13,12 @@ public class Main {
         p.sceltaOggetto();
         p.lettura();
         
-        System.out.println("Per il test inserire il numero della scelta: 0,1, ...");
+        System.out.println("Per il test inserire il numero della scelta: 0,1, ...oplà");
         System.out.println();
         
         while(true)
         {
-            p.scelta();    
+            p.esecuzione();    
         }
     }
 }

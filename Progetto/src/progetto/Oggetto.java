@@ -11,24 +11,24 @@ public class Oggetto
 {
     private String nome;
     private String attributo;
-    private String fileDomande;
+    private String fileStati;
     private String fileScelte;
     private String fileAdiacenze;
-    private ArrayList<Domanda> domande;
+    private ArrayList<Stato> stati;
 
-    public Oggetto(String nome, String attributo, String fileDomande, String fileScelte, String fileAdiacenze)
+    public Oggetto(String nome, String attributo, String fileStati, String fileScelte, String fileAdiacenze)
     {
         this.nome=nome;
         this.attributo=attributo;
-        this.fileDomande=fileDomande;
+        this.fileStati=fileStati;
         this.fileScelte=fileScelte;
         this.fileAdiacenze=fileAdiacenze;
-        domande=new ArrayList();
+        stati=new ArrayList();
     }
     
-    public String getFileDomande()
+    public String getFileStati()
     {
-        return fileDomande;
+        return fileStati;
     }
     
     public String getFileScelte()
@@ -43,16 +43,16 @@ public class Oggetto
     
     /**
     * Metodo che aggiunge all'attributo domande di oggetto un ArrayList di domande
-    * @param domande: ArrayList di Domanda
+    * @param stati: ArrayList di Domanda
     */
-    public void addDomande(ArrayList<Domanda> domande)
+    public void addStato(ArrayList<Stato> stati)
     {
-        this.domande.addAll(domande);
+        this.stati.addAll(stati);
     }
     
-    public ArrayList<Domanda> getDomande()
+    public ArrayList<Stato> getStati()
     {
-        return domande;
+        return stati;
     }
     
 }

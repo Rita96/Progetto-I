@@ -7,20 +7,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LetturaDomande
+public class LetturaStati
 {
     private String nomeFile;
     private BufferedReader inputStream;
     
-    public LetturaDomande(String nomeFile)
+    public LetturaStati(String nomeFile)
     {
         this.nomeFile=nomeFile;
         inputStream=null;
     }
     
-    public ArrayList<Domanda> lettura(ArrayList<Scelta> s)
+    public ArrayList<Stato> lettura(ArrayList<Scelta> s)
     {
-        ArrayList<Domanda> domande=new ArrayList<>();
+        ArrayList<Stato> domande=new ArrayList<>();
         
         try
         {
@@ -55,7 +55,7 @@ public class LetturaDomande
                         n++;
                     }
                     
-                    Domanda d=new Domanda(cod,text);
+                    Stato d=new Stato(cod,text);
                     
                     for(i=0;i<codScelte.size();i++) 
                     {
