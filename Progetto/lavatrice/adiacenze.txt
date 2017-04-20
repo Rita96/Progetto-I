@@ -1,6 +1,6 @@
-A	Q
-Q	R	U	AA
-R	DD	CC
-U	V	DD
-AA	EE	DD
-DD	Z	ZZ
+1	2
+2	3	4	7
+3	9	8
+4	5	9
+7	A	9
+9	6	B

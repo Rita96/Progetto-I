@@ -88,6 +88,7 @@ public class Progetto
             {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
                 Scelta s = attuale.getScelte().get(n);
                 Tappa r = new Tappa(attuale, s);
+                percorso.add(r);
                 /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
                 attuale = getDomanda(d, n);*/
                 prossimoStato(n);
@@ -95,7 +96,6 @@ public class Progetto
             else
             {
                 System.out.println("Inserire un numero valido");
-                exit(0);
             }
         }
     }
@@ -157,9 +157,14 @@ public class Progetto
     
     //metodo che ritorna ad una domanda precedente a cui si è già risposto
     public void statoPrecedente(int i) {
-        attuale = percorso.get(i).getStato();
-        System.out.println(attuale.getTesto());
-        System.out.println(percorso.get(i).getScelta());
+        if(i<percorso.size()-1)
+            System.out.println("Valore inatteso");
+        else
+        {
+            attuale = percorso.get(i).getStato();
+            System.out.println(attuale.getTesto());
+            System.out.println(percorso.get(i).getScelta());
+        }
     }
     
     //metodo che ritorna alla domanda precedente
