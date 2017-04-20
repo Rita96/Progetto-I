@@ -154,4 +154,26 @@ public class Progetto
             percorso.remove(c);
         }
     }
+    
+    //metodo che ritorna ad una domanda precedente a cui si è già risposto
+    public void statoPrecedente(int i) {
+        attuale = percorso.get(i).getStato();
+        System.out.println(attuale.getTesto());
+        System.out.println(percorso.get(i).getScelta());
+    }
+    
+    //metodo che ritorna alla domanda precedente
+    public void indietro() {
+        try {
+            if(percorso.size() > 0) {
+                statoPrecedente(percorso.size()-1);
+            }
+            else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            //da decidere e implementare
+        }
+    }
+    
 }
