@@ -45,10 +45,24 @@ public class Main {
                     p.esecuzione();
                     break;
                 }
-                
                         
             }
-         
+            
+            System.out.println();
+            System.out.println("---CONTROLLO PERCORSO---");
+            int i = 0;
+            
+            for(Tappa t : p.getPercorso()) {
+                System.out.println(i);
+                System.out.println("DOMANDA:");
+                System.out.println(t.getStato().getTesto());
+                System.out.println("SCELTE POSSIBILI:");
+                t.getStato().mostraScelte();
+                System.out.println("SCELTA EFFETTUATA:");
+                System.out.println(t.getScelta().getTesto());
+                i++;
+            }
+            System.out.println();
         }
     }
 }

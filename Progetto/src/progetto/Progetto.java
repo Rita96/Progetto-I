@@ -109,6 +109,10 @@ public class Progetto
     {
         return percorso.get(i);
     }
+
+    public ArrayList<Tappa> getPercorso() {
+        return percorso;
+    }
     
     public void cambioTappa(int posizione_tappa)
     {  
@@ -157,13 +161,11 @@ public class Progetto
     
     //metodo che ritorna ad una domanda precedente a cui si è già risposto
     public void statoPrecedente(int i) {
-        if(i<percorso.size()-1)
+        if(i>percorso.size())
             System.out.println("Valore inatteso");
         else
         {
             attuale = percorso.get(i).getStato();
-            System.out.println(attuale.getTesto());
-            System.out.println(percorso.get(i).getScelta());
         }
     }
     

@@ -67,7 +67,7 @@ public class Stato //testo + dimanda della domanda da porre
         int i;
         for(i=0;i<scelte.size();i++)
         {
-            System.out.println(scelte.get(i).getTesto());
+            System.out.println(i + " " + scelte.get(i).getTesto());
         }
     }
 }
