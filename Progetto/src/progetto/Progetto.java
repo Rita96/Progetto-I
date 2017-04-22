@@ -1,7 +1,6 @@
 package progetto;
 
 import java.io.IOException;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -68,35 +67,39 @@ public class Progetto
         attuale.mostraScelte();
     }
     
-    public void esecuzione() throws IOException
+    public void esecuzione()
     {   //questo metodo viene usato per rispondere alle varie domande e proseguire nel percorso fino ad arrivare
         //alla soluzione finale
-        if(attuale.getScelte().isEmpty())
-        {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
-            //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
-            //per uscire premere ancora invio
-            stampaStato();
-            System.in.read();
-            System.exit(0);
-        }
-        else
-        {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
-            stampaStato();
-            Scanner input = new Scanner(System.in);
-            int n = input.nextInt();
-            if(n < attuale.getScelte().size())    //controllo sulle Scelte
-            {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
-                Scelta s = attuale.getScelte().get(n);
-                Tappa r = new Tappa(attuale, s);
-                percorso.add(r);
-                /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
-                attuale = getDomanda(d, n);*/
-                prossimoStato(n);
+        try {
+            if(attuale.getScelte().isEmpty())
+            {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
+                //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
+                //per uscire premere ancora invio
+                stampaStato();
+                System.in.read();
+                System.exit(0);
             }
             else
-            {
-                System.out.println("Inserire un numero valido");
+            {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
+                stampaStato();
+                Scanner input = new Scanner(System.in);
+                int n = input.nextInt();
+                if(n < attuale.getScelte().size())    //controllo sulle Scelte
+                {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
+                    Scelta s = attuale.getScelte().get(n);
+                    Tappa r = new Tappa(attuale, s);
+                    percorso.add(r);
+                    /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
+                    attuale = getDomanda(d, n);*/
+                    prossimoStato(n);
+                }
+                else
+                {
+                    System.out.println("Inserire un numero valido");
+                }
             }
+        } catch(IOException e) {
+            System.out.println("File non trovato");
         }
     }
     
@@ -112,6 +115,10 @@ public class Progetto
 
     public ArrayList<Tappa> getPercorso() {
         return percorso;
+    }
+    
+    public Oggetto getOggetto() {
+        return oggetto;
     }
     
     public void cambioTappa(int posizione_tappa)
