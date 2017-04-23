@@ -50,7 +50,7 @@ public class Grafica extends JFrame {
         east = new JPanel();
         south = new JPanel(new FlowLayout());
 
-        welcome = new JLabel("Benvenuto nel Risolutore Problemi");
+        /*welcome = new JLabel("Benvenuto nel Risolutore Problemi");
         welcome.setHorizontalAlignment(JLabel.CENTER);
         welcome.setFont(fontBenvenuto);
         select = new JLabel("Seleziona l'elettrodomestico e il modello in tuo possesso");
@@ -62,7 +62,7 @@ public class Grafica extends JFrame {
         modelli.setEnabled(false);
         
         inizia = new JButton("Inizia");
-
+*/
         domanda = new JLabel("Domanda");
         domanda.setHorizontalAlignment(JLabel.CENTER);
         domanda.setFont(fontDomanda);

@@ -5,13 +5,14 @@
  */
 package progetto;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  *
  * @author Pippo
  */
-public class Test {
+public class Test{
     
     private Progetto p;
     
@@ -19,7 +20,7 @@ public class Test {
         this.p = new Progetto();
     }
     
-    public void test() {
+    public void test() throws IOException{
         
         while(true)
         {
@@ -31,14 +32,30 @@ public class Test {
             {
                 case 1:
                 {
-                    p.sceltaOggetto();
-                    p.lettura();
+                    int nogg;
+                    System.out.println("Inserire numero oggetto difettoso 0,1, ...");
+                    Scanner inputN = new Scanner(System.in);
+                    nogg = inputN.nextInt();
+                    p.sceltaOggetto(nogg);
                     break;
                 }
                 case 2:
                 {
                     if(p.getOggetto() != null) {
-                        p.esecuzione();
+                        System.out.println(p.stampaStato());
+                        int i;
+                        for(i=0;i<p.getAttuale().getScelte().size();i++)
+                        {
+                            System.out.println(i+". "+p.getAttuale().mostraScelta(i));
+                        }
+                        Scanner inputS = new Scanner(System.in);
+                        int nscelta = inputS.nextInt();
+                        if(nscelta<p.getAttuale().getScelte().size()-1)
+                        {
+                            p.esecuzione(nscelta);
+                        }
+                        else
+                            System.out.println("Selezionare un numero di scelta valido");
                     }
                     else {
                         System.out.println("Operazione non valida: Selezionare un oggetto");
@@ -57,7 +74,6 @@ public class Test {
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
                         p.statoPrecedente(s);
-                        p.esecuzione();
                     }
                     else {
                         System.out.println("Operazione non valida: Rispondere ad almeno una domanda");

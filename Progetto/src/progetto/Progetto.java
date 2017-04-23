@@ -18,27 +18,24 @@ public class Progetto
         oggetti=new ArrayList();
     }
     
-    public void sceltaOggetto()
+    public Stato getAttuale()
+    {
+        return attuale;
+    }
+    
+    public void sceltaOggetto(int n)
     {
         String s = "lavatrice/oggetto.txt";
-        
         LetturaOggetti lo = new LetturaOggetti(s);
         ArrayList<Oggetto> oggetti = new ArrayList<>();
         oggetti = lo.lettura();
-        int n;
-        do
+        if(n<oggetti.size())
         {
-            System.out.println("Inserire numero oggetto difettoso 0,1, ...");
-            Scanner inputN = new Scanner(System.in);
-            n = inputN.nextInt();
-            if(n<oggetti.size())
-            {
-                oggetto = oggetti.get(n);
-            }
-            else
-                System.out.println("Inserire un numero oggetto valido");
+            oggetto = oggetti.get(n);
+            lettura();
         }
-        while(n>oggetti.size()-1);
+        else
+            System.out.println("Inserire un numero oggetto valido");
     }
     
     public void lettura() //Questo metodo va a leggere per l'Oggetto che è attributo di Progetto dai rispettivi file di testo
@@ -60,46 +57,30 @@ public class Progetto
         attuale = oggetto.getStati().get(0);
     }
     
-    public void stampaStato()//TEXT
+    public String stampaStato()//TEXT
     {
-        System.out.println(attuale.getTesto());
-        System.out.println();
-        attuale.mostraScelte();
+        return attuale.getTesto();
+        //attuale.mostraScelte();
     }
     
-    public void esecuzione()
-    {   //questo metodo viene usato per rispondere alle varie domande e proseguire nel percorso fino ad arrivare
-        //alla soluzione finale
-        try {
-            if(attuale.getScelte().isEmpty())
-            {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
-                //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
-                //per uscire premere ancora invio
-                stampaStato();
-                System.in.read();
-                System.exit(0);
-            }
-            else
-            {   //l'utilizzo dello scanner è per fare test il programma finale userà la grafica
-                stampaStato();
-                Scanner input = new Scanner(System.in);
-                int n = input.nextInt();
-                if(n < attuale.getScelte().size())    //controllo sulle Scelte
-                {   //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
-                    Scelta s = attuale.getScelte().get(n);
-                    Tappa r = new Tappa(attuale, s);
-                    percorso.add(r);
-                    /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
-                    attuale = getDomanda(d, n);*/
-                    prossimoStato(n);
-                }
-                else
-                {
-                    System.out.println("Inserire un numero valido");
-                }
-            }
-        } catch(IOException e) {
-            System.out.println("File non trovato");
+    public void esecuzione(int n) throws IOException
+    {       
+        if(attuale.getScelte().isEmpty())
+        {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
+            //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
+            //per uscire premere ancora invio
+            System.in.read();
+            System.exit(0);
+        }
+        else
+        {
+            //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
+            Scelta s = attuale.getScelte().get(n);
+            Tappa r = new Tappa(attuale, s);
+            percorso.add(r);
+            /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
+            attuale = getDomanda(d, n);*/
+            prossimoStato(n);
         }
     }
     
@@ -178,16 +159,8 @@ public class Progetto
     
     //metodo che ritorna alla domanda precedente
     public void indietro() {
-        try {
-            if(percorso.size() > 0) {
-                statoPrecedente(percorso.size()-1);
-            }
-            else {
-                throw new Exception();
-            }
-        } catch (Exception e) {
-            //da decidere e implementare
-        }
+        statoPrecedente(percorso.size()-1);
+         
     }
     
 }

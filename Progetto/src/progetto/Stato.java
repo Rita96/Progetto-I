@@ -17,6 +17,11 @@ public class Stato //testo + dimanda della domanda da porre
         scelte=new ArrayList<>();
     }
     
+    public ArrayList<Scelta> getiScelte()
+    {
+        return scelte;
+    }
+    
     /**
     * Metodo che controlla se una stringa è uguale al codice della domanda:
     * se è uguale, il metodo restituisce true, altrimenti false
@@ -62,12 +67,8 @@ public class Stato //testo + dimanda della domanda da porre
         return testo;
     }
     
-    public void mostraScelte()//TEXT
+    public String mostraScelta(int i)
     {
-        int i;
-        for(i=0;i<scelte.size();i++)
-        {
-            System.out.println(i + " " + scelte.get(i).getTesto());
-        }
+            return scelte.get(i).getTesto();
     }
 }
