@@ -73,7 +73,10 @@ public class Test{
                         System.out.println("Selezionare la domanda a cui si vuole tornare 0,1...");
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
-                        p.statoPrecedente(s);
+                        if(s<=p.getPercorso().size()-1)
+                            p.statoPrecedente(s);
+                        else
+                            System.out.println("Valore inatteso");
                     }
                     else {
                         System.out.println("Operazione non valida: Rispondere ad almeno una domanda");

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Progetto
-{   //l'attributo Domanda attuale indica la domanda che viene posta al momento all'utente
+{   //l'attributo Stato attuale indica la domanda che viene posta al momento all'utente
     private Stato attuale;
     private Oggetto oggetto;
-    //l'attributo ArrayList Riposta risposte salva il percorso fatto dall'utente man mano che risponde alle domande
+    //l'attributo ArrayList Tappa percorso salva il percorso fatto dall'utente man mano che risponde alle domande
     private ArrayList<Tappa> percorso;
     private ArrayList<Oggetto> oggetti;
 
@@ -110,10 +110,7 @@ public class Progetto
             Scelta s=attuale.getScelte().get(n);
             percorso.get(posizione_tappa).setScelta(s);
             pulisciPercorso();
-        }
-        
-        
-        
+        } 
     }
     
     //metodo che ripulisce tutte le informazioni tranne l'arraylist di oggetti
@@ -149,18 +146,12 @@ public class Progetto
     
     //metodo che ritorna ad una domanda precedente a cui si è già risposto
     public void statoPrecedente(int i) {
-        if(i>percorso.size())
-            System.out.println("Valore inatteso");
-        else
-        {
-            attuale = percorso.get(i).getStato();
-        }
+        attuale = percorso.get(i).getStato();
     }
     
     //metodo che ritorna alla domanda precedente
     public void indietro() {
         statoPrecedente(percorso.size()-1);
-         
     }
     
 }
