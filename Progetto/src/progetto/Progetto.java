@@ -27,7 +27,7 @@ public class Progetto
     {
         String s = "lavatrice/oggetto.txt";
         LetturaOggetti lo = new LetturaOggetti(s);
-        ArrayList<Oggetto> oggetti = new ArrayList<>();
+        oggetti = new ArrayList<>();
         oggetti = lo.lettura();
         if(n<oggetti.size())
         {
