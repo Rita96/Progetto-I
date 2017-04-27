@@ -17,11 +17,6 @@ public class Stato //testo + dimanda della domanda da porre
         scelte=new ArrayList<>();
     }
     
-    public ArrayList<Scelta> getiScelte()
-    {
-        return scelte;
-    }
-    
     /**
     * Metodo che controlla se una stringa è uguale al codice della domanda:
     * se è uguale, il metodo restituisce true, altrimenti false

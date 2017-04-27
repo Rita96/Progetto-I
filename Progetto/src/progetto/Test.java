@@ -25,7 +25,8 @@ public class Test{
         while(true)
         {
             System.out.println("Scelta Menu:");
-            System.out.println("1.Per caricare Oggetto\n2.Per esecuzione\n3.Per tornare alla Home\n4.Per tornare indietro\n5.Per terminare l'esecuzione");
+            System.out.println("1.Per caricare Oggetto\n2.Per esecuzione\n3.Per tornare alla Home\n4.Per tornare indietro"+
+                    "\n5.Per terminare l'esecuzione");
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             switch(n)
@@ -50,7 +51,7 @@ public class Test{
                         }
                         Scanner inputS = new Scanner(System.in);
                         int nscelta = inputS.nextInt();
-                        if(nscelta<p.getAttuale().getScelte().size()-1)
+                        if(nscelta<p.getAttuale().getScelte().size())
                         {
                             p.esecuzione(nscelta);
                         }
@@ -90,7 +91,7 @@ public class Test{
                 }      
             }
             
-            /*
+            
             //CONTROLLO SUL PERCORSO
             
             System.out.println();
@@ -102,13 +103,15 @@ public class Test{
                 System.out.println("DOMANDA:");
                 System.out.println(t.getStato().getTesto());
                 System.out.println("SCELTE POSSIBILI:");
-                t.getStato().mostraScelte();
+                for(int k=0;k<t.getStato().getScelte().size();k++) {
+                    System.out.println(t.getStato().mostraScelta(k));
+                }
                 System.out.println("SCELTA EFFETTUATA:");
                 System.out.println(t.getScelta().getTesto());
                 i++;
             }
             System.out.println();
-            */
+            
         }
     }
     
