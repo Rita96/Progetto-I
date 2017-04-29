@@ -1,1 +1,2 @@
+Lavatrice	AAA	lavatrice/domande.txt	lavatrice/risposte.txt	lavatrice/adiacenze.txt
 Oggetto1	AttributoOggeto1	esempio/DomandeOggetto1.txt	esempio/ScelteOggetto1.txt	esempio/AdiacenzeOggetto1.txt

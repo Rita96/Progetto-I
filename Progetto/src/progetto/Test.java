@@ -43,6 +43,9 @@ public class Test{
                         {
                             System.out.println(i+". "+p.getAttuale().mostraScelta(i));
                         }
+                        if(p.getAttuale().getAdiacenze().isEmpty()) {
+                            System.exit(0);
+                        }
                         Scanner inputS = new Scanner(System.in);
                         int nscelta = inputS.nextInt();
                         if(nscelta<p.getAttuale().getScelte().size())
@@ -55,10 +58,8 @@ public class Test{
                     else {
                         int nogg;
                         System.out.println("Inserire numero oggetto difettoso tra quelli possibili");
-                        int i = 0;
-                        for(Oggetto o : p.getOggetti()) {
-                            System.out.println(i + "." + o.getNome());
-                            i++;
+                        for(int i = 0; i < p.getOggetti().size(); i++) {
+                            System.out.println(i + "." + p.getOggetti().get(i).getNome());
                         }
                         Scanner inputN = new Scanner(System.in);
                         nogg = inputN.nextInt();
@@ -70,10 +71,8 @@ public class Test{
                 {
                     if(p.getPercorso().size() > 0) {
                         System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
-                        int i = 0;
-                        for(Tappa t : p.getPercorso()) {
-                            System.out.println(i + "." + t.getStato().getTesto());
-                            i++;
+                        for(int i = 0; i < p.getPercorso().size(); i++) {
+                            System.out.println(i + "." + p.getPercorso().get(i).getStato().getTesto());
                         }
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
@@ -100,10 +99,8 @@ public class Test{
                 {
                     if(p.getPercorso().size() > 0) {
                         System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
-                        int i = 0;
-                        for(Tappa t : p.getPercorso()) {
-                            System.out.println(i + "." + t.getStato().getTesto());
-                            i++;
+                        for(int i = 0; i < p.getPercorso().size(); i++) {
+                            System.out.println(i + "." + p.getPercorso().get(i).getStato().getTesto());
                         }
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
@@ -125,7 +122,7 @@ public class Test{
                 
                 case 5:
                 {
-                    System.out.println("Arrivederci e grazie per aver usato il nostro prodotto");
+                    System.out.println("Arrivederci e grazie per aver usato la nostra applicazione");
                     System.exit(0);
                 }      
             }

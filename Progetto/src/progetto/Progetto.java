@@ -35,7 +35,7 @@ public class Progetto
     }
     
     public void letturaOggetti() {
-        String s = "lavatrice/oggetto.txt";
+        String s = "oggetti.txt";
         LetturaOggetti lo = new LetturaOggetti(s);
         oggetti = new ArrayList<>();
         oggetti = lo.lettura();
