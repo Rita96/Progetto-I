@@ -25,10 +25,6 @@ public class Progetto
     
     public void sceltaOggetto(int n)
     {
-        String s = "lavatrice/oggetto.txt";
-        LetturaOggetti lo = new LetturaOggetti(s);
-        oggetti = new ArrayList<>();
-        oggetti = lo.lettura();
         if(n<oggetti.size())
         {
             oggetto = oggetti.get(n);
@@ -36,6 +32,13 @@ public class Progetto
         }
         else
             System.out.println("Inserire un numero oggetto valido");
+    }
+    
+    public void letturaOggetti() {
+        String s = "lavatrice/oggetto.txt";
+        LetturaOggetti lo = new LetturaOggetti(s);
+        oggetti = new ArrayList<>();
+        oggetti = lo.lettura();
     }
     
     public void lettura() //Questo metodo va a leggere per l'Oggetto che è attributo di Progetto dai rispettivi file di testo
@@ -100,6 +103,10 @@ public class Progetto
     
     public Oggetto getOggetto() {
         return oggetto;
+    }
+
+    public ArrayList<Oggetto> getOggetti() {
+        return oggetti;
     }
     
     public void cambioTappa(int posizione_tappa)

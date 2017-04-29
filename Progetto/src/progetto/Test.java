@@ -21,26 +21,20 @@ public class Test{
     }
     
     public void test() throws IOException{
-        
+        p.letturaOggetti();
         while(true)
         {
             System.out.println("Scelta Menu:");
-            System.out.println("1.Per caricare Oggetto\n2.Per esecuzione\n3.Per tornare alla Home\n4.Per tornare indietro"+
-                    "\n5.Per terminare l'esecuzione");
+            System.out.println("1.Esecuzione risolutore");
+            System.out.println("2.Per visulaizzare una domanda precedente, le scelte possibili e quella effettuata");
+            System.out.println("3.Per modificare la scelta effettuata ad una domanda precedente");
+            System.out.println("4.Per tornare alla Home");
+            System.out.println("5.Per terminare l'esecuzione");
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             switch(n)
             {
                 case 1:
-                {
-                    int nogg;
-                    System.out.println("Inserire numero oggetto difettoso 0,1, ...");
-                    Scanner inputN = new Scanner(System.in);
-                    nogg = inputN.nextInt();
-                    p.sceltaOggetto(nogg);
-                    break;
-                }
-                case 2:
                 {
                     if(p.getOggetto() != null) {
                         System.out.println(p.stampaStato());
@@ -59,22 +53,61 @@ public class Test{
                             System.out.println("Selezionare un numero di scelta valido");
                     }
                     else {
-                        System.out.println("Operazione non valida: Selezionare un oggetto");
+                        int nogg;
+                        System.out.println("Inserire numero oggetto difettoso tra quelli possibili");
+                        int i = 0;
+                        for(Oggetto o : p.getOggetti()) {
+                            System.out.println(i + "." + o.getNome());
+                            i++;
+                        }
+                        Scanner inputN = new Scanner(System.in);
+                        nogg = inputN.nextInt();
+                        p.sceltaOggetto(nogg);
+                    }
+                    break;
+                }
+                case 2:
+                {
+                    if(p.getPercorso().size() > 0) {
+                        System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
+                        int i = 0;
+                        for(Tappa t : p.getPercorso()) {
+                            System.out.println(i + "." + t.getStato().getTesto());
+                            i++;
+                        }
+                        Scanner input2 = new Scanner(System.in);
+                        int s = input2.nextInt();
+                        if(s<p.getPercorso().size()) {
+                            System.out.println("DOMANDA:");
+                            System.out.println(p.getPercorso().get(s).getStato().getTesto());
+                            System.out.println("SCELTE POSSIBILI:");
+                            for(int k=0;k<p.getPercorso().get(s).getStato().getScelte().size();k++) {
+                                System.out.println(p.getPercorso().get(s).getStato().mostraScelta(k));
+                            }
+                            System.out.println("SCELTA EFFETTUATA:");
+                            System.out.println(p.getPercorso().get(s).getScelta().getTesto());
+                        }
+                            
+                        else
+                            System.out.println("Valore inatteso");
+                    }
+                    else {
+                        System.out.println("Operazione non valida: Rispondere ad almeno una domanda");
                     }
                     break;
                 }
                 case 3:
                 {
-                    p.returnHome();
-                    break;
-                }
-                case 4:
-                {
                     if(p.getPercorso().size() > 0) {
-                        System.out.println("Selezionare la domanda a cui si vuole tornare 0,1...");
+                        System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
+                        int i = 0;
+                        for(Tappa t : p.getPercorso()) {
+                            System.out.println(i + "." + t.getStato().getTesto());
+                            i++;
+                        }
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
-                        if(s<=p.getPercorso().size()-1)
+                        if(s<p.getPercorso().size())
                             p.statoPrecedente(s);
                         else
                             System.out.println("Valore inatteso");
@@ -84,20 +117,21 @@ public class Test{
                     }
                     break;
                 }
+                case 4:
+                {
+                    p.returnHome();
+                    break;
+                }
+                
                 case 5:
                 {
-                    System.out.println("Arrivederci");
+                    System.out.println("Arrivederci e grazie per aver usato il nostro prodotto");
                     System.exit(0);
                 }      
             }
             
-            
-            //CONTROLLO SUL PERCORSO
-            
-            System.out.println();
-            System.out.println("---CONTROLLO PERCORSO---");
+            /*
             int i = 0;
-            
             for(Tappa t : p.getPercorso()) {
                 System.out.println(i);
                 System.out.println("DOMANDA:");
@@ -110,8 +144,7 @@ public class Test{
                 System.out.println(t.getScelta().getTesto());
                 i++;
             }
-            System.out.println();
-            
+            */
         }
     }
     

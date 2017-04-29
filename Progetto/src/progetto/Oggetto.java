@@ -40,6 +40,10 @@ public class Oggetto
     {
         return fileAdiacenze;
     }
+
+    public String getNome() {
+        return nome;
+    }
     
     /**
     * Metodo che aggiunge all'attributo domande di oggetto un ArrayList di domande
