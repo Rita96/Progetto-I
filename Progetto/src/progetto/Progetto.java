@@ -112,14 +112,13 @@ public class Progetto
         attuale=attuale.getProssimaAdiacenza(scelta);
     }
     
+    //METODO PROBABILMENTE INUTILE
     //metodo che permette di cambiare scelta ad uno stato a cui si è già risposto
-    public void cambioTappa(int posizione_tappa)
-    {  
-        Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
+    public void cambioTappa(int n)
+    {
         if(n < attuale.getScelte().size()){
             Scelta s=attuale.getScelte().get(n);
-            percorso.get(posizione_tappa).setScelta(s);
+            percorso.get(n).setScelta(s);
             pulisciPercorso();
         } 
     }
@@ -134,6 +133,7 @@ public class Progetto
         percorso.clear(); 
     }
     
+    //METODO PROBABILMENTE INUTILE
     public void pulisciPercorso()//metodo che cancella le tappe successive a quella di cui si è cambiata scelta
     {
         int n=percorso.size();
@@ -145,7 +145,7 @@ public class Progetto
             if(attuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
             {
                 c=i;
-                i=n++;
+                i=n;
             }
         }
 
@@ -154,14 +154,19 @@ public class Progetto
             percorso.remove(c);
         }
     }
-    
+
     //metodo che ritorna ad una domanda precedente a cui si è già risposto
     public void statoPrecedente(int i) {
-        attuale = percorso.get(i).getStato();
+        if(i < percorso.size()) {
+            attuale = percorso.get(i).getStato();
+            for(int j = percorso.size()-1; j >= i; j--) {
+                percorso.remove(j);
+            }
+        }
     }
     
     //metodo che ritorna alla domanda precedente
     public void indietro() {
-        statoPrecedente(percorso.size()-1);
+        statoPrecedente(percorso.size()-2);
     }
 }

@@ -104,8 +104,9 @@ public class Test{//classe che permette l'esecuzione tramite interfaccia testual
                         }
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
-                        if(s<p.getPercorso().size())
+                        if(s<p.getPercorso().size()) {
                             p.statoPrecedente(s);
+                        }
                         else
                             System.out.println("Valore inatteso");
                     }
@@ -127,7 +128,7 @@ public class Test{//classe che permette l'esecuzione tramite interfaccia testual
                 }      
             }
             
-            /*
+            
             //eventuale controllo sul percorso se si presentano problemi
             int i = 0;
             for(Tappa t : p.getPercorso()) {
@@ -142,7 +143,7 @@ public class Test{//classe che permette l'esecuzione tramite interfaccia testual
                 System.out.println(t.getScelta().getTesto());
                 i++;
             }
-            */
+            
         }
     }
     
