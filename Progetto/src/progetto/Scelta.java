@@ -2,7 +2,8 @@ package progetto;
 
 /**
  * L'elemento Scelta prende i propri dati dal file ScelteOggetto[i].txt (dove i è l'indice dell'Oggetto) ed è strutturato così:
- * codice(identificatore univoco della scelta) testo (testo della scelta)
+ * codice(identificatore univoco della scelta)
+ * testo (testo della scelta)
  */
 public class Scelta
 {
@@ -15,6 +16,15 @@ public class Scelta
         this.testo=testo;
     }
     
+    public String getCodice() {
+        return codice;
+    }
+    
+    public String getTesto()
+    {
+        return testo;
+    }
+    
     /**
     * Metodo che controlla se una stringa è uguale al codice della scelta:
     * se è uguale, il metodo restituisce true, latrimenti false
@@ -25,15 +35,4 @@ public class Scelta
     {
         return this.codice.equals(codice);
     }
-    
-    public String getTesto()
-    {
-        return testo;
-    }
-
-    public String getCodice() {
-        return codice;
-    }
-    
-    
 }

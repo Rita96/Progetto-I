@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 /**
  * L'elemento Oggetto prende i propri dati dal file Oggetti.txt ed è strutturato così:
- * nome(esempio lavatrice) attributo (esempio modello lavatrice) file testo delle domande file testo delle scelte file testo delle adiacenze
+ * nome(esempio lavatrice)
+ * attributo (esempio modello lavatrice)
+ * file testo delle domande
+ * file testo delle scelte
+ * file testo delle adiacenze
  * Le adiacenze vanno indicano quali altre domande sono collegate a ciascuna domanda
  */
 public class Oggetto
@@ -26,6 +30,10 @@ public class Oggetto
         stati=new ArrayList();
     }
     
+    public String getNome() {
+        return nome;
+    }
+    
     public String getFileStati()
     {
         return fileStati;
@@ -40,9 +48,10 @@ public class Oggetto
     {
         return fileAdiacenze;
     }
-
-    public String getNome() {
-        return nome;
+    
+    public ArrayList<Stato> getStati()
+    {
+        return stati;
     }
     
     /**
@@ -53,10 +62,4 @@ public class Oggetto
     {
         this.stati.addAll(stati);
     }
-    
-    public ArrayList<Stato> getStati()
-    {
-        return stati;
-    }
-    
 }

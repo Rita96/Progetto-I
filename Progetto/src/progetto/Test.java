@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Pippo
  */
-public class Test{
+public class Test{//classe che permette l'esecuzione tramite interfaccia testuale del risolutore di problemi
     
     private Progetto p;
     
@@ -128,6 +128,7 @@ public class Test{
             }
             
             /*
+            //eventuale controllo sul percorso se si presentano problemi
             int i = 0;
             for(Tappa t : p.getPercorso()) {
                 System.out.println(i);

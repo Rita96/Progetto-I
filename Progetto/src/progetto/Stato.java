@@ -2,6 +2,13 @@ package progetto;
 
 import java.util.ArrayList;
 
+/**
+ * L'elemento Stato prende i propri dati dal file DomandeOggetto[i].txt (dove i è l'indice dell'Oggetto) ed è strutturato così:
+ * codice(identificatore univoco dello stato)
+ * testo (testo della domanda o della possibile soluzione)
+ * adiacenze (stati successivi a cui si passa dopo aver effettuato una scelta)
+ * scelte (possibili risposte ad un quesito)
+ */
 public class Stato //testo + dimanda della domanda da porre
 {
     private String codice;
@@ -15,6 +22,35 @@ public class Stato //testo + dimanda della domanda da porre
         this.testo=testo;
         adiacenze=new ArrayList<>();
         scelte=new ArrayList<>();
+    }
+    
+    public String getCodice()
+    {
+        return codice;
+    }
+    
+    public String getTesto()
+    {
+        return testo;
+    }
+    
+    public ArrayList<Stato> getAdiacenze()
+    {
+        return adiacenze;
+    }
+    
+    public ArrayList<Scelta> getScelte()
+    {
+        return scelte;
+    }
+    
+    public Stato getProssimaAdiacenza(int n) {
+        return adiacenze.get(n);
+    }
+    
+    public String mostraScelta(int i)
+    {
+        return scelte.get(i).getTesto();
     }
     
     /**
@@ -36,34 +72,5 @@ public class Stato //testo + dimanda della domanda da porre
     public void addAdiacenze(ArrayList<Stato> d)
     {
         adiacenze.addAll(d);
-    }
-
-    public ArrayList<Scelta> getScelte()
-    {
-        return scelte;
-    }
-
-    public ArrayList<Stato> getAdiacenze()
-    {
-        return adiacenze;
-    }
-    
-    public Stato getProssimaAdiacenza(int n) {
-        return adiacenze.get(n);
-    }
-    
-    public String getCodice()
-    {
-        return codice;
-    }
-    
-    public String getTesto()
-    {
-        return testo;
-    }
-    
-    public String mostraScelta(int i)
-    {
-            return scelte.get(i).getTesto();
     }
 }

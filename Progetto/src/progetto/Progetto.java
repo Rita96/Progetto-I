@@ -23,18 +23,31 @@ public class Progetto
         return attuale;
     }
     
-    public void sceltaOggetto(int n)
-    {
-        if(n<oggetti.size())
-        {
-            oggetto = oggetti.get(n);
-            lettura();
-        }
-        else
-            System.out.println("Inserire un numero oggetto valido");
+    public Oggetto getOggetto() {
+        return oggetto;
     }
     
-    public void letturaOggetti() {
+    public ArrayList<Tappa> getPercorso() {
+        return percorso;
+    }
+    
+    public Tappa getTappa(int i)
+    {
+        return percorso.get(i);
+    }
+
+    public ArrayList<Oggetto> getOggetti() {
+        return oggetti;
+    }
+    
+    public String stampaStato()//TEXT
+    {
+        return attuale.getTesto();
+        //attuale.mostraScelte();
+    }
+    
+    public void letturaOggetti() {//Questo metodo va a leggere tutti gli oggetti di cui si vuole proporre un a risoluzione di problemi
+        //contiene i nomi dei file da cui prendere le scelte, gli stati e le adiacenze
         String s = "oggetti.txt";
         LetturaOggetti lo = new LetturaOggetti(s);
         oggetti = new ArrayList<>();
@@ -60,12 +73,18 @@ public class Progetto
         attuale = oggetto.getStati().get(0);
     }
     
-    public String stampaStato()//TEXT
+    public void sceltaOggetto(int n)//metodo che consente all'utente di scegliere con quale oggetto vuole risolvere un problema tra quelli disponibili
     {
-        return attuale.getTesto();
-        //attuale.mostraScelte();
+        if(n<oggetti.size())
+        {
+            oggetto = oggetti.get(n);
+            lettura();
+        }
+        else
+            System.out.println("Inserire un numero oggetto valido");
     }
     
+    //metodo che consente all'utente di effettuare una scelta tra quelle possibili ad un determinato stato
     public void esecuzione(int n) throws IOException
     {       
         if(attuale.getScelte().isEmpty())
@@ -87,28 +106,13 @@ public class Progetto
         }
     }
     
+    //metodo che imposta lo stato successivo in base alla scelta effettuata allo stato attuale
     public void prossimoStato(int scelta)
     {   
         attuale=attuale.getProssimaAdiacenza(scelta);
     }
     
-    public Tappa getRisposta(int i)
-    {
-        return percorso.get(i);
-    }
-
-    public ArrayList<Tappa> getPercorso() {
-        return percorso;
-    }
-    
-    public Oggetto getOggetto() {
-        return oggetto;
-    }
-
-    public ArrayList<Oggetto> getOggetti() {
-        return oggetti;
-    }
-    
+    //metodo che permette di cambiare scelta ad uno stato a cui si è già risposto
     public void cambioTappa(int posizione_tappa)
     {  
         Scanner input = new Scanner(System.in);
@@ -130,7 +134,7 @@ public class Progetto
         percorso.clear(); 
     }
     
-    public void pulisciPercorso()
+    public void pulisciPercorso()//metodo che cancella le tappe successive a quella di cui si è cambiata scelta
     {
         int n=percorso.size();
         int i;
@@ -160,5 +164,4 @@ public class Progetto
     public void indietro() {
         statoPrecedente(percorso.size()-1);
     }
-    
 }
