@@ -145,6 +145,11 @@ public class Test
                     System.out.println("Arrivederci e grazie per aver usato la nostra applicazione");
                     System.exit(0);
                 }
+                default:
+                {
+                    System.out.println("Inserire un numero valido");
+                    break;
+                }
             }
             
             //eventuale controllo sul percorso se si presentano problemi
