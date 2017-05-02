@@ -14,42 +14,43 @@ public class LetturaOggetti
     
     public LetturaOggetti(String nomeFile)
     {
-        this.nomeFile=nomeFile;
-        inputStream=null;
+        this.nomeFile = nomeFile;
+        inputStream = null;
     }
     
     public ArrayList<Oggetto> lettura()
     {
-        ArrayList<Oggetto> oggetti=new ArrayList<>();
+        ArrayList<Oggetto> oggetti = new ArrayList<>();
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomeFile));
+            inputStream = new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {
-            System.exit(0);                    
+            System.exit(0);
         }
         
         try
         {
             StringTokenizer st;
-            String stringa=inputStream.readLine();
-            while(stringa!=null)
+            String stringa = inputStream.readLine();
+            
+            while(stringa != null)
             {
                 st = new StringTokenizer(stringa, "\t\n");
-                while(st.hasMoreElements())
+                while(st.hasMoreTokens())
                 {
-                    String nome=st.nextToken();
-                    String attributo=st.nextToken();
-                    String fileDomande=st.nextToken();
-                    String fileScelte=st.nextToken();
-                    String fileAdiacenze=st.nextToken();
+                    String nome = st.nextToken();
+                    String attributo = st.nextToken();
+                    String fileDomande = st.nextToken();
+                    String fileScelte = st.nextToken();
+                    String fileAdiacenze = st.nextToken();
                     
-                    Oggetto o=new Oggetto(nome,attributo,fileDomande,fileScelte,fileAdiacenze);
+                    Oggetto o = new Oggetto(nome, attributo, fileDomande, fileScelte, fileAdiacenze);
                     oggetti.add(o);
                 }
-                stringa=inputStream.readLine();
+                stringa = inputStream.readLine();
             }
             inputStream.close();
         }
@@ -57,6 +58,7 @@ public class LetturaOggetti
         {
             System.exit(0);
         }
+        
         return oggetti;
     }
 }

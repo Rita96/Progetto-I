@@ -2,20 +2,20 @@ package progetto;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Progetto
-{   //l'attributo Stato attuale indica la domanda che viene posta al momento all'utente
+{
+    // attuale indica la domanda posta attualmente all'utente
     private Stato attuale;
     private Oggetto oggetto;
-    //l'attributo ArrayList Tappa percorso salva il percorso fatto dall'utente man mano che risponde alle domande
-    private ArrayList<Tappa> percorso;
+    // percorso tiene traccia delle scelte fatte dall'utente rispondendo alle domande
+    private ArrayList<Tappa> percorso; 
     private ArrayList<Oggetto> oggetti;
-
+    
     public Progetto()
     {
         percorso = new ArrayList();
-        oggetti=new ArrayList();
+        oggetti = new ArrayList();
     }
     
     public Stato getAttuale()
@@ -23,11 +23,13 @@ public class Progetto
         return attuale;
     }
     
-    public Oggetto getOggetto() {
+    public Oggetto getOggetto()
+    {
         return oggetto;
     }
     
-    public ArrayList<Tappa> getPercorso() {
+    public ArrayList<Tappa> getPercorso()
+    {
         return percorso;
     }
     
@@ -35,47 +37,63 @@ public class Progetto
     {
         return percorso.get(i);
     }
-
-    public ArrayList<Oggetto> getOggetti() {
+    
+    public ArrayList<Oggetto> getOggetti()
+    {
         return oggetti;
     }
     
-    public String stampaStato()//TEXT
+    //TEXT
+    public String stampaStato() 
     {
         return attuale.getTesto();
         //attuale.mostraScelte();
     }
     
-    public void letturaOggetti() {//Questo metodo va a leggere tutti gli oggetti di cui si vuole proporre un a risoluzione di problemi
-        //contiene i nomi dei file da cui prendere le scelte, gli stati e le adiacenze
+    /**
+     * Il metodo letturaOggetti() legge tutti gli oggetti di cui si vuole
+     * proporre un a risoluzione di problemi contiene i nomi dei file da cui
+     * prendere le scelte, gli stati e le adiacenze.
+     */
+    public void letturaOggetti()
+    {
         String s = "oggetti.txt";
         LetturaOggetti lo = new LetturaOggetti(s);
         oggetti = new ArrayList<>();
         oggetti = lo.lettura();
     }
     
-    public void lettura() //Questo metodo va a leggere per l'Oggetto che è attributo di Progetto dai rispettivi file di testo
-    { //tutte le domande relative, le scelte e le adiacenze alle domande usando le classi di lettura delle Scelte, Domande ed Adiacenze
+    /** 
+     * Il metodo lettura() va a leggere per l'Oggetto che è attributo di Progetto
+     * dai rispettivi file di testo tutte le domande relative, le scelte e le
+     * adiacenze alle domande usando le classi di lettura delle Scelte, Domande
+     * ed Adiacenze.
+     */
+    public void lettura() 
+    {
+        ArrayList<Scelta> scelte = null;
+        ArrayList<Stato> stati = null;
         
-        ArrayList<Scelta> scelte=null;
-        ArrayList<Stato> stati=null;
-        
-        LetturaScelte letturaS=new LetturaScelte(oggetto.getFileScelte());
-        scelte=letturaS.lettura();
-        LetturaStati letturaD=new LetturaStati(oggetto.getFileStati());
+        LetturaScelte letturaS = new LetturaScelte(oggetto.getFileScelte());
+        scelte = letturaS.lettura();
+        LetturaStati letturaD = new LetturaStati(oggetto.getFileStati());
         stati=letturaD.lettura(scelte);
-        
-        LetturaAdiacenze letturaA=new LetturaAdiacenze(oggetto.getFileAdiacenze());
-        stati=letturaA.lettura(stati);
+        LetturaAdiacenze letturaA = new LetturaAdiacenze(oggetto.getFileAdiacenze());
+        stati = letturaA.lettura(stati);
         
         oggetto.addStato(stati);
-        //la domanda in posizione 0 cioè la prima nel file testo diventa la prima domanda da fare all'utente
+        // la prima nel file di testo diventa la prima domanda da porre all'utente
         attuale = oggetto.getStati().get(0);
     }
     
-    public void sceltaOggetto(int n)//metodo che consente all'utente di scegliere con quale oggetto vuole risolvere un problema tra quelli disponibili
+    /**
+     * Il metodo sceltaOggetto(int n) consente all'utente di scegliere di quale
+     * oggetto intende risolvere un problema.
+     * @param n
+     */
+    public void sceltaOggetto(int n)
     {
-        if(n<oggetti.size())
+        if(n < oggetti.size())
         {
             oggetto = oggetti.get(n);
             lettura();
@@ -84,89 +102,133 @@ public class Progetto
             System.out.println("Inserire un numero oggetto valido");
     }
     
-    //metodo che consente all'utente di effettuare una scelta tra quelle possibili ad un determinato stato
+    /** 
+     * Il metodo esecuzione(int n) consente all'utente di effettuare una scelta
+     * tra quelle possibili ad un determinato stato.
+     * @param n
+     * @throws java.io.IOException
+     */
     public void esecuzione(int n) throws IOException
-    {       
+    {
+        /*  Questo if controlla se la domanda attuale ha delle possibili 
+            scelte, e quindi delle adiacenze. In caso contrario siamo
+            arrivati ad una possibile soluzione del problema.
+            Per terminare l'esecuzione del programma premere il tasto "Invio".
+        */
         if(attuale.getScelte().isEmpty())
-        {   //questo if controlla se la domanda attuale ha delle possibili scelte e quindi delle adiacenze
-            //se non ne ha vuol dire che siamo arrivati ad una soluzione finale del programma
-            //per uscire premere ancora invio
+        {   
             System.in.read();
             System.exit(0);
         }
         else
         {
-            //n indica la risposta data dall'utente, NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
+            /* n indica la risposta data dall'utente.
+               NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
+            */
             Scelta s = attuale.getScelte().get(n);
             Tappa r = new Tappa(attuale, s);
             percorso.add(r);
-            /*addRisposta(r); //metodo che viene usato per tenere memoria della risposta data all'interno dell'Array risposte (1)
-            attuale = getDomanda(d, n);*/
+            /*
+            //metodo usato per tenere traccia della risposta data all'interno dell'Array risposte (1)
+            addRisposta(r); 
+            attuale = getDomanda(d, n);
+            */
             prossimoStato(n);
         }
     }
     
-    //metodo che imposta lo stato successivo in base alla scelta effettuata allo stato attuale
+    /** 
+     * Il metodo prossimoStato(int scelta) imposta lo stato successivo in base
+     * alla scelta effettuata allo stato attuale.
+     * @param scelta
+     */
     public void prossimoStato(int scelta)
     {   
-        attuale=attuale.getProssimaAdiacenza(scelta);
+        attuale = attuale.getProssimaAdiacenza(scelta);
     }
     
-    //METODO PROBABILMENTE INUTILE
-    //metodo che permette di cambiare scelta ad uno stato a cui si è già risposto
+    /** 
+     * !! METODO PROBABILMENTE INUTILE !!
+     * 
+     * Il metodo cambioTappa(int n) permette di cambiare scelta ad uno stato
+     * a cui si è già risposto.
+     * @param n
+     */
     public void cambioTappa(int n)
     {
-        if(n < attuale.getScelte().size()){
-            Scelta s=attuale.getScelte().get(n);
+        if(n < attuale.getScelte().size())
+        {
+            Scelta s = attuale.getScelte().get(n);
             percorso.get(n).setScelta(s);
             pulisciPercorso();
         } 
     }
     
-    //metodo che ripulisce tutte le informazioni tranne l'arraylist di oggetti
-    //in modo da poter partire da capo a risolvere problemi di un altro oggetto
-    //dopo aver chiamato questo metodo bisogna chiamare lettura per inizializzare un nuovo oggetto
-    public void returnHome() //<3
+    /** 
+     * Il metodo returnHome() ripulisce tutte le informazioni tranne l'arraylist
+     * di oggetti in modo da poter partire da capo a risolvere problemi di un
+     * altro oggetto;
+     * Dopo aver chiamato questo metodo bisogna chiamare lettura per
+     * inizializzare un nuovo oggetto.
+     */    
+    public void returnHome() // <3
     {
         attuale = null;
         oggetto = null;
-        percorso.clear(); 
+        percorso.clear();
     }
     
-    //METODO PROBABILMENTE INUTILE
-    public void pulisciPercorso()//metodo che cancella le tappe successive a quella di cui si è cambiata scelta
+    /**
+     * !! METODO PROBABILMENTE INUTILE !!
+     * 
+     * Il metodo pulisciPercorso() cancella le tappe successive a quella 
+     * di cui si è cambiata scelta.
+     */
+    public void pulisciPercorso() 
     {
-        int n=percorso.size();
-        int i;
-        int c=n;
-
-        for(i=0;i<n;i++)//trova da che domanda in poi bisogna cancellare le risposte(compresa attuale)
+        int n = percorso.size();
+        int c = n;
+        
+        // Trova da che domanda in poi bisogna cancellare le risposte (compresa attuale)
+        for(int i = 0; i < n; i++)
         {
             if(attuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
             {
-                c=i;
-                i=n;
+                c = i;
+                i = n;
             }
         }
-
-        for(;c<n;c++)//cancella le risposte sucessive(compresa attuale)
+        
+        // Cancella le risposte sucessive (compresa attuale).
+        while(c < n)
         {
             percorso.remove(c);
+            c++;
         }
     }
-
-    //metodo che ritorna ad una domanda precedente a cui si è già risposto
-    public void statoPrecedente(int i) {
-        if(i < percorso.size()) {
+    
+    /** 
+     * Il metodo statoPrecedente(int i) ritorna ad una domanda a cui
+     * si è precedente risposto.
+     * @param i
+     */
+    public void statoPrecedente(int i)
+    {
+        if(i < percorso.size())
+        {
             attuale = percorso.get(i).getStato();
-            for(int j = percorso.size()-1; j >= i; j--) {
+            for(int j = percorso.size() - 1; j >= i; j--) 
+            {
                 percorso.remove(j);
             }
         }
     }
     
-    //metodo che ritorna alla domanda precedente
-    public void indietro() {
-        statoPrecedente(percorso.size()-2);
+    /** 
+     * Il metodo indietro() ritorna alla domanda precedente
+     */
+    public void indietro()
+    {
+        statoPrecedente(percorso.size() - 2);
     }
 }

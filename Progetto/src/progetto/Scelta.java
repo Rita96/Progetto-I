@@ -1,9 +1,10 @@
 package progetto;
 
 /**
- * L'elemento Scelta prende i propri dati dal file ScelteOggetto[i].txt (dove i è l'indice dell'Oggetto) ed è strutturato così:
- * codice(identificatore univoco della scelta)
- * testo (testo della scelta)
+ * Scelta legge dati dal file ScelteOggetto[i].txt (i = indice dell'Oggetto) 
+ * ed è strutturato così:
+ * - codice(identificatore univoco della scelta)
+ * - testo (testo della scelta)
  */
 public class Scelta
 {
@@ -12,11 +13,12 @@ public class Scelta
     
     public Scelta(String codice, String testo)
     {
-        this.codice=codice;
-        this.testo=testo;
+        this.codice = codice;
+        this.testo = testo;
     }
     
-    public String getCodice() {
+    public String getCodice()
+    {
         return codice;
     }
     
@@ -30,7 +32,7 @@ public class Scelta
     * se è uguale, il metodo restituisce true, latrimenti false
     * @param codice: String
     * @return boolean
-    */  
+    */
     public boolean controllo(String codice)
     {
         return this.codice.equals(codice);

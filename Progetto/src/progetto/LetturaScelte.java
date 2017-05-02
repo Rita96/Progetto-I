@@ -14,39 +14,40 @@ public class LetturaScelte
     
     public LetturaScelte(String nomeFile)
     {
-        this.nomeFile=nomeFile;
-        inputStream=null;
+        this.nomeFile = nomeFile;
+        inputStream = null;
     }
     
     public ArrayList<Scelta> lettura()
     {
-        ArrayList<Scelta> scelte=new ArrayList<>();
+        ArrayList<Scelta> scelte = new ArrayList<>();
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomeFile));
+            inputStream = new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {
-            System.exit(0);                    
+            System.exit(0);
         }
         
         try
         {
             StringTokenizer st;
-            String stringa=inputStream.readLine();
-            while(stringa!=null)
+            String stringa = inputStream.readLine();
+            
+            while(stringa != null)
             {
                 st = new StringTokenizer(stringa, "\t\n");
                 while(st.hasMoreElements())
                 {
-                    String cod=st.nextToken();
-                    String text=st.nextToken();
-                                        
-                    Scelta s=new Scelta(cod,text);
+                    String codice = st.nextToken();
+                    String testo = st.nextToken();
+                    
+                    Scelta s = new Scelta(codice, testo);
                     scelte.add(s);
                 }
-                stringa=inputStream.readLine();
+                stringa = inputStream.readLine();
             }
             inputStream.close();
         }
@@ -54,6 +55,7 @@ public class LetturaScelte
         {
             System.exit(0);
         }
+        
         return scelte;
     }
   

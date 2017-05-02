@@ -14,17 +14,17 @@ public class LetturaStati
     
     public LetturaStati(String nomeFile)
     {
-        this.nomeFile=nomeFile;
-        inputStream=null;
+        this.nomeFile = nomeFile;
+        inputStream = null;
     }
     
     public ArrayList<Stato> lettura(ArrayList<Scelta> s)
     {
-        ArrayList<Stato> domande=new ArrayList<>();
+        ArrayList<Stato> domande = new ArrayList<>();
         
         try
         {
-            inputStream=new BufferedReader(new FileReader(nomeFile));
+            inputStream = new BufferedReader(new FileReader(nomeFile));
         }
         catch(FileNotFoundException e)
         {  
@@ -33,45 +33,45 @@ public class LetturaStati
         
         try
         {
-            ArrayList<String> codScelte=new ArrayList<>();
+            ArrayList<String> codiceScelte = new ArrayList<>();
             StringTokenizer st;
-            String stringa=inputStream.readLine();
-            while(stringa!=null)
+            String stringa = inputStream.readLine();
+            
+            while(stringa != null)
             {
                 st = new StringTokenizer(stringa, "\n\t");
-                while(st.hasMoreElements())
+                while(st.hasMoreTokens())
                 {
-                    int num=st.countTokens();
-                    int n=0;
+                    int num = st.countTokens();
+                    int n = 0;
                     int i;
                     int k;
-                    String cod=st.nextToken();
-                    String text=st.nextToken();
+                    String codice = st.nextToken();
+                    String testo = st.nextToken();
                     
-                    while(n<num-2)
+                    while(n < num - 2)
                     {
-                        String codS=st.nextToken();
-                        codScelte.add(codS);
+                        String codS = st.nextToken();
+                        codiceScelte.add(codS);
                         n++;
                     }
                     
-                    Stato d=new Stato(cod,text);
+                    Stato d = new Stato(codice, testo);
                     
-                    for(i=0;i<codScelte.size();i++) 
+                    for(i = 0; i < codiceScelte.size(); i++) 
                     {
-                        for(k=0;k<s.size();k++)
+                        for(k = 0; k < s.size(); k++)
                         {
-                            if(s.get(k).controllo(codScelte.get(i))==true)
+                            if(s.get(k).controllo(codiceScelte.get(i)))
                             {
                                 d.addScelta(s.get(k));
                             }
                         }
                     }
-                    codScelte.clear();
+                    codiceScelte.clear();
                     domande.add(d);
                 }
-                
-                stringa=inputStream.readLine();
+                stringa = inputStream.readLine();
             }
             inputStream.close();
         }

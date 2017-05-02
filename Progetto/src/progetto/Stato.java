@@ -3,25 +3,27 @@ package progetto;
 import java.util.ArrayList;
 
 /**
- * L'elemento Stato prende i propri dati dal file DomandeOggetto[i].txt (dove i è l'indice dell'Oggetto) ed è strutturato così:
- * codice(identificatore univoco dello stato)
- * testo (testo della domanda o della possibile soluzione)
- * adiacenze (stati successivi a cui si passa dopo aver effettuato una scelta)
- * scelte (possibili risposte ad un quesito)
+ * Stato legge dati dal file DomandeOggetto[i].txt (i = indice dell'Oggetto)
+ * ed è strutturato così:
+ * - codice(identificatore univoco dello stato)
+ * - testo (testo della domanda o della possibile soluzione)
+ * - adiacenze (stati successivi a cui si passa dopo aver effettuato una scelta)
+ * - scelte (possibili risposte ad un quesito)
  */
-public class Stato //testo + dimanda della domanda da porre
+
+public class Stato
 {
     private String codice;
     private String testo;
     private ArrayList<Stato> adiacenze;
     private ArrayList<Scelta> scelte;
-
+    
     public Stato(String codice, String testo)
     {
-        this.codice=codice;
-        this.testo=testo;
-        adiacenze=new ArrayList<>();
-        scelte=new ArrayList<>();
+        this.codice = codice;
+        this.testo = testo;
+        adiacenze = new ArrayList<>();
+        scelte = new ArrayList<>();
     }
     
     public String getCodice()
@@ -44,7 +46,8 @@ public class Stato //testo + dimanda della domanda da porre
         return scelte;
     }
     
-    public Stato getProssimaAdiacenza(int n) {
+    public Stato getProssimaAdiacenza(int n)
+    {
         return adiacenze.get(n);
     }
     
@@ -58,17 +61,17 @@ public class Stato //testo + dimanda della domanda da porre
     * se è uguale, il metodo restituisce true, altrimenti false
     * @param codice: String
     * @return boolean
-    */    
+    */
     public boolean controllo(String codice)
     {
         return this.codice.equals(codice);
     }
-
+    
     public void addScelta(Scelta s)
     {
         scelte.add(s);
     }
-
+    
     public void addAdiacenze(ArrayList<Stato> d)
     {
         adiacenze.addAll(d);

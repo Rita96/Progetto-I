@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class LetturaAdiacenze 
 {
-
     private String nomeFile;
     private BufferedReader inputStream;
 
@@ -54,7 +53,7 @@ public class LetturaAdiacenze
                         codici.add(line);
                         n++;
                     }
-
+                    
                     for (String c : codici) {
                         for (Stato d : stati) { 
                             if (d.controllo(c)) {
@@ -62,13 +61,12 @@ public class LetturaAdiacenze
                             }
                         }
                     }
-
+                    
                     for (Stato d : stati)
                     {
                         if (d.controllo(codice))
                         {
                             d.addAdiacenze(adiacenze);
-                            
                         }
                     }
                     codici.clear();
@@ -82,6 +80,7 @@ public class LetturaAdiacenze
         {
             System.exit(0);
         }
+        
         return stati;
     }
 }
