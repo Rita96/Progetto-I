@@ -38,7 +38,7 @@ public class Test
                         System.out.println(p.stampaStato());
                         int i;
                         
-                        for(i=0; i<p.getAttuale().getScelte().size(); i++)
+                        for(i = 0; i < p.getAttuale().getScelte().size(); i++)
                         {
                             System.out.println(i + ". " + p.getAttuale().mostraScelta(i));
                         }
@@ -157,7 +157,7 @@ public class Test
                 System.out.println(t.getStato().getTesto());
                 System.out.println("SCELTE POSSIBILI:");
                 
-                for(int k=0; k<t.getStato().getScelte().size(); k++) 
+                for(int k = 0; k < t.getStato().getScelte().size(); k++) 
                 {
                     System.out.println(t.getStato().mostraScelta(k));
                 }
