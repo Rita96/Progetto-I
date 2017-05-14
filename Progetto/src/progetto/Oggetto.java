@@ -64,4 +64,12 @@ public class Oggetto
     {
         this.stati.addAll(stati);
     }
+
+    @Override
+    public String toString()
+    {
+        return nome;
+    }
+    
+    
 }

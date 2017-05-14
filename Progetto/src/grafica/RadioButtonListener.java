@@ -7,18 +7,20 @@ import javax.swing.JRadioButton;
 
 public class RadioButtonListener implements ActionListener
 {
-    static int indice;
+    public static int indice;
     
     @Override
     public void actionPerformed(ActionEvent ae) 
     {
-        JRadioButton radio=(JRadioButton)ae.getSource();
-        String s=radio.getText();
-        for(int i = 0; i < p.getAttuale().getScelte().size(); i++) {
-            if(s.equals(p.getAttuale().getScelte().get(i).getTesto())) {
+        JRadioButton radio = (JRadioButton)ae.getSource();
+        String s = radio.getText();
+        
+        for(int i = 0; i < p.getAttuale().getScelte().size(); i++)
+        {
+            if(s.equals(p.getAttuale().getScelte().get(i).getTesto()))
                 indice = i;
-            }
         }
+        
         System.out.println("RadioButton Scelto "+indice);
     }
 }

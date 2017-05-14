@@ -11,7 +11,7 @@ public class BackButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         p.indietro();
-        ExecutePage ep=new ExecutePage("Esecuzione");
+        ExecutePage ep = new ExecutePage();
         ep.setDefaultCloseOperation(EXIT_ON_CLOSE);
         System.out.println("Cliccato bottone back");
     }

@@ -7,20 +7,22 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class NextButtonListener implements ActionListener
 {
     @Override
     public void actionPerformed(ActionEvent ae) 
     {
-        try {
+        try
+        {
             p.esecuzione(indice);
-            ExecutePage ep=new ExecutePage("Esecuzione");
-            ep.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        } catch (IOException ex) {
+            ExecutePage ep = new ExecutePage();
+        } 
+        catch (IOException ex)
+        {
             Logger.getLogger(NextButtonListener.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         System.out.println("Cliccato bottone Next");
     }
 }

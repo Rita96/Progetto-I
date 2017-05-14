@@ -3,73 +3,107 @@ package grafica;
 import static grafica.Grafica.p;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class ExecutePage extends JFrame 
 {
-    public ExecutePage(String s)
+    private Font fontDomanda, fontScelta;
+    private JPanel pannello, north, center, south;
+    private JLabel domanda;
+    private JButton home, back, next;
+    private ButtonGroup gruppo;
+    
+    public ExecutePage()
     {
-        super(s);
-        JPanel pannello=new JPanel();
-        
-        JButton back=new JButton("Back");
-        BackButtonListener bbl=new BackButtonListener();
-        back.addActionListener(bbl);
-        
-        JButton next=new JButton("Next");
-        NextButtonListener nbl=new NextButtonListener();
-        next.addActionListener(nbl);
-        
-        JButton home=new JButton("Home");
-        HomeButtonListener hbl=new HomeButtonListener();
-        home.addActionListener(hbl);
+        super("Risolutore di Problemi - Domande");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setExecutePageLocation();
+        setPanels();
+        setDomanda();
         
         ArrayList<String> testoScelte = new ArrayList();
-        for(int i=0; i<p.getAttuale().getScelte().size(); i++) {
+        for(int i = 0; i < p.getAttuale().getScelte().size(); i++)
             testoScelte.add(p.getAttuale().getScelte().get(i).getTesto());
-        }
         
-        pannello.add(back,BorderLayout.EAST);
-        pannello.add(next,BorderLayout.WEST);
-        pannello.add(home,BorderLayout.CENTER);
-        pannello.add(insertRadioButtonS(p.getAttuale().getScelte().size(),testoScelte),BorderLayout.SOUTH);
+        setRadioButtons(p.getAttuale().getScelte().size(), testoScelte);
+        setButtons();
         
+        north.add(new JLabel());
+        north.add(domanda);
+        south.add(home);
+        south.add(back);
+        south.add(next);
+        
+        pannello.add(north, BorderLayout.NORTH);
+        pannello.add(center, BorderLayout.CENTER);
+        pannello.add(south, BorderLayout.SOUTH);
+        
+        setResizable(false);
+        setContentPane(pannello);
+        setVisible(true);
+    }
+    
+    private void setExecutePageLocation()
+    {
         Toolkit kit = Toolkit.getDefaultToolkit(); 
         Dimension screenSize = kit.getScreenSize(); 
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
-        setSize(screenWidth/2, screenHeight/2); 
-        setLocation(screenWidth/4, screenHeight/4);
-        
-        setContentPane(pannello);
-        pack();
-        setVisible(true);
+        setSize(screenWidth / 4, screenHeight / 4); 
+        setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
     
-    public JPanel insertRadioButtonS(int n, ArrayList<String> s)
+    private void setPanels()
     {
-        JPanel pannello=new JPanel();
-        ButtonGroup gruppo=new ButtonGroup();
+        pannello = new JPanel(new BorderLayout());
+        north = new JPanel(new GridLayout(4, 1));
+        center = new JPanel(new GridLayout(5, 1));
+        south = new JPanel(new FlowLayout());
+    }
+    
+    private void setDomanda()
+    {
+        domanda = new JLabel();
+        domanda.setText(p.getAttuale().getTesto());
+        domanda.setHorizontalAlignment(JLabel.CENTER);
+    }
+    
+    private void setButtons()
+    {
+        back = new JButton("←");
+        BackButtonListener bbl = new BackButtonListener();
+        back.addActionListener(bbl);
         
-        int i;
+        next = new JButton("→");
+        NextButtonListener nbl = new NextButtonListener();
+        next.addActionListener(nbl);
         
-        for(i=0;i<n;i++)
+        home = new JButton("🏠");
+        HomeButtonListener hbl = new HomeButtonListener();
+        home.addActionListener(hbl);
+    }
+    
+    private void setRadioButtons(int n, ArrayList<String> s)
+    {
+        gruppo = new ButtonGroup();
+        
+        for(int i = 0; i < n; i++)
         {
-                JRadioButton radio=new JRadioButton(s.get(i));
-                RadioButtonListener rbl=new RadioButtonListener();
-                radio.addActionListener(rbl);
-                gruppo.add(radio);
-                pannello.add(radio);
-                pannello.setLayout(new BoxLayout(pannello, BoxLayout.PAGE_AXIS));
+            JRadioButton radio = new JRadioButton(s.get(i));
+            RadioButtonListener rbl = new RadioButtonListener();
+            radio.addActionListener(rbl);
+            gruppo.add(radio);
+            center.add(radio);
         }
-        
-        return pannello;
-    } 
+    }
 }
