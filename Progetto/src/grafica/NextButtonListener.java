@@ -15,8 +15,11 @@ public class NextButtonListener implements ActionListener
     {
         try
         {
-            p.esecuzione(indice);
-            ExecutePage ep = new ExecutePage();
+            if(indice!=-1)
+            {
+                p.esecuzione(indice);
+                ExecutePage ep = new ExecutePage();
+            }
         } 
         catch (IOException ex)
         {

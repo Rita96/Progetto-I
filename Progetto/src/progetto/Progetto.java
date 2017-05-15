@@ -229,6 +229,9 @@ public class Progetto
      */
     public void indietro()
     {
-        statoPrecedente(percorso.size() - 2);
+        if(percorso.size()>1)
+        {
+            statoPrecedente(percorso.size() - 1);
+        }
     }
 }

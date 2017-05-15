@@ -7,7 +7,7 @@ import javax.swing.JRadioButton;
 
 public class RadioButtonListener implements ActionListener
 {
-    public static int indice;
+    public static int indice=-1;
     
     @Override
     public void actionPerformed(ActionEvent ae) 
