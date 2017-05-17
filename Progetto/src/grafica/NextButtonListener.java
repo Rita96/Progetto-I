@@ -16,7 +16,7 @@ public class NextButtonListener implements ActionListener
     {
         try
         {
-            if(indice!=-1)
+            if(indice!=-1 && !p.getAttuale().getScelte().isEmpty())
             {
                 p.esecuzione(indice);
                 exe.svuota();
