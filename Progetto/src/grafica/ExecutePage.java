@@ -25,10 +25,17 @@ public class ExecutePage extends JFrame
     
     public ExecutePage()
     {
+        
         super("Risolutore di Problemi - Domande");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
         setExecutePageLocation();
         setPanels();
+        
+        setContentPane(pannello);
+    }
+    public void riempi()
+    {
         setDomanda();
         
         ArrayList<String> testoScelte = new ArrayList();
@@ -49,8 +56,16 @@ public class ExecutePage extends JFrame
         pannello.add(south, BorderLayout.SOUTH);
         
         setResizable(false);
-        setContentPane(pannello);
         setVisible(true);
+    }
+    
+    public void svuota()
+    {
+        pannello.removeAll();
+        north.removeAll();
+        south.removeAll();
+        center.removeAll();
+        repaint();
     }
     
     private void setExecutePageLocation()
@@ -106,4 +121,5 @@ public class ExecutePage extends JFrame
             center.add(radio);
         }
     }
+    
 }

@@ -1,5 +1,6 @@
 package grafica;
 
+import static grafica.Grafica.exe;
 import static grafica.Grafica.p;
 import static grafica.Grafica.hp;
 import static grafica.HomePage.elencoOggetti;
@@ -19,9 +20,11 @@ public class StartButtonListener implements ActionListener
             int selezionato = elencoOggetti.getSelectedIndex();
             p.sceltaOggetto(selezionato);
             p.esecuzione(0);
-            ExecutePage ep = new ExecutePage();
+            //ExecutePage ep = new ExecutePage();
             hp.dispose();
             hp.setVisible(false);
+            exe.setVisible(true);
+            exe.riempi();
         }
         catch (IOException ex)
         {

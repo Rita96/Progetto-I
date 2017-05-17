@@ -1,5 +1,6 @@
 package grafica;
 
+import static grafica.Grafica.exe;
 import static grafica.Grafica.p;
 import static grafica.RadioButtonListener.indice;
 import java.awt.event.ActionEvent;
@@ -18,7 +19,9 @@ public class NextButtonListener implements ActionListener
             if(indice!=-1)
             {
                 p.esecuzione(indice);
-                ExecutePage ep = new ExecutePage();
+                exe.svuota();
+                exe.riempi();
+                //ExecutePage ep = new ExecutePage();
             }
         } 
         catch (IOException ex)
