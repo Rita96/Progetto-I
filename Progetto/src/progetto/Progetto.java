@@ -106,9 +106,8 @@ public class Progetto
      * Il metodo esecuzione(int n) consente all'utente di effettuare una scelta
      * tra quelle possibili ad un determinato stato.
      * @param n
-     * @throws java.io.IOException
      */
-    public void esecuzione(int n) throws IOException
+    public void esecuzione(int n) //throws IOException commento perché l'eccezione è lanciata solo in debug. Tramite interfaccia non vi è alcun problema
     {
         /*  Questo if controlla se la domanda attuale ha delle possibili 
             scelte, e quindi delle adiacenze. In caso contrario siamo
@@ -117,7 +116,7 @@ public class Progetto
         */
         if(attuale.getScelte().isEmpty())
         {   
-            System.in.read();
+            //System.in.read();
             System.exit(0);
         }
         else
@@ -171,7 +170,7 @@ public class Progetto
      * Dopo aver chiamato questo metodo bisogna chiamare lettura per
      * inizializzare un nuovo oggetto.
      */    
-    public void returnHome() // <3
+    public void returnHome()
     {
         attuale = null;
         oggetto = null;

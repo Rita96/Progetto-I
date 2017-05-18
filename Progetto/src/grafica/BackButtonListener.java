@@ -1,20 +1,18 @@
 package grafica;
 
-import static grafica.Grafica.exe;
-import static grafica.Grafica.p;
+import static grafica.Grafica.executePage;
+import static grafica.Grafica.progetto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class BackButtonListener implements ActionListener
 {
     @Override
     public void actionPerformed(ActionEvent ae) 
     {
-        exe.svuota();
-        p.indietro();
-        exe.riempi();
-        
-        System.out.println("Cliccato bottone back");
+        progetto.indietro();
+        executePage.dispose();
+        ExecutePage ep = new ExecutePage();
+        executePage = ep;
     }
 }

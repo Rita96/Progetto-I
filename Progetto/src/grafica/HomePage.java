@@ -1,6 +1,6 @@
 package grafica;
 
-import static grafica.Grafica.p;
+import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,9 +16,9 @@ import javax.swing.JPanel;
 public class HomePage extends JFrame 
 {
     private Font fontBenvenuto, fontSeleziona;
-    private JPanel pannello, north, center, south;
-    private JLabel benvenuto, seleziona, oggetto;
-    static JComboBox elencoOggetti;
+    private JPanel pannello, north, east, center, west, south;
+    private JLabel benvenuto, seleziona, oggetto, attributo;
+    static JComboBox elencoOggetti, elencoAttributi;
     private JButton start;
     
     public HomePage()
@@ -26,22 +26,11 @@ public class HomePage extends JFrame
         super("Risolutore di Problemi - Home");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setHomeLocation();
-        setPanels();
         setLabels();
-        setElencoOggetti();
+        setComboBoxes();
         setStartButton();
-        
-        north.add(new JLabel());
-        north.add(benvenuto);
-        north.add(seleziona);
-        center.add(oggetto);
-        center.add(elencoOggetti);
-        south.add(start);
-        
-        pannello.add(north, BorderLayout.NORTH);
-        pannello.add(center, BorderLayout.CENTER);
-        pannello.add(south, BorderLayout.SOUTH);
-        
+        setPanels();
+        setMainPanel();
         setResizable(false);
         setContentPane(pannello);
         setVisible(true);
@@ -53,7 +42,7 @@ public class HomePage extends JFrame
         Dimension screenSize = kit.getScreenSize(); 
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
-        setSize(screenWidth / 4, screenHeight / 4); 
+        setSize(screenWidth / 4, screenHeight / 4);
         setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
     
@@ -61,14 +50,6 @@ public class HomePage extends JFrame
     {
         fontBenvenuto = new Font("Times New Romans", Font.BOLD, 18);
         fontSeleziona = new Font("Times New Romans", Font.PLAIN, 14);
-    }
-    
-    private void setPanels()
-    {
-        pannello = new JPanel(new BorderLayout());
-        north = new JPanel(new GridLayout(4, 1));
-        center = new JPanel(new GridLayout(3, 2, 30, 0));
-        south = new JPanel(new FlowLayout());
     }
     
     private void setLabels()
@@ -82,19 +63,55 @@ public class HomePage extends JFrame
         seleziona.setHorizontalAlignment(JLabel.CENTER);
         seleziona.setFont(fontSeleziona);
         
-        oggetto = new JLabel("Oggetto");
-        oggetto.setHorizontalAlignment(JLabel.CENTER);
+        oggetto = new JLabel("Elettrodomestico");
+        //oggetto.setHorizontalAlignment(JLabel.CENTER);
+        
+        attributo = new JLabel("Modello");
+        //attributo.setHorizontalAlignment(JLabel.CENTER);
     }
     
-    private void setElencoOggetti()
+    private void setComboBoxes()
     {
-        elencoOggetti = new JComboBox(p.getOggetti().toArray());
+        elencoOggetti = new JComboBox(progetto.getOggetti().toArray());
+        ComboBoxListener cbl = new ComboBoxListener();
+        elencoOggetti.addActionListener(cbl);
+        
+        elencoAttributi = new JComboBox();
+        elencoAttributi.setEnabled(false);
     }
     
     private void setStartButton()
     {
-        start = new JButton("Start");
+        start = new JButton("Inizia");
         StartButtonListener sbl = new StartButtonListener();
         start.addActionListener(sbl);
+    }
+    
+    private void setPanels()
+    {
+        pannello = new JPanel(new BorderLayout());
+        north = new JPanel(new GridLayout(4, 1));
+        east = new JPanel();
+        center = new JPanel(new GridLayout(3, 2, 30, 0));
+        west = new JPanel();
+        south = new JPanel(new FlowLayout());
+        
+        north.add(new JLabel());
+        north.add(benvenuto);
+        north.add(seleziona);
+        center.add(oggetto);
+        center.add(attributo);
+        center.add(elencoOggetti);
+        center.add(elencoAttributi);
+        south.add(start);
+    }
+    
+    private void setMainPanel()
+    {
+        pannello.add(north, BorderLayout.NORTH);
+        pannello.add(east, BorderLayout.EAST);
+        pannello.add(center, BorderLayout.CENTER);
+        pannello.add(west, BorderLayout.WEST);
+        pannello.add(south, BorderLayout.SOUTH);
     }
 }

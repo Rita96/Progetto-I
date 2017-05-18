@@ -1,6 +1,6 @@
 package grafica;
 
-import static grafica.Grafica.p;
+import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -25,47 +25,19 @@ public class ExecutePage extends JFrame
     
     public ExecutePage()
     {
-        
         super("Risolutore di Problemi - Domande");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        
         setExecutePageLocation();
-        setPanels();
-        
-        setContentPane(pannello);
-    }
-    public void riempi()
-    {
+        initPanels();
+        setFont();
         setDomanda();
-        
-        ArrayList<String> testoScelte = new ArrayList();
-        for(int i = 0; i < p.getAttuale().getScelte().size(); i++)
-            testoScelte.add(p.getAttuale().getScelte().get(i).getTesto());
-        
-        setRadioButtons(p.getAttuale().getScelte().size(), testoScelte);
+        setRadioButtons();
         setButtons();
-        
-        north.add(new JLabel());
-        north.add(domanda);
-        south.add(home);
-        south.add(back);
-        south.add(next);
-        
-        pannello.add(north, BorderLayout.NORTH);
-        pannello.add(center, BorderLayout.CENTER);
-        pannello.add(south, BorderLayout.SOUTH);
-        
+        setPanels();
+        setMainPanel();
+        setContentPane(pannello);
         setResizable(false);
         setVisible(true);
-    }
-    
-    public void svuota()
-    {
-        pannello.removeAll();
-        north.removeAll();
-        south.removeAll();
-        center.removeAll();
-        repaint();
     }
     
     private void setExecutePageLocation()
@@ -74,11 +46,11 @@ public class ExecutePage extends JFrame
         Dimension screenSize = kit.getScreenSize(); 
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
-        setSize(screenWidth / 4, screenHeight / 4); 
+        setSize(screenWidth / 3, screenHeight / 3);
         setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
     
-    private void setPanels()
+    private void initPanels()
     {
         pannello = new JPanel(new BorderLayout());
         north = new JPanel(new GridLayout(4, 1));
@@ -86,10 +58,17 @@ public class ExecutePage extends JFrame
         south = new JPanel(new FlowLayout());
     }
     
+    private void setFont()
+    {
+        fontDomanda = new Font("Times New Romans", Font.BOLD, 18);
+        fontScelta = new Font("Times New Romans", Font.PLAIN, 14);
+    }
+    
     private void setDomanda()
     {
         domanda = new JLabel();
-        domanda.setText(p.getAttuale().getTesto());
+        domanda.setFont(fontDomanda);
+        domanda.setText(progetto.getAttuale().getTesto());
         domanda.setHorizontalAlignment(JLabel.CENTER);
     }
     
@@ -108,13 +87,20 @@ public class ExecutePage extends JFrame
         home.addActionListener(hbl);
     }
     
-    private void setRadioButtons(int n, ArrayList<String> s)
+    private void setRadioButtons()
     {
+        int numeroScelte = progetto.getAttuale().getScelte().size();
+        ArrayList<String> testoScelte = new ArrayList();
+        
+        for(int i = 0; i < numeroScelte; i++)
+            testoScelte.add(progetto.getAttuale().getScelte().get(i).getTesto());
+        
         gruppo = new ButtonGroup();
         
-        for(int i = 0; i < n; i++)
+        for(int i = 0; i < numeroScelte; i++)
         {
-            JRadioButton radio = new JRadioButton(s.get(i));
+            JRadioButton radio = new JRadioButton(testoScelte.get(i));
+            radio.setFont(fontScelta);
             RadioButtonListener rbl = new RadioButtonListener();
             radio.addActionListener(rbl);
             gruppo.add(radio);
@@ -122,4 +108,19 @@ public class ExecutePage extends JFrame
         }
     }
     
+    private void setPanels()
+    {
+        north.add(new JLabel());
+        north.add(domanda);
+        south.add(home);
+        south.add(back);
+        south.add(next);
+    }
+    
+    private void setMainPanel()
+    {
+        pannello.add(north, BorderLayout.NORTH);
+        pannello.add(center, BorderLayout.CENTER);
+        pannello.add(south, BorderLayout.SOUTH);
+    }
 }

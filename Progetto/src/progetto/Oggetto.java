@@ -20,7 +20,7 @@ public class Oggetto
     private String fileScelte;
     private String fileAdiacenze;
     private ArrayList<Stato> stati;
-
+    
     public Oggetto(String nome, String attributo, String fileStati, String fileScelte, String fileAdiacenze)
     {
         this.nome = nome;
@@ -64,12 +64,10 @@ public class Oggetto
     {
         this.stati.addAll(stati);
     }
-
+    
     @Override
     public String toString()
     {
         return nome;
     }
-    
-    
 }
