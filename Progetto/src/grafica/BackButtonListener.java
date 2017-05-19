@@ -1,5 +1,6 @@
 package grafica;
 
+import static grafica.NextButtonListener.ultimoStato;
 import static grafica.Grafica.executePage;
 import static grafica.Grafica.progetto;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,11 @@ public class BackButtonListener implements ActionListener
         executePage.removeExecuteComponents();
         progetto.indietro();
         executePage.getExecuteComponents();
+        
+        if(ultimoStato==true)
+        {
+            ultimoStato=false;
+        }
         //executePage.dispose();
         //ExecutePage ep = new ExecutePage();
         //executePage = ep;

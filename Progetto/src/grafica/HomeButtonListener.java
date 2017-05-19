@@ -12,9 +12,11 @@ public class HomeButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         progetto.returnHome();
+        homePage.setVisible(true);
         executePage.dispose();
-        executePage.setVisible(false);
-        HomePage hp = new HomePage();
-        homePage = hp;
+        //executePage.dispose();
+        //executePage.setVisible(false);
+        //HomePage hp = new HomePage();
+        //homePage = hp;
     }
 }
