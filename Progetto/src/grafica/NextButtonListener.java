@@ -18,5 +18,10 @@ public class NextButtonListener implements ActionListener
                 ExecutePage ep = new ExecutePage();
                 executePage = ep;
             }
+        else {
+            progetto.esecuzione(indice);
+            executePage.dispose();
+            System.exit(0);
         }
+    }
 }

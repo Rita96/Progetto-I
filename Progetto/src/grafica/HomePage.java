@@ -42,7 +42,7 @@ public class HomePage extends JFrame
         Dimension screenSize = kit.getScreenSize(); 
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
-        setSize(screenWidth / 4, screenHeight / 4);
+        setSize(screenWidth / 2, screenHeight / 2);
         setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
     

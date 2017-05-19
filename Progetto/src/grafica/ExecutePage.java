@@ -20,7 +20,7 @@ public class ExecutePage extends JFrame
     private Font fontDomanda, fontScelta;
     private JPanel pannello, north, center, south;
     private JLabel domanda;
-    private JButton home, back, next;
+    private JButton home, back, next, end;
     private ButtonGroup gruppo;
     
     public ExecutePage()
@@ -46,7 +46,7 @@ public class ExecutePage extends JFrame
         Dimension screenSize = kit.getScreenSize(); 
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
-        setSize(screenWidth / 3, screenHeight / 3);
+        setSize(screenWidth / 2, screenHeight / 2);
         setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
     
@@ -60,7 +60,7 @@ public class ExecutePage extends JFrame
     
     private void setFont()
     {
-        fontDomanda = new Font("Times New Romans", Font.BOLD, 18);
+        fontDomanda = new Font("Times New Romans", Font.BOLD, 14);
         fontScelta = new Font("Times New Romans", Font.PLAIN, 14);
     }
     
@@ -78,7 +78,11 @@ public class ExecutePage extends JFrame
         BackButtonListener bbl = new BackButtonListener();
         back.addActionListener(bbl);
         
-        next = new JButton("→");
+        if(progetto.getAttuale().getScelte().isEmpty())
+            next = new JButton("FINE");
+        else
+            next = new JButton("→");
+        
         NextButtonListener nbl = new NextButtonListener();
         next.addActionListener(nbl);
         
