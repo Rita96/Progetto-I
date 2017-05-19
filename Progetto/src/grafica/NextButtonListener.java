@@ -14,14 +14,20 @@ public class NextButtonListener implements ActionListener
         if(indice != -1 && !progetto.getAttuale().getScelte().isEmpty())
             {
                 progetto.esecuzione(indice);
-                executePage.dispose();
-                ExecutePage ep = new ExecutePage();
-                executePage = ep;
+                //executePage.dispose();
+                //ExecutePage ep = new ExecutePage();
+                //executePage = ep;
+                executePage.removeExecuteComponents();
+                executePage.getExecuteComponents();
             }
-        else {
-            progetto.esecuzione(indice);
-            executePage.dispose();
-            System.exit(0);
+        if(progetto.getAttuale().getScelte().isEmpty())
+        {
+            //System.exit(0);
         }
+        //else {
+        //    progetto.esecuzione(indice);
+        //    executePage.dispose();
+        //    System.exit(0);
+        //}
     }
 }

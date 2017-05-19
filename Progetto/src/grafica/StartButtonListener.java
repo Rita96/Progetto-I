@@ -17,6 +17,7 @@ public class StartButtonListener implements ActionListener
         progetto.esecuzione(0);
 
         executePage = new ExecutePage();
+        executePage.getExecuteComponents();
 
         homePage.dispose();
         homePage.setVisible(false);

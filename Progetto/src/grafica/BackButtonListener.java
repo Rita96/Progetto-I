@@ -10,9 +10,11 @@ public class BackButtonListener implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae) 
     {
+        executePage.removeExecuteComponents();
         progetto.indietro();
-        executePage.dispose();
-        ExecutePage ep = new ExecutePage();
-        executePage = ep;
+        executePage.getExecuteComponents();
+        //executePage.dispose();
+        //ExecutePage ep = new ExecutePage();
+        //executePage = ep;
     }
 }

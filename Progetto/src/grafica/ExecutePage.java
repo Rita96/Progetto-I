@@ -28,7 +28,13 @@ public class ExecutePage extends JFrame
         super("Risolutore di Problemi - Domande");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExecutePageLocation();
+        setResizable(false);
+        setVisible(true);
         initPanels();
+    }
+    
+    public void getExecuteComponents()
+    {
         setFont();
         setDomanda();
         setRadioButtons();
@@ -36,8 +42,15 @@ public class ExecutePage extends JFrame
         setPanels();
         setMainPanel();
         setContentPane(pannello);
-        setResizable(false);
-        setVisible(true);
+    }
+    
+    public void removeExecuteComponents()
+    {
+        pannello.removeAll();
+        north.removeAll();
+        south.removeAll();
+        center.removeAll();
+        repaint();
     }
     
     private void setExecutePageLocation()
@@ -74,9 +87,12 @@ public class ExecutePage extends JFrame
     
     private void setButtons()
     {
-        back = new JButton("←");
-        BackButtonListener bbl = new BackButtonListener();
-        back.addActionListener(bbl);
+        if(progetto.getPercorso().size()!=1)
+        {
+            back = new JButton("←");
+            BackButtonListener bbl = new BackButtonListener();
+            back.addActionListener(bbl);
+        }
         
         if(progetto.getAttuale().getScelte().isEmpty())
             next = new JButton("FINE");
@@ -117,7 +133,10 @@ public class ExecutePage extends JFrame
         north.add(new JLabel());
         north.add(domanda);
         south.add(home);
-        south.add(back);
+        if(progetto.getPercorso().size()!=1)
+        {
+            south.add(back);
+        }
         south.add(next);
     }
     
