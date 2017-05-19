@@ -14,9 +14,5 @@ public class HomeButtonListener implements ActionListener
         progetto.returnHome();
         homePage.setVisible(true);
         executePage.dispose();
-        //executePage.dispose();
-        //executePage.setVisible(false);
-        //HomePage hp = new HomePage();
-        //homePage = hp;
     }
 }

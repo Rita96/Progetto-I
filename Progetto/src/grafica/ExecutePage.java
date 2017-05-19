@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
 public class ExecutePage extends JFrame 
 {
     private Font fontDomanda, fontScelta;
-    private JPanel pannello, north, center, south;
+    private JPanel main, north, center, south;
     private JLabel domanda;
     private JButton home, back, next, end;
     private ButtonGroup gruppo;
@@ -28,29 +28,16 @@ public class ExecutePage extends JFrame
         super("Risolutore di Problemi - Domande");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setExecutePageLocation();
-        setResizable(false);
-        setVisible(true);
         initPanels();
-    }
-    
-    public void getExecuteComponents()
-    {
-        setFont();
-        setDomanda();
+        initFont();
+        initDomanda();
+        initButtons();
         setRadioButtons();
-        setButtons();
         setPanels();
         setMainPanel();
-        setContentPane(pannello);
-    }
-    
-    public void removeExecuteComponents()
-    {
-        pannello.removeAll();
-        north.removeAll();
-        south.removeAll();
-        center.removeAll();
-        repaint();
+        setContentPane(main);
+        setResizable(false);
+        setVisible(true);
     }
     
     private void setExecutePageLocation()
@@ -65,19 +52,19 @@ public class ExecutePage extends JFrame
     
     private void initPanels()
     {
-        pannello = new JPanel(new BorderLayout());
+        main = new JPanel(new BorderLayout());
         north = new JPanel(new GridLayout(4, 1));
         center = new JPanel(new GridLayout(5, 1));
         south = new JPanel(new FlowLayout());
     }
     
-    private void setFont()
+    private void initFont()
     {
-        fontDomanda = new Font("Times New Romans", Font.BOLD, 14);
+        fontDomanda = new Font("Times New Romans", Font.BOLD, 18);
         fontScelta = new Font("Times New Romans", Font.PLAIN, 14);
     }
     
-    private void setDomanda()
+    private void initDomanda()
     {
         domanda = new JLabel();
         domanda.setFont(fontDomanda);
@@ -85,26 +72,23 @@ public class ExecutePage extends JFrame
         domanda.setHorizontalAlignment(JLabel.CENTER);
     }
     
-    private void setButtons()
+    private void initButtons()
     {
-        if(progetto.getPercorso().size()!=1)
-        {
-            back = new JButton("←");
-            BackButtonListener bbl = new BackButtonListener();
-            back.addActionListener(bbl);
-        }
+        back = new JButton("←");
+        BackButtonListener bbl = new BackButtonListener();
+        back.addActionListener(bbl);
         
-        if(progetto.getAttuale().getScelte().isEmpty())
-            next = new JButton("FINE");
-        else
-            next = new JButton("→");
-        
+        next = new JButton("→");
         NextButtonListener nbl = new NextButtonListener();
         next.addActionListener(nbl);
         
         home = new JButton("🏠");
         HomeButtonListener hbl = new HomeButtonListener();
         home.addActionListener(hbl);
+        
+        end = new JButton("Fine");
+        EndButtonListener ebl = new EndButtonListener();
+        end.addActionListener(ebl);
     }
     
     private void setRadioButtons()
@@ -131,19 +115,45 @@ public class ExecutePage extends JFrame
     private void setPanels()
     {
         north.add(new JLabel());
-        north.add(domanda);
         south.add(home);
-        if(progetto.getPercorso().size()!=1)
-        {
+        
+        if(progetto.getPercorso().size() != 1)
             south.add(back);
+        
+        if(progetto.getAttuale().getScelte().isEmpty())
+        {
+            center.add(new JLabel());
+            center.add(new JLabel());
+            center.add(domanda);
+            south.add(end);
         }
-        south.add(next);
+        else
+        {
+            north.add(domanda);
+            south.add(next);
+        }
     }
     
     private void setMainPanel()
     {
-        pannello.add(north, BorderLayout.NORTH);
-        pannello.add(center, BorderLayout.CENTER);
-        pannello.add(south, BorderLayout.SOUTH);
+        main.add(north, BorderLayout.NORTH);
+        main.add(center, BorderLayout.CENTER);
+        main.add(south, BorderLayout.SOUTH);
+    }
+    
+    public void refreshFrame()
+    {
+        domanda.setText(progetto.getAttuale().getTesto());
+        setRadioButtons();
+        setPanels();
+        revalidate();
+        repaint();
+    }
+    
+    public void clearFrame()
+    {
+        north.removeAll();
+        south.removeAll();
+        center.removeAll();
     }
 }
