@@ -22,6 +22,7 @@ public class ExecutePage extends JFrame
     private JLabel domanda;
     private JButton home, back, next, end;
     private ButtonGroup gruppo;
+    static boolean ultimoStato;  
     
     public ExecutePage()
     {
@@ -38,6 +39,7 @@ public class ExecutePage extends JFrame
         setContentPane(main);
         setResizable(false);
         setVisible(true);
+        ultimoStato=false;
     }
     
     private void setExecutePageLocation()
