@@ -18,9 +18,10 @@ import javax.swing.JRadioButton;
 public class ExecutePage extends JFrame 
 {
     private Font fontDomanda, fontScelta;
-    private JPanel main, north, center, south;
-    private JLabel domanda;
+    private JPanel main, north, center, east, south;
+    private JLabel domanda, seleziona;
     private JButton home, back, next, end;
+    //private JComboBox percorso;
     private ButtonGroup gruppo;
     static boolean ultimoStato;  
     
@@ -31,15 +32,15 @@ public class ExecutePage extends JFrame
         setExecutePageLocation();
         initPanels();
         initFont();
-        initDomanda();
+        initLabels();
         initButtons();
+        //setComboBox();
         setRadioButtons();
         setPanels();
         setMainPanel();
         setContentPane(main);
         setResizable(false);
         setVisible(true);
-        ultimoStato=false;
     }
     
     private void setExecutePageLocation()
@@ -57,6 +58,7 @@ public class ExecutePage extends JFrame
         main = new JPanel(new BorderLayout());
         north = new JPanel(new GridLayout(4, 1));
         center = new JPanel(new GridLayout(5, 1));
+        //east = new JPanel(new GridLayout(10, 1));
         south = new JPanel(new FlowLayout());
     }
     
@@ -66,12 +68,15 @@ public class ExecutePage extends JFrame
         fontScelta = new Font("Times New Romans", Font.PLAIN, 14);
     }
     
-    private void initDomanda()
+    private void initLabels()
     {
         domanda = new JLabel();
         domanda.setFont(fontDomanda);
-        domanda.setText(progetto.getAttuale().getTesto());
+        domanda.setText(progetto.getDomandaAttuale().getTesto());
         domanda.setHorizontalAlignment(JLabel.CENTER);
+        
+        //seleziona = new JLabel("Seleziona domande precedenti:");
+        //seleziona.setHorizontalAlignment(JLabel.CENTER);
     }
     
     private void initButtons()
@@ -93,13 +98,18 @@ public class ExecutePage extends JFrame
         end.addActionListener(ebl);
     }
     
+    private void setComboBox()
+    {
+        //percorso = new JComboBox(progetto.getPercorso().toArray());
+    }
+    
     private void setRadioButtons()
     {
-        int numeroScelte = progetto.getAttuale().getScelte().size();
+        int numeroScelte = progetto.getDomandaAttuale().getScelte().size();
         ArrayList<String> testoScelte = new ArrayList();
         
         for(int i = 0; i < numeroScelte; i++)
-            testoScelte.add(progetto.getAttuale().getScelte().get(i).getTesto());
+            testoScelte.add(progetto.getDomandaAttuale().getScelte().get(i).getTesto());
         
         gruppo = new ButtonGroup();
         
@@ -119,14 +129,19 @@ public class ExecutePage extends JFrame
         north.add(new JLabel());
         south.add(home);
         
-        if(progetto.getPercorso().size() != 1)
+        if(!progetto.getPercorso().isEmpty())
+        {
+            //east.add(seleziona);
+            //east.add(percorso);
             south.add(back);
-        
-        if(progetto.getAttuale().getScelte().isEmpty())
+        }
+            
+        if(progetto.getDomandaAttuale().getScelte().isEmpty())
         {
             center.add(new JLabel());
             center.add(new JLabel());
             center.add(domanda);
+            //east.removeAll();
             south.add(end);
         }
         else
@@ -140,13 +155,15 @@ public class ExecutePage extends JFrame
     {
         main.add(north, BorderLayout.NORTH);
         main.add(center, BorderLayout.CENTER);
+        //main.add(east, BorderLayout.EAST);
         main.add(south, BorderLayout.SOUTH);
     }
     
     public void refreshFrame()
     {
-        domanda.setText(progetto.getAttuale().getTesto());
+        domanda.setText(progetto.getDomandaAttuale().getTesto());
         setRadioButtons();
+        //setComboBox();
         setPanels();
         revalidate();
         repaint();
@@ -155,7 +172,8 @@ public class ExecutePage extends JFrame
     public void clearFrame()
     {
         north.removeAll();
-        south.removeAll();
         center.removeAll();
+        //east.removeAll();
+        south.removeAll();
     }
 }

@@ -28,4 +28,10 @@ public class Tappa
     {
         this.scelta = scelta;
     }
+    
+    @Override
+    public String toString()
+    {
+        return stato.getTesto();
+    }
 }

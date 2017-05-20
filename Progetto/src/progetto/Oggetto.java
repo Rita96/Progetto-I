@@ -28,7 +28,7 @@ public class Oggetto
         this.fileStati = fileStati;
         this.fileScelte = fileScelte;
         this.fileAdiacenze = fileAdiacenze;
-        stati = new ArrayList();
+        this.stati = new ArrayList();
     }
     
     public String getNome()
@@ -56,13 +56,9 @@ public class Oggetto
         return stati;
     }
     
-    /**
-    * Metodo che aggiunge all'attributo domande di oggetto un ArrayList di domande
-    * @param stati: ArrayList di Domanda
-    */
-    public void addStato(ArrayList<Stato> stati)
+    public void setStati(ArrayList<Stato> stati)
     {
-        this.stati.addAll(stati);
+        this.stati = stati;
     }
     
     @Override

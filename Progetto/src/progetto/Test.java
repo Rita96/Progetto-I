@@ -33,17 +33,17 @@ public class Test
             {
                 case 1:
                 {
-                    if(p.getOggetto() != null)
+                    if(p.getOggettoSelezionato()!= null)
                     {
                         System.out.println(p.stampaStato());
                         int i;
                         
-                        for(i = 0; i < p.getAttuale().getScelte().size(); i++)
+                        for(i = 0; i < p.getDomandaAttuale().getScelte().size(); i++)
                         {
-                            System.out.println(i + ". " + p.getAttuale().mostraScelta(i));
+                            System.out.println(i + ". " + p.getDomandaAttuale().mostraScelta(i));
                         }
                         
-                        if(p.getAttuale().getAdiacenze().isEmpty())
+                        if(p.getDomandaAttuale().getAdiacenze().isEmpty())
                         {
                             System.exit(0);
                         }
@@ -51,7 +51,7 @@ public class Test
                         Scanner inputS = new Scanner(System.in);
                         int nscelta = inputS.nextInt();
                         
-                        if(nscelta < p.getAttuale().getScelte().size())
+                        if(nscelta < p.getDomandaAttuale().getScelte().size())
                         {
                             p.esecuzione(nscelta);
                         }
@@ -62,9 +62,9 @@ public class Test
                         int nogg;
                         System.out.println("Inserire numero oggetto difettoso tra quelli possibili");
                         
-                        for(int i = 0; i < p.getOggetti().size(); i++) 
+                        for(int i = 0; i < p.getElencoOggetti().size(); i++) 
                         {
-                            System.out.println(i + "." + p.getOggetti().get(i).getNome());
+                            System.out.println(i + "." + p.getElencoOggetti().get(i).getNome());
                         }
                         
                         Scanner inputN = new Scanner(System.in);

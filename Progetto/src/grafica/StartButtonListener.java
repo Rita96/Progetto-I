@@ -13,8 +13,7 @@ public class StartButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         int selezionato = elencoOggetti.getSelectedIndex();
-        progetto.sceltaOggetto(selezionato);
-        progetto.esecuzione(0);
+        progetto.selezionaOggetto(selezionato);
         
         executePage = new ExecutePage();
         

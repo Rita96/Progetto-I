@@ -22,8 +22,8 @@ public class Stato
     {
         this.codice = codice;
         this.testo = testo;
-        adiacenze = new ArrayList<>();
-        scelte = new ArrayList<>();
+        this.adiacenze = new ArrayList<>();
+        this.scelte = new ArrayList<>();
     }
     
     public String getCodice()
@@ -51,11 +51,6 @@ public class Stato
         return adiacenze.get(n);
     }
     
-    public String mostraScelta(int i)
-    {
-        return scelte.get(i).getTesto();
-    }
-    
     /**
     * Metodo che controlla se una stringa è uguale al codice della domanda:
     * se è uguale, il metodo restituisce true, altrimenti false
@@ -75,5 +70,13 @@ public class Stato
     public void addAdiacenze(ArrayList<Stato> d)
     {
         adiacenze.addAll(d);
+    }
+    
+//------------------------------------------------------------------------------
+    //Metodi Debug/Test/Inutilizzati:
+    
+    public String mostraScelta(int i)
+    {
+        return scelte.get(i).getTesto();
     }
 }

@@ -5,27 +5,25 @@ import java.util.ArrayList;
 
 public class Progetto
 {
-    // attuale indica la domanda posta attualmente all'utente
-    private Stato attuale;
-    private Oggetto oggetto;
-    // percorso tiene traccia delle scelte fatte dall'utente rispondendo alle domande
-    private ArrayList<Tappa> percorso; 
-    private ArrayList<Oggetto> oggetti;
+    private Stato domandaAttuale;
+    private Oggetto oggettoSelezionato;
+    private ArrayList<Tappa> percorso; // percorso tiene traccia delle scelte fatte dall'utente rispondendo alle domande
+    private ArrayList<Oggetto> elencoOggetti;
     
     public Progetto()
     {
-        percorso = new ArrayList();
-        oggetti = new ArrayList();
+        this.percorso = new ArrayList();
+        this.elencoOggetti = new ArrayList();
     }
     
-    public Stato getAttuale()
+    public Stato getDomandaAttuale()
     {
-        return attuale;
+        return domandaAttuale;
     }
     
-    public Oggetto getOggetto()
+    public Oggetto getOggettoSelezionato()
     {
-        return oggetto;
+        return oggettoSelezionato;
     }
     
     public ArrayList<Tappa> getPercorso()
@@ -33,57 +31,49 @@ public class Progetto
         return percorso;
     }
     
+    public ArrayList<Oggetto> getElencoOggetti()
+    {
+        return elencoOggetti;
+    }
+    
+    public void clearPercorso()
+    {
+        percorso.clear();
+    }
+    
     public Tappa getTappa(int i)
     {
         return percorso.get(i);
     }
     
-    public ArrayList<Oggetto> getOggetti()
-    {
-        return oggetti;
-    }
-    
-    //TEXT
-    public String stampaStato() 
-    {
-        return attuale.getTesto();
-        //attuale.mostraScelte();
-    }
-    
     /**
      * Il metodo letturaOggetti() legge tutti gli oggetti di cui si vuole
-     * proporre un a risoluzione di problemi contiene i nomi dei file da cui
-     * prendere le scelte, gli stati e le adiacenze.
+     * proporre un problema all'applicazione.
      */
     public void letturaOggetti()
     {
-        String s = "oggetti.txt";
-        LetturaOggetti lo = new LetturaOggetti(s);
-        oggetti = new ArrayList<>();
-        oggetti = lo.lettura();
+        LetturaOggetti lo = new LetturaOggetti("oggetti.txt");
+        elencoOggetti = lo.lettura();
     }
     
     /** 
-     * Il metodo lettura() va a leggere per l'Oggetto che è attributo di Progetto
-     * dai rispettivi file di testo tutte le domande relative, le scelte e le
-     * adiacenze alle domande usando le classi di lettura delle Scelte, Domande
-     * ed Adiacenze.
+     * Il metodo letturaDatiOggetto() va a leggere per l'oggetto selezionato tutte le 
+     * domande, le scelte e le adiacenze alle domande usando le classi di
+     * lettura delle Scelte, Domande ed Adiacenze.
      */
-    public void lettura() 
+    public void letturaDatiOggetto() 
     {
-        ArrayList<Scelta> scelte = null;
-        ArrayList<Stato> stati = null;
+        ArrayList<Scelta> scelte;
+        ArrayList<Stato> stati;
         
-        LetturaScelte letturaS = new LetturaScelte(oggetto.getFileScelte());
+        LetturaScelte letturaS = new LetturaScelte(oggettoSelezionato.getFileScelte());
         scelte = letturaS.lettura();
-        LetturaStati letturaD = new LetturaStati(oggetto.getFileStati());
+        LetturaStati letturaD = new LetturaStati(oggettoSelezionato.getFileStati());
         stati=letturaD.lettura(scelte);
-        LetturaAdiacenze letturaA = new LetturaAdiacenze(oggetto.getFileAdiacenze());
+        LetturaAdiacenze letturaA = new LetturaAdiacenze(oggettoSelezionato.getFileAdiacenze());
         stati = letturaA.lettura(stati);
         
-        oggetto.addStato(stati);
-        // la prima nel file di testo diventa la prima domanda da porre all'utente
-        attuale = oggetto.getStati().get(0);
+        oggettoSelezionato.setStati(stati);
     }
     
     /**
@@ -91,49 +81,24 @@ public class Progetto
      * oggetto intende risolvere un problema.
      * @param n
      */
-    public void sceltaOggetto(int n)
+    public void selezionaOggetto(int n)
     {
-        if(n < oggetti.size())
-        {
-            oggetto = oggetti.get(n);
-            lettura();
-        }
-        else
-            System.out.println("Inserire un numero oggetto valido");
+        oggettoSelezionato = elencoOggetti.get(n);
+        letturaDatiOggetto();
+        domandaAttuale = oggettoSelezionato.getStati().get(0);
     }
     
     /** 
-     * Il metodo esecuzione(int n) consente all'utente di effettuare una scelta
+     * Il metodo esecuzioneProg(int n) consente all'utente di effettuare una scelta
      * tra quelle possibili ad un determinato stato.
      * @param n
      */
-    public void esecuzione(int n) //throws IOException commento perché l'eccezione è lanciata solo in debug. Tramite interfaccia non vi è alcun problema
+    public void esecuzioneProgetto(int n)
     {
-        /*  Questo if controlla se la domanda attuale ha delle possibili 
-            scelte, e quindi delle adiacenze. In caso contrario siamo
-            arrivati ad una possibile soluzione del problema.
-            Per terminare l'esecuzione del programma premere il tasto "Invio".
-        */
-        if(attuale.getScelte().isEmpty())
-        {   
-            //System.in.read();
-            System.exit(0);
-        }
-        else
-        {
-            /* n indica la risposta data dall'utente.
-               NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
-            */
-            Scelta s = attuale.getScelte().get(n);
-            Tappa r = new Tappa(attuale, s);
-            percorso.add(r);
-            /*
-            //metodo usato per tenere traccia della risposta data all'interno dell'Array risposte (1)
-            addRisposta(r); 
-            attuale = getDomanda(d, n);
-            */
-            prossimoStato(n);
-        }
+        Scelta s = domandaAttuale.getScelte().get(n);
+        Tappa r = new Tappa(domandaAttuale, s);
+        percorso.add(r);
+        prossimoStato(n);
     }
     
     /** 
@@ -143,24 +108,14 @@ public class Progetto
      */
     public void prossimoStato(int scelta)
     {   
-        attuale = attuale.getProssimaAdiacenza(scelta);
+        domandaAttuale = domandaAttuale.getProssimaAdiacenza(scelta);
     }
     
-    /** 
-     * !! METODO PROBABILMENTE INUTILE !!
-     * 
-     * Il metodo cambioTappa(int n) permette di cambiare scelta ad uno stato
-     * a cui si è già risposto.
-     * @param n
-     */
-    public void cambioTappa(int n)
+    public void tappaPrecedente(int n)
     {
-        if(n < attuale.getScelte().size())
-        {
-            Scelta s = attuale.getScelte().get(n);
-            percorso.get(n).setScelta(s);
-            pulisciPercorso();
-        } 
+        Scelta s = domandaAttuale.getScelte().get(n);
+        percorso.get(n).setScelta(s);
+        pulisciPercorso();
     }
     
     /** 
@@ -172,8 +127,8 @@ public class Progetto
      */    
     public void returnHome()
     {
-        attuale = null;
-        oggetto = null;
+        domandaAttuale = null;
+        oggettoSelezionato = null;
         percorso.clear();
     }
     
@@ -191,7 +146,7 @@ public class Progetto
         // Trova da che domanda in poi bisogna cancellare le risposte (compresa attuale)
         for(int i = 0; i < n; i++)
         {
-            if(attuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
+            if(domandaAttuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
             {
                 c = i;
                 i = n;
@@ -215,11 +170,95 @@ public class Progetto
     {
         if(i < percorso.size())
         {
-            attuale = percorso.get(i).getStato();
-            for(int j = percorso.size() - 1; j >= i; j--) 
-            {
+            domandaAttuale = percorso.get(i).getStato();
+            for(int j = percorso.size() - 1; j >= i; j--)
                 percorso.remove(j);
-            }
+        }
+    }
+    
+    /** 
+     * Il metodo indietro() ritorna alla domanda precedente
+     */
+    public void back()
+    {
+        statoPrecedente(percorso.size() - 1);
+    }
+    
+//------------------------------------------------------------------------------
+// Metodi Debug/Test/Inutilizzati:
+    
+    //TEXT
+    public String stampaStato() 
+    {
+        return domandaAttuale.getTesto();
+        //attuale.mostraScelte();
+    }
+    
+    /**
+     * Il metodo sceltaOggetto(int n) consente all'utente di scegliere di quale
+     * oggetto intende risolvere un problema.
+     * @param n
+     */
+    public void sceltaOggetto(int n)
+    {
+        if(n < elencoOggetti.size())
+        {
+            oggettoSelezionato = elencoOggetti.get(n);
+            letturaDatiOggetto();
+            domandaAttuale = oggettoSelezionato.getStati().get(0);
+        }
+        else
+            System.out.println("Inserire un numero oggetto valido");
+    }
+    
+    /** 
+     * Il metodo esecuzione(int n) consente all'utente di effettuare una scelta
+     * tra quelle possibili ad un determinato stato.
+     * @param n
+     */
+    public void esecuzione(int n) throws IOException
+    {
+        /*  Questo if controlla se la domanda attuale ha delle possibili 
+            scelte, e quindi delle adiacenze. In caso contrario siamo
+            arrivati ad una possibile soluzione del problema.
+            Per terminare l'esecuzione del programma premere il tasto "Invio".
+        */
+        if(domandaAttuale.getScelte().isEmpty())
+        {   
+            System.in.read();
+            System.exit(0);
+        }
+        else
+        {
+            /* n indica la risposta data dall'utente.
+               NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
+            */
+            Scelta s = domandaAttuale.getScelte().get(n);
+            Tappa r = new Tappa(domandaAttuale, s);
+            percorso.add(r);
+            /*
+            //metodo usato per tenere traccia della risposta data all'interno dell'Array risposte (1)
+            addRisposta(r); 
+            attuale = getDomanda(d, n);
+            */
+            prossimoStato(n);
+        }
+    }
+    
+    /** 
+     * !! METODO PROBABILMENTE INUTILE !!
+     * 
+     * Il metodo cambioTappa(int n) permette di cambiare scelta ad uno stato
+     * a cui si è già risposto.
+     * @param n
+     */
+    public void cambioTappa(int n)
+    {
+        if(n < domandaAttuale.getScelte().size())
+        {
+            Scelta s = domandaAttuale.getScelte().get(n);
+            percorso.get(n).setScelta(s);
+            pulisciPercorso();
         }
     }
     
@@ -228,7 +267,7 @@ public class Progetto
      */
     public void indietro()
     {
-        if(percorso.size()>1)
+        if(percorso.size() > 1)
         {
             statoPrecedente(percorso.size() - 1);
         }

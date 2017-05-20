@@ -11,7 +11,7 @@ public class BackButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         executePage.clearFrame();
-        progetto.indietro();
+        progetto.back();
         executePage.refreshFrame();
     }
 }

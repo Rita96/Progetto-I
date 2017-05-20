@@ -64,15 +64,15 @@ public class HomePage extends JFrame
         seleziona.setFont(fontSeleziona);
         
         oggetto = new JLabel("Elettrodomestico");
-        //oggetto.setHorizontalAlignment(JLabel.CENTER);
+        oggetto.setHorizontalAlignment(JLabel.CENTER);
         
         attributo = new JLabel("Modello");
-        //attributo.setHorizontalAlignment(JLabel.CENTER);
+        attributo.setHorizontalAlignment(JLabel.CENTER);
     }
     
     private void setComboBoxes()
     {
-        elencoOggetti = new JComboBox(progetto.getOggetti().toArray());
+        elencoOggetti = new JComboBox(progetto.getElencoOggetti().toArray());
         ComboBoxListener cbl = new ComboBoxListener();
         elencoOggetti.addActionListener(cbl);
         
