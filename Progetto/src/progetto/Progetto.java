@@ -21,11 +21,6 @@ public class Progetto
         return domandaAttuale;
     }
     
-    public Oggetto getOggettoSelezionato()
-    {
-        return oggettoSelezionato;
-    }
-    
     public ArrayList<Tappa> getPercorso()
     {
         return percorso;
@@ -34,16 +29,6 @@ public class Progetto
     public ArrayList<Oggetto> getElencoOggetti()
     {
         return elencoOggetti;
-    }
-    
-    public void clearPercorso()
-    {
-        percorso.clear();
-    }
-    
-    public Tappa getTappa(int i)
-    {
-        return percorso.get(i);
     }
     
     /**
@@ -107,15 +92,8 @@ public class Progetto
      * @param scelta
      */
     public void prossimoStato(int scelta)
-    {   
-        domandaAttuale = domandaAttuale.getProssimaAdiacenza(scelta);
-    }
-    
-    public void tappaPrecedente(int n)
     {
-        Scelta s = domandaAttuale.getScelte().get(n);
-        percorso.get(n).setScelta(s);
-        pulisciPercorso();
+        domandaAttuale = domandaAttuale.getProssimaAdiacenza(scelta);
     }
     
     /** 
@@ -132,35 +110,6 @@ public class Progetto
         percorso.clear();
     }
     
-    /**
-     * !! METODO PROBABILMENTE INUTILE !!
-     * 
-     * Il metodo pulisciPercorso() cancella le tappe successive a quella 
-     * di cui si è cambiata scelta.
-     */
-    public void pulisciPercorso() 
-    {
-        int n = percorso.size();
-        int c = n;
-        
-        // Trova da che domanda in poi bisogna cancellare le risposte (compresa attuale)
-        for(int i = 0; i < n; i++)
-        {
-            if(domandaAttuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
-            {
-                c = i;
-                i = n;
-            }
-        }
-        
-        // Cancella le risposte sucessive (compresa attuale).
-        while(c < n)
-        {
-            percorso.remove(c);
-            c++;
-        }
-    }
-    
     /** 
      * Il metodo statoPrecedente(int i) ritorna ad una domanda a cui
      * si è precedente risposto.
@@ -168,12 +117,9 @@ public class Progetto
      */
     public void statoPrecedente(int i)
     {
-        if(i < percorso.size())
-        {
-            domandaAttuale = percorso.get(i).getStato();
-            for(int j = percorso.size() - 1; j >= i; j--)
-                percorso.remove(j);
-        }
+        domandaAttuale = percorso.get(i).getStato();
+        for(int j = percorso.size() - 1; j >= i; j--)
+            percorso.remove(j);
     }
     
     /** 
@@ -270,6 +216,52 @@ public class Progetto
         if(percorso.size() > 1)
         {
             statoPrecedente(percorso.size() - 1);
+        }
+    }
+    
+    public void tappaPrecedente(int n)
+    {
+        Scelta s = domandaAttuale.getScelte().get(n);
+        percorso.get(n).setScelta(s);
+        pulisciPercorso();
+    }
+    
+    public Oggetto getOggettoSelezionato()
+    {
+        return oggettoSelezionato;
+    }
+    
+    public Tappa getTappa(int i)
+    {
+        return percorso.get(i);
+    }
+    
+    /**
+     * !! METODO PROBABILMENTE INUTILE !!
+     * 
+     * Il metodo pulisciPercorso() cancella le tappe successive a quella 
+     * di cui si è cambiata scelta.
+     */
+    public void pulisciPercorso() 
+    {
+        int n = percorso.size();
+        int c = n;
+        
+        // Trova da che domanda in poi bisogna cancellare le risposte (compresa attuale)
+        for(int i = 0; i < n; i++)
+        {
+            if(domandaAttuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
+            {
+                c = i;
+                i = n;
+            }
+        }
+        
+        // Cancella le risposte sucessive (compresa attuale).
+        while(c < n)
+        {
+            percorso.remove(c);
+            c++;
         }
     }
 }

@@ -13,7 +13,7 @@ public class EndButtonListener implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         executePage.dispose();
-        progetto.clearPercorso();
+        progetto.getPercorso().clear();
         homePage.setVisible(true);
     }
 }

@@ -25,7 +25,7 @@ public class ExecutePage extends JFrame
     private JLabel domanda, seleziona;
     private JButton home, back, next, end;
     private ImageIcon homeIcon, backIcon, nextIcon, endIcon;
-    private JComboBox percorso;
+    static JComboBox percorso;
     private ButtonGroup gruppo;
     
     public ExecutePage()
@@ -136,6 +136,8 @@ public class ExecutePage extends JFrame
     {
         percorso = new JComboBox(progetto.getPercorso().toArray());
         percorso.setPreferredSize(new Dimension(200, 30));
+        ComboBoxListener cbl = new ComboBoxListener();
+        percorso.addActionListener(cbl);
     }
     
     private void setRadioButtons()
