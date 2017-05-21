@@ -76,8 +76,6 @@ public class HomePage extends JFrame
     private void setComboBoxes()
     {
         elencoOggetti = new JComboBox(progetto.getElencoOggetti().toArray());
-        ComboBoxListener cbl = new ComboBoxListener();
-        elencoOggetti.addActionListener(cbl);
         
         elencoAttributi = new JComboBox();
         elencoAttributi.setEnabled(false);
