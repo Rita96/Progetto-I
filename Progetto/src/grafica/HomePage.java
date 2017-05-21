@@ -6,7 +6,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -20,6 +22,7 @@ public class HomePage extends JFrame
     private JLabel benvenuto, seleziona, oggetto, attributo;
     static JComboBox elencoOggetti, elencoAttributi;
     private JButton start;
+    private ImageIcon startIcon;
     
     public HomePage()
     {
@@ -82,9 +85,18 @@ public class HomePage extends JFrame
     
     private void setStartButton()
     {
-        start = new JButton("Inizia");
+        start = new JButton();
         StartButtonListener sbl = new StartButtonListener();
         start.addActionListener(sbl);
+        setStartIcon();
+    }
+    
+    private void setStartIcon()
+    {
+        startIcon = new ImageIcon("icon/start.png");
+        Image img = startIcon.getImage().getScaledInstance(40, 25, Image.SCALE_SMOOTH);
+        startIcon.setImage(img);
+        start.setIcon(startIcon);
     }
     
     private void setPanels()

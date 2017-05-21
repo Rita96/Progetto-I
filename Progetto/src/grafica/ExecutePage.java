@@ -6,10 +6,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,9 +24,9 @@ public class ExecutePage extends JFrame
     private JPanel main, north, center, east, south;
     private JLabel domanda, seleziona;
     private JButton home, back, next, end;
-    //private JComboBox percorso;
+    private ImageIcon homeIcon, backIcon, nextIcon, endIcon;
+    private JComboBox percorso;
     private ButtonGroup gruppo;
-    static boolean ultimoStato;  
     
     public ExecutePage()
     {
@@ -34,7 +37,7 @@ public class ExecutePage extends JFrame
         initFont();
         initLabels();
         initButtons();
-        //setComboBox();
+        setComboBox();
         setRadioButtons();
         setPanels();
         setMainPanel();
@@ -58,7 +61,7 @@ public class ExecutePage extends JFrame
         main = new JPanel(new BorderLayout());
         north = new JPanel(new GridLayout(4, 1));
         center = new JPanel(new GridLayout(5, 1));
-        //east = new JPanel(new GridLayout(10, 1));
+        east = new JPanel(new GridLayout(10, 1));
         south = new JPanel(new FlowLayout());
     }
     
@@ -75,32 +78,64 @@ public class ExecutePage extends JFrame
         domanda.setText(progetto.getDomandaAttuale().getTesto());
         domanda.setHorizontalAlignment(JLabel.CENTER);
         
-        //seleziona = new JLabel("Seleziona domande precedenti:");
-        //seleziona.setHorizontalAlignment(JLabel.CENTER);
+        seleziona = new JLabel("Seleziona domande precedenti:");
+        seleziona.setHorizontalAlignment(JLabel.CENTER);
     }
     
     private void initButtons()
     {
-        back = new JButton("←");
+        Dimension buttonDimension = new Dimension(60, 30);
+        
+        back = new JButton();
+        back.setPreferredSize(buttonDimension);
         BackButtonListener bbl = new BackButtonListener();
         back.addActionListener(bbl);
         
-        next = new JButton("→");
+        next = new JButton();
+        next.setPreferredSize(buttonDimension);
         NextButtonListener nbl = new NextButtonListener();
         next.addActionListener(nbl);
         
-        home = new JButton("🏠");
+        home = new JButton();
+        home.setPreferredSize(buttonDimension);
         HomeButtonListener hbl = new HomeButtonListener();
         home.addActionListener(hbl);
         
-        end = new JButton("Fine");
+        end = new JButton();
+        end.setPreferredSize(buttonDimension);
         EndButtonListener ebl = new EndButtonListener();
         end.addActionListener(ebl);
+        
+        setIconButtons();
+    }
+    
+    private void setIconButtons()
+    {
+        homeIcon = new ImageIcon("icon/home.png");
+        Image icon = homeIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        homeIcon.setImage(icon);
+        home.setIcon(homeIcon);
+        
+        nextIcon = new ImageIcon("icon/next.png");
+        icon = nextIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        nextIcon.setImage(icon);
+        next.setIcon(nextIcon);
+        
+        backIcon = new ImageIcon("icon/back.png");
+        icon = backIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        backIcon.setImage(icon);
+        back.setIcon(backIcon);
+        
+        endIcon = new ImageIcon("icon/end.png");
+        icon = endIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        endIcon.setImage(icon);
+        end.setIcon(endIcon);
     }
     
     private void setComboBox()
     {
-        //percorso = new JComboBox(progetto.getPercorso().toArray());
+        percorso = new JComboBox(progetto.getPercorso().toArray());
+        percorso.setPreferredSize(new Dimension(200, 30));
     }
     
     private void setRadioButtons()
@@ -131,8 +166,8 @@ public class ExecutePage extends JFrame
         
         if(!progetto.getPercorso().isEmpty())
         {
-            //east.add(seleziona);
-            //east.add(percorso);
+            east.add(seleziona);
+            east.add(percorso);
             south.add(back);
         }
             
@@ -141,7 +176,7 @@ public class ExecutePage extends JFrame
             center.add(new JLabel());
             center.add(new JLabel());
             center.add(domanda);
-            //east.removeAll();
+            east.removeAll();
             south.add(end);
         }
         else
@@ -155,7 +190,7 @@ public class ExecutePage extends JFrame
     {
         main.add(north, BorderLayout.NORTH);
         main.add(center, BorderLayout.CENTER);
-        //main.add(east, BorderLayout.EAST);
+        main.add(east, BorderLayout.EAST);
         main.add(south, BorderLayout.SOUTH);
     }
     
@@ -163,7 +198,7 @@ public class ExecutePage extends JFrame
     {
         domanda.setText(progetto.getDomandaAttuale().getTesto());
         setRadioButtons();
-        //setComboBox();
+        setComboBox();
         setPanels();
         revalidate();
         repaint();
@@ -173,7 +208,7 @@ public class ExecutePage extends JFrame
     {
         north.removeAll();
         center.removeAll();
-        //east.removeAll();
+        east.removeAll();
         south.removeAll();
     }
 }
