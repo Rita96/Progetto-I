@@ -18,9 +18,9 @@ import javax.swing.JPanel;
 public class HomePage extends JFrame 
 {
     private Font fontBenvenuto, fontSeleziona;
-    private JPanel pannello, north, east, center, west, south;
-    private JLabel benvenuto, seleziona, oggetto, attributo;
-    static JComboBox elencoOggetti, elencoAttributi;
+    private JPanel main, north, center, south;
+    private JLabel benvenuto, seleziona;
+    static JComboBox elencoOggetti;
     private JButton start;
     private ImageIcon startIcon;
     
@@ -35,16 +35,16 @@ public class HomePage extends JFrame
         setPanels();
         setMainPanel();
         setResizable(false);
-        setContentPane(pannello);
+        setContentPane(main);
         setVisible(true);
     }
     
     private void setHomeLocation()
     {
-        Toolkit kit = Toolkit.getDefaultToolkit(); 
-        Dimension screenSize = kit.getScreenSize(); 
-        int screenHeight = screenSize.height; 
-        int screenWidth = screenSize.width; 
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
         setSize(screenWidth / 3, screenHeight / 3);
         setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
     }
@@ -65,25 +65,18 @@ public class HomePage extends JFrame
         seleziona = new JLabel("Seleziona l'elettrodomestico in tuo possesso");
         seleziona.setHorizontalAlignment(JLabel.CENTER);
         seleziona.setFont(fontSeleziona);
-        
-        oggetto = new JLabel("Elettrodomestico");
-        oggetto.setHorizontalAlignment(JLabel.CENTER);
-        
-        attributo = new JLabel("Modello");
-        attributo.setHorizontalAlignment(JLabel.CENTER);
     }
     
     private void setComboBoxes()
     {
         elencoOggetti = new JComboBox(progetto.getElencoOggetti().toArray());
-        
-        elencoAttributi = new JComboBox();
-        elencoAttributi.setEnabled(false);
+        elencoOggetti.setPreferredSize(new Dimension(200, 30));
     }
     
     private void setStartButton()
     {
         start = new JButton();
+        start.setPreferredSize(new Dimension(60, 30));
         StartButtonListener sbl = new StartButtonListener();
         start.addActionListener(sbl);
         setStartIcon();
@@ -92,36 +85,29 @@ public class HomePage extends JFrame
     private void setStartIcon()
     {
         startIcon = new ImageIcon("icon/start.png");
-        Image img = startIcon.getImage().getScaledInstance(40, 25, Image.SCALE_SMOOTH);
-        startIcon.setImage(img);
+        Image icon = startIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        startIcon.setImage(icon);
         start.setIcon(startIcon);
     }
     
     private void setPanels()
     {
-        pannello = new JPanel(new BorderLayout());
+        main = new JPanel(new BorderLayout());
         north = new JPanel(new GridLayout(4, 1));
-        east = new JPanel();
-        center = new JPanel(new GridLayout(3, 2, 30, 0));
-        west = new JPanel();
+        center = new JPanel(new FlowLayout());
         south = new JPanel(new FlowLayout());
         
         north.add(new JLabel());
         north.add(benvenuto);
         north.add(seleziona);
-        center.add(oggetto);
-        center.add(attributo);
         center.add(elencoOggetti);
-        center.add(elencoAttributi);
         south.add(start);
     }
     
     private void setMainPanel()
     {
-        pannello.add(north, BorderLayout.NORTH);
-        pannello.add(east, BorderLayout.EAST);
-        pannello.add(center, BorderLayout.CENTER);
-        pannello.add(west, BorderLayout.WEST);
-        pannello.add(south, BorderLayout.SOUTH);
+        main.add(north, BorderLayout.NORTH);
+        main.add(center, BorderLayout.CENTER);
+        main.add(south, BorderLayout.SOUTH);
     }
 }
