@@ -38,12 +38,12 @@ public class Test
                         System.out.println(p.stampaStato());
                         int i;
                         
-                        for(i = 0; i < p.getDomandaAttuale().getScelte().size(); i++)
+                        for(i = 0; i < p.getScelteDomandaAttuale().size(); i++)
                         {
-                            System.out.println(i + ". " + p.getDomandaAttuale().mostraScelta(i));
+                            System.out.println(i + ". " + p.mostraSceltaDomandaAttuale(i));
                         }
                         
-                        if(p.getDomandaAttuale().getAdiacenze().isEmpty())
+                        if(p.getAdiacenzeDomandaAttuale().isEmpty())
                         {
                             System.exit(0);
                         }
