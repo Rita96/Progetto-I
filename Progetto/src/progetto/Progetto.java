@@ -70,7 +70,7 @@ public class Progetto
     {
         oggettoSelezionato = elencoOggetti.get(n);
         letturaDatiOggetto();
-        domandaAttuale = oggettoSelezionato.getStati().get(0);
+        domandaAttuale = oggettoSelezionato.getStatoIniziale();
     }
     
     /** 
@@ -80,7 +80,7 @@ public class Progetto
      */
     public void esecuzioneProgetto(int n)
     {
-        Scelta s = domandaAttuale.getScelte().get(n);
+        Scelta s = domandaAttuale.getScelta(n);
         Tappa r = new Tappa(domandaAttuale, s);
         percorso.add(r);
         prossimoStato(n);
@@ -117,7 +117,7 @@ public class Progetto
      */
     public void statoPrecedente(int i)
     {
-        domandaAttuale = percorso.get(i).getStato();
+        domandaAttuale = getTappa(i).getStato();
         for(int j = percorso.size() - 1; j >= i; j--)
             percorso.remove(j);
     }
@@ -151,7 +151,7 @@ public class Progetto
         {
             oggettoSelezionato = elencoOggetti.get(n);
             letturaDatiOggetto();
-            domandaAttuale = oggettoSelezionato.getStati().get(0);
+            domandaAttuale = oggettoSelezionato.getStatoIniziale();
         }
         else
             System.out.println("Inserire un numero oggetto valido");
@@ -179,7 +179,7 @@ public class Progetto
             /* n indica la risposta data dall'utente.
                NON CONTIENE IL CODICE SCELTA MA LA POSIZIONE NELL'ARRAY
             */
-            Scelta s = domandaAttuale.getScelte().get(n);
+            Scelta s = domandaAttuale.getScelta(n);
             Tappa r = new Tappa(domandaAttuale, s);
             percorso.add(r);
             /*
@@ -202,8 +202,8 @@ public class Progetto
     {
         if(n < domandaAttuale.getScelte().size())
         {
-            Scelta s = domandaAttuale.getScelte().get(n);
-            percorso.get(n).setScelta(s);
+            Scelta s = domandaAttuale.getScelta(n);
+            getTappa(n).setScelta(s);
             pulisciPercorso();
         }
     }
@@ -250,7 +250,7 @@ public class Progetto
         // Trova da che domanda in poi bisogna cancellare le risposte (compresa attuale)
         for(int i = 0; i < n; i++)
         {
-            if(domandaAttuale.getCodice().equals(percorso.get(i).getStato().getCodice()))
+            if(domandaAttuale.getCodice().equals(getTappa(i).getCodiceStato()))
             {
                 c = i;
                 i = n;

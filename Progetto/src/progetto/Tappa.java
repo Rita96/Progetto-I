@@ -19,6 +19,11 @@ public class Tappa
         return stato;
     }
     
+    public String getCodiceStato()
+    {
+        return stato.getCodice();
+    }
+    
     public Scelta getScelta()
     {
         return scelta;

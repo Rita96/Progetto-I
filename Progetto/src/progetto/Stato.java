@@ -46,6 +46,11 @@ public class Stato
         return scelte;
     }
     
+    public Scelta getScelta(int n)
+    {
+        return scelte.get(n);
+    }
+    
     public Stato getProssimaAdiacenza(int n)
     {
         return adiacenze.get(n);

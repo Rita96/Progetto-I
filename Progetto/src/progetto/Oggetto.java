@@ -56,6 +56,11 @@ public class Oggetto
         return stati;
     }
     
+    public Stato getStatoIniziale()
+    {
+        return stati.get(0);
+    }
+    
     public void setStati(ArrayList<Stato> stati)
     {
         this.stati = stati;
