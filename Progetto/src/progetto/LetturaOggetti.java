@@ -1,35 +1,21 @@
 package progetto;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class LetturaOggetti
+public class LetturaOggetti extends Lettura
 {
-    private String nomeFile;
-    private BufferedReader inputStream;
-    
-    public LetturaOggetti(String nomeFile)
-    {
-        this.nomeFile = nomeFile;
-        inputStream = null;
+
+    public LetturaOggetti(String nomeFile) {
+        super(nomeFile);
     }
     
     public ArrayList<Oggetto> lettura()
     {
         ArrayList<Oggetto> oggetti = new ArrayList<>();
         
-        try
-        {
-            inputStream = new BufferedReader(new FileReader(nomeFile));
-        }
-        catch(FileNotFoundException e)
-        {
-            System.exit(0);
-        }
+        super.bufferedReaderInitialization();
         
         try
         {
@@ -41,14 +27,7 @@ public class LetturaOggetti
                 st = new StringTokenizer(stringa, "\t\n");
                 while(st.hasMoreTokens())
                 {
-                    String nome = st.nextToken();
-                    String attributo = st.nextToken();
-                    String fileDomande = st.nextToken();
-                    String fileScelte = st.nextToken();
-                    String fileAdiacenze = st.nextToken();
-                    
-                    Oggetto o = new Oggetto(nome, attributo, fileDomande, fileScelte, fileAdiacenze);
-                    oggetti.add(o);
+                    subLetturaOggetti(st, oggetti);
                 }
                 stringa = inputStream.readLine();
             }
@@ -60,5 +39,17 @@ public class LetturaOggetti
         }
         
         return oggetti;
+    }
+    
+    public void subLetturaOggetti(StringTokenizer st, ArrayList oggetti)
+    {
+        String nome = st.nextToken();
+        String attributo = st.nextToken();
+        String fileDomande = st.nextToken();
+        String fileScelte = st.nextToken();
+        String fileAdiacenze = st.nextToken();
+
+        Oggetto o = new Oggetto(nome, attributo, fileDomande, fileScelte, fileAdiacenze);
+        oggetti.add(o);
     }
 }

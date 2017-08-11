@@ -1,35 +1,21 @@
 package progetto;
 
 import java.util.StringTokenizer;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LetturaStati
+public class LetturaStati extends Lettura
 {
-    private String nomeFile;
-    private BufferedReader inputStream;
-    
-    public LetturaStati(String nomeFile)
-    {
-        this.nomeFile = nomeFile;
-        inputStream = null;
+
+    public LetturaStati(String nomeFile) {
+        super(nomeFile);
     }
     
     public ArrayList<Stato> lettura(ArrayList<Scelta> s)
     {
         ArrayList<Stato> domande = new ArrayList<>();
         
-        try
-        {
-            inputStream = new BufferedReader(new FileReader(nomeFile));
-        }
-        catch(FileNotFoundException e)
-        {  
-            System.exit(0);                    
-        }
+        super.bufferedReaderInitialization();
         
         try
         {

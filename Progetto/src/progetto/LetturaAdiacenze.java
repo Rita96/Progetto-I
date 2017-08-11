@@ -1,36 +1,21 @@
 package progetto;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 
-public class LetturaAdiacenze 
+public class LetturaAdiacenze extends Lettura 
 {
-    private String nomeFile;
-    private BufferedReader inputStream;
 
-    public LetturaAdiacenze(String nomeFile) 
-    {
-        this.nomeFile = nomeFile;
-        inputStream = null;
+    public LetturaAdiacenze(String nomeFile) {
+        super(nomeFile);
     }
 
     public ArrayList<Stato> lettura(ArrayList<Stato> stati)
     {
         ArrayList<Stato> adiacenze = new ArrayList<>();
 
-        try
-        {
-            inputStream = new BufferedReader(new FileReader(nomeFile));
-        }
-        catch (FileNotFoundException e)
-        {
-            
-            System.exit(0);
-        }
+        super.bufferedReaderInitialization();
 
         try
         {

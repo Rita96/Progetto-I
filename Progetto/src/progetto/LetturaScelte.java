@@ -1,35 +1,21 @@
 package progetto;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class LetturaScelte
+public class LetturaScelte extends Lettura
 {
-    private String nomeFile;
-    private BufferedReader inputStream;
-    
-    public LetturaScelte(String nomeFile)
-    {
-        this.nomeFile = nomeFile;
-        inputStream = null;
+
+    public LetturaScelte(String nomeFile) {
+        super(nomeFile);
     }
     
     public ArrayList<Scelta> lettura()
     {
         ArrayList<Scelta> scelte = new ArrayList<>();
         
-        try
-        {
-            inputStream = new BufferedReader(new FileReader(nomeFile));
-        }
-        catch(FileNotFoundException e)
-        {
-            System.exit(0);
-        }
+        bufferedReaderInitialization();
         
         try
         {
@@ -41,11 +27,7 @@ public class LetturaScelte
                 st = new StringTokenizer(stringa, "\t\n");
                 while(st.hasMoreElements())
                 {
-                    String codice = st.nextToken();
-                    String testo = st.nextToken();
-                    
-                    Scelta s = new Scelta(codice, testo);
-                    scelte.add(s);
+                    subLetturaScelte(st, scelte);
                 }
                 stringa = inputStream.readLine();
             }
@@ -57,6 +39,15 @@ public class LetturaScelte
         }
         
         return scelte;
+    }
+    
+    public void subLetturaScelte(StringTokenizer st, ArrayList scelte)
+    {
+        String codice = st.nextToken();
+        String testo = st.nextToken();
+
+        Scelta s = new Scelta(codice, testo);
+        scelte.add(s);
     }
   
 }
