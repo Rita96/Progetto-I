@@ -51,7 +51,7 @@ public class Test
                         Scanner inputS = new Scanner(System.in);
                         int nscelta = inputS.nextInt();
                         
-                        if(nscelta < p.getDomandaAttuale().getScelte().size())
+                        if(nscelta < p.getScelteDomandaAttuale().size())
                         {
                             p.esecuzione(nscelta);
                         }
@@ -64,7 +64,7 @@ public class Test
                         
                         for(int i = 0; i < p.getElencoOggetti().size(); i++) 
                         {
-                            System.out.println(i + "." + p.getElencoOggetti().get(i).getNome());
+                            System.out.println(i + "." + p.getNomeOggetto(i));
                         }
                         
                         Scanner inputN = new Scanner(System.in);
@@ -90,10 +90,10 @@ public class Test
                         if(s < p.getPercorso().size())
                         {
                             System.out.println("DOMANDA:");
-                            System.out.println(p.getPercorso().get(s).getStato().getTesto());
+                            System.out.println(p.getTestoStato(s));
                             System.out.println("SCELTE POSSIBILI:");
                             
-                            for(int k=0; k<p.getPercorso().get(s).getStato().getScelte().size(); k++) 
+                            for(int k=0; k<p.getScelteStatoPercorso(s).size(); k++) 
                             {
                                 System.out.println(p.getPercorso().get(s).getStato().mostraScelta(k));
                             }
