@@ -24,19 +24,28 @@ public class Tappa
         return stato.getCodice();
     }
     
+    public String getTestoStato()
+    {
+        return stato.getTesto();
+    }
+    
     public Scelta getScelta()
     {
         return scelta;
     }
     
+    public String getCodiceScelta()
+    {
+        return scelta.getCodice();
+    }
+    
+    public String getTestoScelta()
+    {
+        return scelta.getTesto();
+    }
+    
     public void setScelta(Scelta scelta)
     {
         this.scelta = scelta;
-    }
-    
-    @Override
-    public String toString()
-    {
-        return stato.getTesto();
     }
 }

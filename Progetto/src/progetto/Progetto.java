@@ -264,4 +264,44 @@ public class Progetto
             c++;
         }
     }
+    
+    public ArrayList<Scelta> getScelteDomandaAttuale()
+    {
+        return domandaAttuale.getScelte();
+    }
+    
+    public String mostraSceltaDomandaAttuale(int i)
+    {
+        return domandaAttuale.mostraScelta(i);
+    }
+
+    public ArrayList<Stato> getAdiacenzeDomandaAttuale()
+    {
+        return domandaAttuale.getAdiacenze();
+    }
+    
+    public Oggetto getOggetto(int i)
+    {
+        return elencoOggetti.get(i);
+    }
+    
+    public String getNomeOggetto(int i)
+    {
+        return getOggetto(i).getNome();
+    }
+    
+    public String getTestoStato(int i)
+    {
+        return getTappa(i).getTestoStato();
+    }
+    
+    public Stato getStatoPercorso(int i)
+    {
+        return getTappa(i).getStato();
+    }
+    
+    public ArrayList<Scelta> getScelteStatoPercorso(int i)
+    {
+        return getStatoPercorso(i).getScelte();
+    }
 }
