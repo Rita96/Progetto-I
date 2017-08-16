@@ -21,7 +21,7 @@ public class Test
         {
             System.out.println("Scelta Menu:");
             System.out.println("1.Esecuzione risolutore");
-            System.out.println("2.Per visulaizzare una domanda precedente, le scelte possibili e quella effettuata");
+            System.out.println("2.Per visualizzare una domanda precedente, le scelte possibili e quella effettuata");
             System.out.println("3.Per modificare la scelta effettuata ad una domanda precedente");
             System.out.println("4.Per tornare alla Home");
             System.out.println("5.Per terminare l'esecuzione");
@@ -35,15 +35,15 @@ public class Test
                 {
                     if(p.getOggettoSelezionato()!= null)
                     {
-                        System.out.println(p.stampaStato());
+                        System.out.println(p.mostraDomandaAttuale());
                         int i;
                         
-                        for(i = 0; i < p.getScelteDomandaAttuale().size(); i++)
+                        for(i = 0; i < p.scelteDomandaAttualeSize(); i++)
                         {
                             System.out.println(i + ". " + p.mostraSceltaDomandaAttuale(i));
                         }
                         
-                        if(p.getAdiacenzeDomandaAttuale().isEmpty())
+                        if(p.adiacenzeDomandaAttualeEmpty())
                         {
                             System.exit(0);
                         }
@@ -51,7 +51,7 @@ public class Test
                         Scanner inputS = new Scanner(System.in);
                         int nscelta = inputS.nextInt();
                         
-                        if(nscelta < p.getScelteDomandaAttuale().size())
+                        if(nscelta < p.scelteDomandaAttualeSize())
                         {
                             p.esecuzione(nscelta);
                         }
@@ -62,7 +62,7 @@ public class Test
                         int nogg;
                         System.out.println("Inserire numero oggetto difettoso tra quelli possibili");
                         
-                        for(int i = 0; i < p.getElencoOggetti().size(); i++) 
+                        for(int i = 0; i < p.elencoOggettiSize(); i++) 
                         {
                             System.out.println(i + "." + p.getNomeOggetto(i));
                         }
@@ -75,31 +75,31 @@ public class Test
                 }
                 case 2:
                 {
-                    if(p.getPercorso().size() > 0)
+                    if(p.percorsoSize() > 0)
                     {
                         System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
                         
-                        for(int i = 0; i < p.getPercorso().size(); i++)
+                        for(int i = 0; i < p.percorsoSize(); i++)
                         {
-                            System.out.println(i + "." + p.getPercorso().get(i).getStato().getTesto());
+                            System.out.println(i + "." + p.mostraStatoPercorso(i));
                         }
                         
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
                         
-                        if(s < p.getPercorso().size())
+                        if(s < p.percorsoSize())
                         {
                             System.out.println("DOMANDA:");
-                            System.out.println(p.getTestoStato(s));
+                            System.out.println(p.mostraStatoPercorso(s));
                             System.out.println("SCELTE POSSIBILI:");
                             
-                            for(int k=0; k<p.getScelteStatoPercorso(s).size(); k++) 
+                            for(int k=0; k<p.scelteStatoPercorsoSize(s); k++) 
                             {
-                                System.out.println(p.getPercorso().get(s).getStato().mostraScelta(k));
+                                System.out.println(p.mostraSceltaStatoPercorso(s, k));
                             }
                             
                             System.out.println("SCELTA EFFETTUATA:");
-                            System.out.println(p.getPercorso().get(s).getScelta().getTesto());
+                            System.out.println(p.mostraSceltaPercorso(s));
                         }
                         else
                             System.out.println("Valore inatteso");
@@ -111,19 +111,19 @@ public class Test
                 }
                 case 3:
                 {
-                    if(p.getPercorso().size() > 0)
+                    if(p.percorsoSize() > 0)
                     {
                         System.out.println("Selezionare la domanda a cui si vuole tornare tra quelle possibili");
                         
-                        for(int i = 0; i < p.getPercorso().size(); i++)
+                        for(int i = 0; i < p.percorsoSize(); i++)
                         {
-                            System.out.println(i + "." + p.getPercorso().get(i).getStato().getTesto());
+                            System.out.println(i + "." + p.mostraStatoPercorso(i));
                         }
                         
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
                         
-                        if(s < p.getPercorso().size())
+                        if(s < p.percorsoSize())
                         {
                             p.statoPrecedente(s);
                         }
@@ -159,16 +159,16 @@ public class Test
             {
                 System.out.println(i);
                 System.out.println("DOMANDA:");
-                System.out.println(t.getStato().getTesto());
+                System.out.println(t.mostraStato());
                 System.out.println("SCELTE POSSIBILI:");
                 
-                for(int k = 0; k < t.getStato().getScelte().size(); k++) 
+                for(int k = 0; k < t.scelteStatoSize(); k++) 
                 {
-                    System.out.println(t.getStato().mostraScelta(k));
+                    System.out.println(t.mostraSceltaStato(k));
                 }
                 
                 System.out.println("SCELTA EFFETTUATA:");
-                System.out.println(t.getScelta().getTesto());
+                System.out.println(t.mostraScelta());
                 i++;
             }
         }
