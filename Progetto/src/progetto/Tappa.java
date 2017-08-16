@@ -1,5 +1,7 @@
 package progetto;
 
+import java.util.ArrayList;
+
 public class Tappa
 {   
     /* scelta tiene traccia della risposta data ad una domanda da parte dell'utente.
@@ -24,9 +26,9 @@ public class Tappa
         return stato.getCodice();
     }
     
-    public String getTestoStato()
+    public String mostraStato()
     {
-        return stato.getTesto();
+        return stato.mostra();
     }
     
     public Scelta getScelta()
@@ -39,13 +41,34 @@ public class Tappa
         return scelta.getCodice();
     }
     
-    public String getTestoScelta()
+    public String mostraScelta()
     {
-        return scelta.getTesto();
+        return scelta.mostra();
     }
     
     public void setScelta(Scelta scelta)
     {
         this.scelta = scelta;
+    }
+    
+    public int scelteStatoSize()
+    {
+        return stato.scelteSize();
+    }
+    
+    public ArrayList<Scelta> getScelteStato()
+    {
+        return stato.getScelte();
+    }
+    
+    public String mostraSceltaStato(int i)
+    {
+        return stato.mostraScelta(i);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return stato.mostra();
     }
 }

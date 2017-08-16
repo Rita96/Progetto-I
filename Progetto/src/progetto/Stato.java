@@ -31,7 +31,7 @@ public class Stato
         return codice;
     }
     
-    public String getTesto()
+    public String mostra()
     {
         return testo;
     }
@@ -51,7 +51,7 @@ public class Stato
         return scelte.get(n);
     }
     
-    public Stato getProssimaAdiacenza(int n)
+    public Stato getAdiacenza(int n)
     {
         return adiacenze.get(n);
     }
@@ -77,11 +77,29 @@ public class Stato
         adiacenze.addAll(d);
     }
     
-//------------------------------------------------------------------------------
-    //Metodi Debug/Test/Inutilizzati:
-    
     public String mostraScelta(int i)
     {
-        return scelte.get(i).getTesto();
+        return scelte.get(i).mostra();
     }
+    
+    public int scelteSize()
+    {
+        return scelte.size();
+    }
+    
+    public int adiacenzeSize()
+    {
+        return adiacenze.size();
+    }
+    
+    public boolean scelteEmpty()
+    {
+        return scelte.isEmpty();
+    }
+    
+    public boolean adiacenzeEmpty()
+    {
+        return adiacenze.isEmpty();
+    }
+    
 }

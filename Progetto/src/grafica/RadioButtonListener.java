@@ -23,7 +23,7 @@ public class RadioButtonListener implements ActionListener
         
         for(int i = 0; i < progetto.getDomandaAttuale().getScelte().size(); i++)
         {
-            if(s.equals(progetto.getDomandaAttuale().getScelte().get(i).getTesto()))
+            if(s.equals(progetto.getDomandaAttuale().getScelte().get(i).mostra()))
                 indice = i;
         }
     }

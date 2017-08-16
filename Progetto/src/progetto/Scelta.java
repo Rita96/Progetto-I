@@ -22,7 +22,7 @@ public class Scelta
         return codice;
     }
     
-    public String getTesto()
+    public String mostra()
     {
         return testo;
     }

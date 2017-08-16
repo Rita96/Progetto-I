@@ -75,7 +75,7 @@ public class ExecutePage extends JFrame
     {
         domanda = new JLabel();
         domanda.setFont(fontDomanda);
-        domanda.setText(progetto.getDomandaAttuale().getTesto());
+        domanda.setText(progetto.getDomandaAttuale().mostra());
         domanda.setHorizontalAlignment(JLabel.CENTER);
         
         seleziona = new JLabel("Seleziona domande precedenti:");
@@ -146,7 +146,7 @@ public class ExecutePage extends JFrame
         ArrayList<String> testoScelte = new ArrayList();
         
         for(int i = 0; i < numeroScelte; i++)
-            testoScelte.add(progetto.getDomandaAttuale().getScelte().get(i).getTesto());
+            testoScelte.add(progetto.getDomandaAttuale().getScelte().get(i).mostra());
         
         gruppo = new ButtonGroup();
         
@@ -198,7 +198,7 @@ public class ExecutePage extends JFrame
     
     public void refreshFrame()
     {
-        domanda.setText(progetto.getDomandaAttuale().getTesto());
+        domanda.setText(progetto.getDomandaAttuale().mostra());
         setRadioButtons();
         setComboBox();
         setPanels();

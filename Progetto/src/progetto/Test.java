@@ -29,6 +29,8 @@ public class Test
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             
+            System.out.println();
+            
             switch(n)
             {
                 case 1:
@@ -87,6 +89,8 @@ public class Test
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
                         
+                        System.out.println();
+                        
                         if(s < p.percorsoSize())
                         {
                             System.out.println("DOMANDA:");
@@ -123,6 +127,8 @@ public class Test
                         Scanner input2 = new Scanner(System.in);
                         int s = input2.nextInt();
                         
+                        System.out.println();
+                        
                         if(s < p.percorsoSize())
                         {
                             p.statoPrecedente(s);
@@ -152,11 +158,13 @@ public class Test
                 }
             }
             
-            //eventuale controllo sul percorso se si presentano problemi
+            /*
+            eventuale controllo sul percorso se si presentano problemi
             int i = 0;
             
             for(Tappa t : p.getPercorso())
             {
+                System.out.println();
                 System.out.println(i);
                 System.out.println("DOMANDA:");
                 System.out.println(t.mostraStato());
@@ -169,8 +177,12 @@ public class Test
                 
                 System.out.println("SCELTA EFFETTUATA:");
                 System.out.println(t.mostraScelta());
+                System.out.println();
                 i++;
             }
+            */
+            
+            System.out.println();
         }
     }
 }
