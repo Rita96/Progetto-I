@@ -21,9 +21,9 @@ public class RadioButtonListener implements ActionListener
         JRadioButton radio = (JRadioButton)ae.getSource();
         String s = radio.getText();
         
-        for(int i = 0; i < progetto.getDomandaAttuale().getScelte().size(); i++)
+        for(int i = 0; i < progetto.scelteDomandaAttualeSize(); i++)
         {
-            if(s.equals(progetto.getDomandaAttuale().getScelte().get(i).mostra()))
+            if(s.equals(progetto.mostraSceltaDomandaAttuale(i)))
                 indice = i;
         }
     }

@@ -11,7 +11,7 @@ public class NextButtonListener implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae) 
     {   
-        if(indice != -1 && !progetto.getDomandaAttuale().getScelte().isEmpty())
+        if(indice != -1 && !progetto.scelteDomandaAttualeEmpty())
         {
             progetto.esecuzioneProgetto(indice);
             executePage.clearFrame();

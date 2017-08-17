@@ -237,6 +237,11 @@ public class Progetto
         return domandaAttuale.adiacenzeEmpty();
     }
     
+    public boolean scelteDomandaAttualeEmpty()
+    {
+        return domandaAttuale.scelteEmpty();
+    }
+    
     public int elencoOggettiSize()
     {
         return elencoOggetti.size();
@@ -278,6 +283,26 @@ public class Progetto
         oggettoSelezionato = elencoOggetti.get(n);
         letturaDatiOggetto();
         domandaAttuale = oggettoSelezionato.getStatoIniziale();
+    }
+    
+    public void clearPercorso()
+    {
+        percorso.clear();
+    }
+    
+    public Object[] percorsoArray()
+    {
+        return percorso.toArray();
+    }
+    
+    public boolean percorsoEmpty()
+    {
+        return percorso.isEmpty();
+    }
+    
+    public Object[] elencoOggettiArray()
+    {
+        return elencoOggetti.toArray();
     }
     
     /** 

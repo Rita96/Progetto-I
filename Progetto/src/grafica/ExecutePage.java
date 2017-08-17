@@ -75,7 +75,7 @@ public class ExecutePage extends JFrame
     {
         domanda = new JLabel();
         domanda.setFont(fontDomanda);
-        domanda.setText(progetto.getDomandaAttuale().mostra());
+        domanda.setText(progetto.mostraDomandaAttuale());
         domanda.setHorizontalAlignment(JLabel.CENTER);
         
         seleziona = new JLabel("Seleziona domande precedenti:");
@@ -134,7 +134,7 @@ public class ExecutePage extends JFrame
     
     private void setComboBox()
     {
-        percorso = new JComboBox(progetto.getPercorso().toArray());
+        percorso = new JComboBox(progetto.percorsoArray());
         percorso.setPreferredSize(new Dimension(200, 30));
         ComboBoxListener cbl = new ComboBoxListener();
         percorso.addActionListener(cbl);
@@ -142,11 +142,11 @@ public class ExecutePage extends JFrame
     
     private void setRadioButtons()
     {
-        int numeroScelte = progetto.getDomandaAttuale().getScelte().size();
+        int numeroScelte = progetto.scelteDomandaAttualeSize();
         ArrayList<String> testoScelte = new ArrayList();
         
         for(int i = 0; i < numeroScelte; i++)
-            testoScelte.add(progetto.getDomandaAttuale().getScelte().get(i).mostra());
+            testoScelte.add(progetto.mostraSceltaDomandaAttuale(i));
         
         gruppo = new ButtonGroup();
         
@@ -166,14 +166,14 @@ public class ExecutePage extends JFrame
         north.add(new JLabel());
         south.add(home);
         
-        if(!progetto.getPercorso().isEmpty())
+        if(!progetto.percorsoEmpty())
         {
             east.add(seleziona);
             east.add(percorso);
             south.add(back);
         }
             
-        if(progetto.getDomandaAttuale().getScelte().isEmpty())
+        if(progetto.scelteDomandaAttualeEmpty())
         {
             center.add(new JLabel());
             center.add(new JLabel());
@@ -198,7 +198,7 @@ public class ExecutePage extends JFrame
     
     public void refreshFrame()
     {
-        domanda.setText(progetto.getDomandaAttuale().mostra());
+        domanda.setText(progetto.mostraDomandaAttuale());
         setRadioButtons();
         setComboBox();
         setPanels();

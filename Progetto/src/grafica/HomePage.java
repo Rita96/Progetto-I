@@ -69,7 +69,7 @@ public class HomePage extends JFrame
     
     private void setComboBoxes()
     {
-        elencoOggetti = new JComboBox(progetto.getElencoOggetti().toArray());
+        elencoOggetti = new JComboBox(progetto.elencoOggettiArray());
         elencoOggetti.setPreferredSize(new Dimension(200, 30));
     }
     
