@@ -29,7 +29,7 @@ public class Scelta
     
     /**
     * Metodo che controlla se una stringa è uguale al codice della scelta:
-    * se è uguale, il metodo restituisce true, latrimenti false
+    * se è uguale, il metodo restituisce true, altrimenti false
     * @param codice: String
     * @return boolean
     */

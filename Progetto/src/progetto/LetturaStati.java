@@ -48,9 +48,11 @@ public class LetturaStati extends Lettura
                     {
                         for(k = 0; k < s.size(); k++)
                         {
-                            if(s.get(k).controllo(codiceScelte.get(i)))
+                            Scelta tmp = s.get(k);
+                            
+                            if(tmp.controllo(codiceScelte.get(i)))
                             {
-                                d.addScelta(s.get(k));
+                                d.addScelta(tmp);
                             }
                         }
                     }
