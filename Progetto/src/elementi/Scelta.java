@@ -1,4 +1,4 @@
-package progetto;
+package elementi;
 
 /**
  * Scelta legge dati dal file ScelteOggetto[i].txt (i = indice dell'Oggetto) 

@@ -1,5 +1,11 @@
 package grafica;
 
+import graficaListener.NextButtonListener;
+import graficaListener.EndButtonListener;
+import graficaListener.ComboBoxListener;
+import graficaListener.HomeButtonListener;
+import graficaListener.RadioButtonListener;
+import graficaListener.BackButtonListener;
 import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -25,7 +31,7 @@ public class ExecutePage extends JFrame
     private JLabel domanda, seleziona;
     private JButton home, back, next, end;
     private ImageIcon homeIcon, backIcon, nextIcon, endIcon;
-    static JComboBox percorso;
+    public static JComboBox percorso;
     private ButtonGroup gruppo;
     
     public ExecutePage()

@@ -1,16 +1,16 @@
 package grafica;
 
-import progetto.Progetto;
+import esecuzione.Struttura;
 
 public class Grafica 
 {
-    public static Progetto progetto;
+    public static Struttura progetto;
     public static HomePage homePage;
     public static ExecutePage executePage;  
     
     public Grafica()
     {
-        progetto = new Progetto();
+        progetto = new Struttura();
         progetto.letturaOggetti();
         homePage = new HomePage();
     }

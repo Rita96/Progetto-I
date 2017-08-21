@@ -1,8 +1,8 @@
-package grafica;
+package graficaListener;
 
 import static grafica.Grafica.executePage;
 import static grafica.Grafica.progetto;
-import static grafica.RadioButtonListener.indice;
+import static graficaListener.RadioButtonListener.indice;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

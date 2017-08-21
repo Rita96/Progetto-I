@@ -1,16 +1,24 @@
-package progetto;
+package esecuzione;
 
+import lettura.LetturaScelte;
+import lettura.LetturaStati;
+import lettura.LetturaAdiacenze;
+import lettura.LetturaOggetti;
+import elementi.Oggetto;
+import elementi.Scelta;
+import elementi.Tappa;
+import elementi.Stato;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Progetto
+public class Struttura
 {
     private Stato domandaAttuale;
     private Oggetto oggettoSelezionato;
     private ArrayList<Tappa> percorso; // percorso tiene traccia delle scelte fatte dall'utente rispondendo alle domande
     private ArrayList<Oggetto> elencoOggetti;
     
-    public Progetto()
+    public Struttura()
     {
         this.percorso = new ArrayList();
         this.elencoOggetti = new ArrayList();
@@ -33,14 +41,9 @@ public class Progetto
      */
     public void sceltaOggetto(int n)
     {
-        if(n < elencoOggetti.size())
-        {
-            oggettoSelezionato = elencoOggetti.get(n);
-            letturaDatiOggetto();
-            domandaAttuale = oggettoSelezionato.getStatoIniziale();
-        }
-        else
-            System.out.println("Inserire un numero oggetto valido");
+        oggettoSelezionato = elencoOggetti.get(n);
+        letturaDatiOggetto();
+        domandaAttuale = oggettoSelezionato.getStatoIniziale();
     }
     
     /** 
@@ -116,6 +119,7 @@ public class Progetto
      * Il metodo esecuzione(int n) consente all'utente di effettuare una scelta
      * tra quelle possibili ad un determinato stato.
      * @param n
+     * @throws java.io.IOException
      */
     public void esecuzione(int n) throws IOException
     {

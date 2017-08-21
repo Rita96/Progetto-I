@@ -1,5 +1,6 @@
-package progetto;
+package lettura;
 
+import elementi.Stato;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;

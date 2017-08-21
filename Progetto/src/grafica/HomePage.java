@@ -1,5 +1,6 @@
 package grafica;
 
+import graficaListener.StartButtonListener;
 import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -20,7 +21,7 @@ public class HomePage extends JFrame
     private Font fontBenvenuto, fontSeleziona;
     private JPanel main, north, center, south;
     private JLabel benvenuto, seleziona;
-    static JComboBox elencoOggetti;
+    public static JComboBox elencoOggetti;
     private JButton start;
     private ImageIcon startIcon;
     

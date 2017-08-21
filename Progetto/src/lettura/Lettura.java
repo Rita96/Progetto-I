@@ -1,4 +1,4 @@
-package progetto;
+package lettura;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
