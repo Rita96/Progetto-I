@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Test;
 
-/**
- *
- * @author Pippo
- */
+import elementi.Tappa;
+import esecuzione.EsecuzioneTest;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class TestEsecuzione {
+    
+    public void testPercorso() throws IOException
+    {
+        EsecuzioneTest test = new EsecuzioneTest();
+        int scelteMenu[] = {1, 1, 1};
+        int scelte[] = {0, 0, 0};
+        ArrayList<Tappa> verifica = new ArrayList();
+        
+        test.esecuzione(scelteMenu, scelte);
+        
+    }
     
 }

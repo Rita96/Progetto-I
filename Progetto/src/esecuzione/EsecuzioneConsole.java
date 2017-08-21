@@ -121,7 +121,6 @@ public class EsecuzioneConsole
             }
         }
         else {
-            int nogg;
             System.out.println("Inserire numero oggetto difettoso tra quelli possibili");
 
             for(int i = 0; i < p.elencoOggettiSize(); i++) 
@@ -129,7 +128,7 @@ public class EsecuzioneConsole
                 System.out.println(i + "." + p.getNomeOggetto(i));
             }
 
-            nogg = inserireNumero();
+            int nogg = inserireNumero();
             
             if(nogg < p.elencoOggettiSize())
             {
