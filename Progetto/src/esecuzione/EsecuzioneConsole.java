@@ -115,7 +115,10 @@ public class EsecuzioneConsole
                 p.esecuzione(nscelta);
             }
             else
+            {
+                System.out.println();
                 System.out.println("Selezionare un numero di scelta valido");
+            }
         }
         else {
             int nogg;
