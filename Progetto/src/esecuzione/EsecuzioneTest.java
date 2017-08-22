@@ -1,6 +1,8 @@
 package esecuzione;
 
+import elementi.Tappa;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class EsecuzioneTest {
     private Struttura p;
@@ -94,5 +96,10 @@ public class EsecuzioneTest {
                 p.statoPrecedente(n);
             }
         }
+    }
+    
+    public ArrayList<Tappa> getPercorso()
+    {
+        return p.getPercorso();
     }
 }

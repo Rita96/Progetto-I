@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class TestEsecuzione {
     
-    public void testPercorso() throws IOException
+    void testPercorso() throws IOException
     {
         EsecuzioneTest test = new EsecuzioneTest();
-        int scelteMenu[] = {1, 1, 1};
-        int scelte[] = {0, 0, 0};
+        int scelteMenu[] = {5};
+        int scelte[] = {};
         ArrayList<Tappa> verifica = new ArrayList();
         
         test.esecuzione(scelteMenu, scelte);
