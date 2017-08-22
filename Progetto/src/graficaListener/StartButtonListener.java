@@ -7,6 +7,9 @@ import static grafica.Grafica.homePage;
 import static grafica.HomePage.elencoOggetti;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StartButtonListener implements ActionListener
 {
@@ -14,7 +17,11 @@ public class StartButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         int selezionato = elencoOggetti.getSelectedIndex();
-        progetto.selezionaOggetto(selezionato);
+        try {
+            progetto.selezionaOggetto(selezionato);
+        } catch (IOException ex) {
+            Logger.getLogger(StartButtonListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         executePage = new ExecutePage();
         

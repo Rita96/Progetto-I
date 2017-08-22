@@ -1,6 +1,7 @@
 package lettura;
 
 import elementi.Scelta;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -12,33 +13,24 @@ public class LetturaScelte extends Lettura
         super(nomeFile);
     }
     
-    public ArrayList<Scelta> lettura()
+    public ArrayList<Scelta> lettura() throws FileNotFoundException, IOException
     {
         ArrayList<Scelta> scelte = new ArrayList<>();
-        
         bufferedReaderInitialization();
         
-        try
+        StringTokenizer st;
+        String stringa = inputStream.readLine();
+
+        while(stringa != null)
         {
-            StringTokenizer st;
-            String stringa = inputStream.readLine();
-            
-            while(stringa != null)
+            st = new StringTokenizer(stringa, "\t\n");
+            while(st.hasMoreElements())
             {
-                st = new StringTokenizer(stringa, "\t\n");
-                while(st.hasMoreElements())
-                {
-                    subLetturaScelte(st, scelte);
-                }
-                stringa = inputStream.readLine();
+                subLetturaScelte(st, scelte);
             }
-            inputStream.close();
+            stringa = inputStream.readLine();
         }
-        catch(IOException e)
-        {
-            System.exit(0);
-        }
-        
+        inputStream.close();
         return scelte;
     }
     
@@ -50,5 +42,4 @@ public class LetturaScelte extends Lettura
         Scelta s = new Scelta(codice, testo);
         scelte.add(s);
     }
-  
 }

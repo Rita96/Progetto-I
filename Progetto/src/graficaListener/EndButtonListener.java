@@ -9,11 +9,19 @@ import java.awt.event.ActionListener;
 public class EndButtonListener implements ActionListener
 {
 
+    /*
     @Override
     public void actionPerformed(ActionEvent e)
     {
         executePage.dispose();
         progetto.clearPercorso();
         homePage.setVisible(true);
+    }
+    */
+    
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        System.exit(0);
     }
 }

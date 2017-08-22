@@ -105,6 +105,7 @@ public class EsecuzioneConsole
 
             if(p.adiacenzeDomandaAttualeEmpty())
             {
+                System.out.println("Arrivederci e grazie per aver usato la nostra applicazione");
                 System.exit(0);
             }
 

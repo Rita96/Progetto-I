@@ -1,6 +1,7 @@
 package grafica;
 
 import esecuzione.Struttura;
+import java.io.IOException;
 
 public class Grafica 
 {
@@ -8,7 +9,7 @@ public class Grafica
     public static HomePage homePage;
     public static ExecutePage executePage;  
     
-    public Grafica()
+    public Grafica() throws IOException
     {
         progetto = new Struttura();
         progetto.letturaOggetti();

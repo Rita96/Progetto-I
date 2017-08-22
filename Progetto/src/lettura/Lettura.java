@@ -15,18 +15,9 @@ public class Lettura {
         inputStream = null;
     }
     
-    public BufferedReader bufferedReaderInitialization()
+    public BufferedReader bufferedReaderInitialization() throws FileNotFoundException
     {
-        try
-        {
-            inputStream = new BufferedReader(new FileReader(nomeFile));
-            return inputStream;
-        }
-        catch(FileNotFoundException e)
-        {
-            System.exit(0);
-        }
-        return null;
+        inputStream = new BufferedReader(new FileReader(nomeFile));
+        return inputStream;
     }
-    
 }

@@ -8,6 +8,7 @@ import elementi.Oggetto;
 import elementi.Scelta;
 import elementi.Tappa;
 import elementi.Stato;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class Struttura
      * Il metodo letturaOggetti() legge tutti gli oggetti di cui si vuole
      * proporre un problema all'applicazione.
      */
-    public void letturaOggetti()
+    public void letturaOggetti() throws IOException
     {
         LetturaOggetti lo = new LetturaOggetti("oggetti.txt");
         elencoOggetti = lo.lettura();
@@ -39,7 +40,7 @@ public class Struttura
      * oggetto intende risolvere un problema.
      * @param n
      */
-    public void sceltaOggetto(int n)
+    public void sceltaOggetto(int n) throws IOException
     {
         oggettoSelezionato = elencoOggetti.get(n);
         letturaDatiOggetto();
@@ -51,7 +52,7 @@ public class Struttura
      * domande, le scelte e le adiacenze alle domande usando le classi di
      * lettura delle Scelte, Domande ed Adiacenze.
      */
-    public void letturaDatiOggetto() 
+    public void letturaDatiOggetto() throws FileNotFoundException, IOException 
     {
         ArrayList<Scelta> scelte;
         ArrayList<Stato> stati;
@@ -282,7 +283,7 @@ public class Struttura
         statoPrecedente(percorso.size() - 1);
     }
     
-    public void selezionaOggetto(int n)
+    public void selezionaOggetto(int n) throws IOException
     {
         oggettoSelezionato = elencoOggetti.get(n);
         letturaDatiOggetto();
@@ -387,10 +388,4 @@ public class Struttura
         }
     }
     */
-    
-    /**
-     * Il metodo sceltaOggetto(int n) consente all'utente di scegliere di quale
-     * oggetto intende risolvere un problema.
-     * @param n
-     */
 }

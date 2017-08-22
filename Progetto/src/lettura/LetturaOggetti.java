@@ -1,6 +1,7 @@
 package lettura;
 
 import elementi.Oggetto;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -12,33 +13,25 @@ public class LetturaOggetti extends Lettura
         super(nomeFile);
     }
     
-    public ArrayList<Oggetto> lettura()
+    public ArrayList<Oggetto> lettura() throws FileNotFoundException, IOException
     {
         ArrayList<Oggetto> oggetti = new ArrayList<>();
         
         super.bufferedReaderInitialization();
         
-        try
+        StringTokenizer st;
+        String stringa = inputStream.readLine();
+
+        while(stringa != null)
         {
-            StringTokenizer st;
-            String stringa = inputStream.readLine();
-            
-            while(stringa != null)
+            st = new StringTokenizer(stringa, "\t\n");
+            while(st.hasMoreTokens())
             {
-                st = new StringTokenizer(stringa, "\t\n");
-                while(st.hasMoreTokens())
-                {
-                    subLetturaOggetti(st, oggetti);
-                }
-                stringa = inputStream.readLine();
+                subLetturaOggetti(st, oggetti);
             }
-            inputStream.close();
+            stringa = inputStream.readLine();
         }
-        catch(IOException e)
-        {
-            System.exit(0);
-        }
-        
+        inputStream.close();
         return oggetti;
     }
     
