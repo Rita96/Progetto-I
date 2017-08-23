@@ -310,6 +310,14 @@ public class Struttura
         return elencoOggetti.toArray();
     }
     
+    public Tappa getTappa(int a, int b)
+    {
+        Stato domanda = oggettoSelezionato.getStato(a);
+        Scelta scelta = oggettoSelezionato.getSceltaStato(a, b);
+        Tappa t = new Tappa(domanda, scelta);
+        return t;
+    }
+    
     /** 
      * Il metodo cambioTappa(int n) permette di cambiare scelta ad uno stato
      * a cui si è già risposto.

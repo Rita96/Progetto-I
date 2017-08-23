@@ -61,6 +61,19 @@ public class Oggetto
         return stati.get(0);
     }
     
+    public Stato getStato(int n)
+    {
+        return stati.get(n);
+    }
+    
+    public Scelta getSceltaStato(int a, int b)
+    {
+        if(getStato(a).scelteEmpty())
+            return null;
+        else
+            return getStato(a).getScelta(b);
+    }
+    
     public void setStati(ArrayList<Stato> stati)
     {
         this.stati = stati;

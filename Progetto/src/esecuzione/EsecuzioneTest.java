@@ -1,11 +1,12 @@
 package esecuzione;
 
+import elementi.Oggetto;
 import elementi.Tappa;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class EsecuzioneTest {
     private Struttura p;
+    private boolean controllo;
     
     public EsecuzioneTest()
     {
@@ -16,8 +17,9 @@ public class EsecuzioneTest {
     {
         p.letturaOggetti();
         int i = 0;
+        controllo = true;
         
-        while(true)
+        while(controllo)
         {            
             switch(scelteMenu[i])
             {
@@ -43,7 +45,8 @@ public class EsecuzioneTest {
                 }
                 case 5:
                 {
-                    System.exit(0);
+                    controllo = false;
+                    break;
                 }
                 default:
                 {
@@ -60,7 +63,7 @@ public class EsecuzioneTest {
         {
             if(p.adiacenzeDomandaAttualeEmpty())
             {
-                System.exit(0);
+                controllo = false;
             }
 
             if(n < p.scelteDomandaAttualeSize())
@@ -98,8 +101,18 @@ public class EsecuzioneTest {
         }
     }
     
-    public ArrayList<Tappa> getPercorso()
+    public Object[] getPercorsoArray()
     {
-        return p.getPercorso();
+        return p.percorsoArray();
+    }
+    
+    public Oggetto getOggettoSelezionato()
+    {
+        return p.getOggettoSelezionato();
+    }
+    
+    public Tappa getTappa(int a, int b)
+    {
+        return p.getTappa(a, b);
     }
 }
