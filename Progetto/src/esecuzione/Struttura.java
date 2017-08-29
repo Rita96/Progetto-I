@@ -310,13 +310,17 @@ public class Struttura
         return elencoOggetti.toArray();
     }
     
-    public Tappa getTappa(int a, int b)
+    public String getCodiceStato(int n)
     {
-        Stato domanda = oggettoSelezionato.getStato(a);
-        Scelta scelta = oggettoSelezionato.getSceltaStato(a, b);
-        Tappa t = new Tappa(domanda, scelta);
-        return t;
+        return oggettoSelezionato.getCodiceStato(n);
     }
+    
+    public String getCodiceScelta(int a, int b)
+    {
+        return oggettoSelezionato.getCodiceScelta(a, b);
+    }
+    
+    //METODI INUTILIZZATI
     
     /** 
      * Il metodo cambioTappa(int n) permette di cambiare scelta ad uno stato
@@ -325,8 +329,6 @@ public class Struttura
      */
     
     /*
-    METODO INUTILIZZATO
-    
     public void cambioTappa(int n)
     {
         if(n < domandaAttuale.getScelte().size())
@@ -343,8 +345,6 @@ public class Struttura
      */
     
     /*
-    METODO INUTILIZZATO
-    
     public void indietro()
     {
         if(percorso.size() > 1)
@@ -355,8 +355,6 @@ public class Struttura
     */
     
     /*
-    METODO INUTILIZZATO
-    
     public void tappaPrecedente(int n)
     {
         Scelta s = domandaAttuale.getScelte().get(n);
@@ -371,8 +369,6 @@ public class Struttura
     */
      
     /*
-    METODO INUTILIZZATO
-    
     public void pulisciPercorso() 
     {
         int n = percorso.size();

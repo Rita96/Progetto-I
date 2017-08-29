@@ -3,6 +3,7 @@ package esecuzione;
 import elementi.Oggetto;
 import elementi.Tappa;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class EsecuzioneTest {
     private Struttura p;
@@ -101,18 +102,23 @@ public class EsecuzioneTest {
         }
     }
     
-    public Object[] getPercorsoArray()
+    public ArrayList<Tappa> getPercorso()
     {
-        return p.percorsoArray();
+        return p.getPercorso();
     }
     
-    public Oggetto getOggettoSelezionato()
+    public Tappa getTappa(int n)
     {
-        return p.getOggettoSelezionato();
+        return p.getTappa(n);
     }
     
-    public Tappa getTappa(int a, int b)
+    public String getCodiceStato(int n)
     {
-        return p.getTappa(a, b);
+        return p.getCodiceStato(n);
+    }
+    
+    public String getCodiceStato(int a, int b)
+    {
+        return p.getCodiceScelta(a, b);
     }
 }

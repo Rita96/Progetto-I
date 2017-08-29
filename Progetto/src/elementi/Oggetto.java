@@ -66,12 +66,19 @@ public class Oggetto
         return stati.get(n);
     }
     
-    public Scelta getSceltaStato(int a, int b)
+    public String getCodiceStato(int n)
     {
-        if(getStato(a).scelteEmpty())
-            return null;
-        else
-            return getStato(a).getScelta(b);
+        return getStato(n).getCodice();
+    }
+    
+    public Scelta getScelta(int a, int b)
+    {
+        return getStato(a).getScelta(b);
+    }
+    
+    public String getCodiceScelta(int a, int b)
+    {
+        return getScelta(a, b).getCodice();
     }
     
     public void setStati(ArrayList<Stato> stati)

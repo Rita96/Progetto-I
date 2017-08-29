@@ -1,5 +1,8 @@
 package esecuzione;
 
+import elementi.Scelta;
+import elementi.Stato;
+import elementi.Tappa;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -63,29 +66,10 @@ public class EsecuzioneConsole
                 }
             }
             
-            /*
-            eventuale controllo sul percorso se si presentano problemi
-            int i = 0;
-            
-            for(Tappa t : p.getPercorso())
-            {
-                System.out.println();
-                System.out.println(i);
-                System.out.println("DOMANDA:");
-                System.out.println(t.mostraStato());
-                System.out.println("SCELTE POSSIBILI:");
-                
-                for(int k = 0; k < t.scelteStatoSize(); k++) 
-                {
-                    System.out.println(t.mostraSceltaStato(k));
-                }
-                
-                System.out.println("SCELTA EFFETTUATA:");
-                System.out.println(t.mostraScelta());
-                System.out.println();
-                i++;
-            }
-            */
+            //controllo sul percorso se si presentano problemi
+            controlloA();
+            //controllo sugli stati dell'oggetto selezionato
+            controlloB();
             
             System.out.println();
         }
@@ -208,5 +192,51 @@ public class EsecuzioneConsole
     {
         Scanner input = new Scanner(System.in);
         return input.nextInt();
+    }
+    
+    public void controlloA()
+    {
+        int i = 0;
+            
+        for(Tappa t : p.getPercorso())
+        {
+            System.out.println();
+            System.out.println(i);
+            System.out.println("DOMANDA:");
+            System.out.println(t.mostraStato());
+            System.out.println("SCELTE POSSIBILI:");
+
+            for(int k = 0; k < t.scelteStatoSize(); k++) 
+            {
+                System.out.println(t.mostraSceltaStato(k));
+            }
+
+            System.out.println("SCELTA EFFETTUATA:");
+            System.out.println(t.mostraScelta());
+            System.out.println();
+            i++;
+        }
+    }
+    
+    public void controlloB()
+    {
+        if(p.getOggettoSelezionato()!= null)
+        {
+            int i = 0;
+            for(Stato a : p.getOggettoSelezionato().getStati())
+            {
+                System.out.println("DOMANDA");
+                System.out.println(i+" COD "+p.getOggettoSelezionato().getStato(i).getCodice()+" "+p.getOggettoSelezionato().getStato(i).mostra());
+                System.out.println();
+                int j = 0;
+                for(Scelta b : p.getOggettoSelezionato().getStati().get(i).getScelte())
+                {
+                    System.out.println(j+" COD "+p.getOggettoSelezionato().getStato(i).getScelta(j).getCodice()+" "+p.getOggettoSelezionato().getStato(i).mostraScelta(j));
+                    j++;
+                }
+                System.out.println();
+                i++;
+            }
+        }
     }
 }
