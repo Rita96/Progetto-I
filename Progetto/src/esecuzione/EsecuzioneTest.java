@@ -17,7 +17,8 @@ public class EsecuzioneTest {
     public void esecuzione(int scelteMenu[], int scelte[]) throws IOException
     {
         p.letturaOggetti();
-        int i = 0;
+        int i = 0; //contatore per Menù
+        int k = 0; //conatore per le scelte 
         controllo = true;
         
         while(controllo)
@@ -26,17 +27,20 @@ public class EsecuzioneTest {
             {
                 case 1:
                 {
-                    esecuzioneRisolutore(scelte[i]);
+                    esecuzioneRisolutore(scelte[k]);
+                    k++;
                     break;
                 }
                 case 2:
                 {
-                    mostraTappaPrecedente(scelte[i]);
+                    mostraTappaPrecedente(scelte[k]);
+                    k++;
                     break;
                 }
                 case 3:
                 {
-                    modificaTappaPrecedente(scelte[i]);
+                    modificaTappaPrecedente(scelte[k]);
+                    k++;
                     break;
                 }
                 case 4:

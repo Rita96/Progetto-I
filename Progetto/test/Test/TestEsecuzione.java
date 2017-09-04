@@ -77,4 +77,17 @@ public class TestEsecuzione {
         Assert.assertEquals("2", test.getTappa(1).getCodiceStato());
         Assert.assertEquals("4", test.getTappa(2).getCodiceStato());
     }
+    
+    @Test
+    public void testSceltaNonValidaScelte() throws IOException {
+        
+        EsecuzioneTest test = new EsecuzioneTest();
+        int[] scelteMenu = {1, 1, 1, 1, 5};
+        int[] scelte = {0, 0, 14, 1};
+        
+        test.esecuzione(scelteMenu, scelte);
+        
+        Assert.assertEquals("6", test.getTappa(0).getCodiceScelta());
+        Assert.assertEquals("2", test.getTappa(1).getCodiceScelta());
+    }
 }
