@@ -28,7 +28,7 @@ public class HomePage extends JFrame
     public HomePage()
     {
         super("Risolutore di Problemi - Home");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
         setHomeLocation();
         setLabels();
         setComboBoxes();
