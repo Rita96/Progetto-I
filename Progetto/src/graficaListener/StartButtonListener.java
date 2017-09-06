@@ -25,6 +25,6 @@ public class StartButtonListener implements ActionListener
         
         executePage = new ExecutePage();
         
-        homePage.setVisible(false);
+        homePage.dispose();
     }
 }

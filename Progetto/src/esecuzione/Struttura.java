@@ -309,16 +309,16 @@ public class Struttura
     {
         return elencoOggetti.toArray();
     }
-    
-    public String getCodiceStato(int n)
-    {
-        return oggettoSelezionato.getCodiceStato(n);
+
+    String getCodiceDomandaAttuale() {
+        return domandaAttuale.getCodice();
     }
-    
-    public String getCodiceScelta(int a, int b)
-    {
-        return oggettoSelezionato.getCodiceScelta(a, b);
+
+    String getCodiceSceltaDomandaAttuale(int n) {
+        return domandaAttuale.getCodiceScelta(n);
     }
-    
-    
+
+    public ArrayList<Stato> getStatiOggettoSelezionato() {
+        return oggettoSelezionato.getStati();
+    }
 }

@@ -115,14 +115,16 @@ public class EsecuzioneTest {
     {
         return p.getTappa(n);
     }
-    
-    public String getCodiceStato(int n)
-    {
-        return p.getCodiceStato(n);
+
+    public String getCodiceStato(int i) {
+        return getTappa(i).getCodiceStato();
     }
     
-    public String getCodiceStato(int a, int b)
-    {
-        return p.getCodiceScelta(a, b);
+    public String getCodiceScelta(int i) {
+        return getTappa(i).getCodiceScelta();
+    }
+
+    public int percorsoSize() {
+        return p.percorsoSize();
     }
 }

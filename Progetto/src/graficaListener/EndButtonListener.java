@@ -22,6 +22,7 @@ public class EndButtonListener implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        System.exit(0);
+        executePage.dispose();
+        homePage.dispose();
     }
 }

@@ -66,21 +66,6 @@ public class Oggetto
         return stati.get(n);
     }
     
-    public String getCodiceStato(int n)
-    {
-        return getStato(n).getCodice();
-    }
-    
-    public Scelta getScelta(int a, int b)
-    {
-        return getStato(a).getScelta(b);
-    }
-    
-    public String getCodiceScelta(int a, int b)
-    {
-        return getScelta(a, b).getCodice();
-    }
-    
     public void setStati(ArrayList<Stato> stati)
     {
         this.stati = stati;

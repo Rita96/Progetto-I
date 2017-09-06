@@ -101,5 +101,9 @@ public class Stato
     {
         return adiacenze.isEmpty();
     }
+
+    public String getCodiceScelta(int n) {
+        return getScelta(n).getCodice();
+    }
     
 }

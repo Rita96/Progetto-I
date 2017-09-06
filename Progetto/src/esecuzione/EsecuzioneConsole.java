@@ -24,11 +24,11 @@ public class EsecuzioneConsole
         while(true)
         {
             System.out.println("Scelta Menu:");
-            System.out.println("1.Esecuzione risolutore");
-            System.out.println("2.Per visualizzare una domanda precedente, le scelte possibili e quella effettuata");
-            System.out.println("3.Per modificare la scelta effettuata ad una domanda precedente");
-            System.out.println("4.Per tornare alla Home");
-            System.out.println("5.Per terminare l'esecuzione");
+            System.out.println("1 Esecuzione risolutore");
+            System.out.println("2 Per visualizzare una domanda precedente, le scelte possibili e quella effettuata");
+            System.out.println("3 Per modificare la scelta effettuata ad una domanda precedente");
+            System.out.println("4 Per tornare alla Home");
+            System.out.println("5 Per terminare l'esecuzione");
             int n = inserireNumero();
             System.out.println();
             
@@ -67,9 +67,9 @@ public class EsecuzioneConsole
             }
             
             //controllo sul percorso se si presentano problemi
-            controlloA();
+            //controlloA();
             //controllo sugli stati dell'oggetto selezionato
-            controlloB();
+            //controlloB();
             
             System.out.println();
         }
@@ -79,12 +79,12 @@ public class EsecuzioneConsole
     {
         if(p.getOggettoSelezionato()!= null)
         {
-            System.out.println(p.mostraDomandaAttuale());
+            System.out.println(p.mostraDomandaAttuale() + " COD: " + p.getCodiceDomandaAttuale());
             int i;
 
             for(i = 0; i < p.scelteDomandaAttualeSize(); i++)
             {
-                System.out.println(i + ". " + p.mostraSceltaDomandaAttuale(i));
+                System.out.println(i + " " + p.mostraSceltaDomandaAttuale(i) + " COD: " + p.getCodiceSceltaDomandaAttuale(i));
             }
 
             if(p.adiacenzeDomandaAttualeEmpty())

@@ -37,7 +37,7 @@ public class ExecutePage extends JFrame
     public ExecutePage()
     {
         super("Risolutore di Problemi - Domande");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
         setExecutePageLocation();
         initPanels();
         initFont();
