@@ -7,9 +7,8 @@ public class Main
     public static void main(String[] args) throws IOException 
     {
         ThreadGrafica thread = new ThreadGrafica();
-        thread.run();
-        thread.run();
-        /*ThreadGrafica thread2 = new ThreadGrafica();
-        thread2.run();*/
+        thread.start();
+        ThreadGrafica thread2 = new ThreadGrafica();
+        thread2.start();
     }
 }

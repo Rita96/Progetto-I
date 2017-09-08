@@ -1,6 +1,6 @@
 package graficaListener;
 
-import static grafica.Grafica.progetto;
+import esecuzione.Struttura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
@@ -8,10 +8,12 @@ import javax.swing.JRadioButton;
 public class RadioButtonListener implements ActionListener
 {
     public static int indice;
+    public Struttura progetto;
     
-    public RadioButtonListener()
+    public RadioButtonListener(Struttura progetto)
     {
         super();
+        this.progetto = progetto;
         indice = -1;
     }
     

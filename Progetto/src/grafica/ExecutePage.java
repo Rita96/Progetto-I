@@ -1,12 +1,12 @@
 package grafica;
 
+import esecuzione.Struttura;
 import graficaListener.NextButtonListener;
 import graficaListener.EndButtonListener;
 import graficaListener.ComboBoxListener;
 import graficaListener.HomeButtonListener;
 import graficaListener.RadioButtonListener;
 import graficaListener.BackButtonListener;
-import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -31,13 +31,17 @@ public class ExecutePage extends JFrame
     private JLabel domanda, seleziona;
     private JButton home, back, next, end;
     private ImageIcon homeIcon, backIcon, nextIcon, endIcon;
-    public static JComboBox percorso;
+    private JComboBox percorso;
     private ButtonGroup gruppo;
+    private Struttura progetto;
+    private JFrame homePage;
     
-    public ExecutePage()
+    public ExecutePage(Struttura progetto, JFrame homePage)
     {
         super("Risolutore di Problemi - Domande");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
+        this.homePage = homePage;
+        this.progetto = progetto;
         setExecutePageLocation();
         initPanels();
         initFont();
@@ -94,22 +98,22 @@ public class ExecutePage extends JFrame
         
         back = new JButton();
         back.setPreferredSize(buttonDimension);
-        BackButtonListener bbl = new BackButtonListener();
+        BackButtonListener bbl = new BackButtonListener(progetto, this);
         back.addActionListener(bbl);
         
         next = new JButton();
         next.setPreferredSize(buttonDimension);
-        NextButtonListener nbl = new NextButtonListener();
+        NextButtonListener nbl = new NextButtonListener(progetto, this);
         next.addActionListener(nbl);
         
         home = new JButton();
         home.setPreferredSize(buttonDimension);
-        HomeButtonListener hbl = new HomeButtonListener();
+        HomeButtonListener hbl = new HomeButtonListener(this, progetto, homePage);
         home.addActionListener(hbl);
         
         end = new JButton();
         end.setPreferredSize(buttonDimension);
-        EndButtonListener ebl = new EndButtonListener();
+        EndButtonListener ebl = new EndButtonListener(this, progetto, homePage);
         end.addActionListener(ebl);
         
         setIconButtons();
@@ -142,7 +146,7 @@ public class ExecutePage extends JFrame
     {
         percorso = new JComboBox(progetto.percorsoArray());
         percorso.setPreferredSize(new Dimension(200, 30));
-        ComboBoxListener cbl = new ComboBoxListener();
+        ComboBoxListener cbl = new ComboBoxListener(progetto, this, percorso);
         percorso.addActionListener(cbl);
     }
     
@@ -160,7 +164,7 @@ public class ExecutePage extends JFrame
         {
             JRadioButton radio = new JRadioButton(testoScelte.get(i));
             radio.setFont(fontScelta);
-            RadioButtonListener rbl = new RadioButtonListener();
+            RadioButtonListener rbl = new RadioButtonListener(progetto);
             radio.addActionListener(rbl);
             gruppo.add(radio);
             center.add(radio);

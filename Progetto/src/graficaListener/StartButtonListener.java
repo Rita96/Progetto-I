@@ -1,18 +1,28 @@
 package graficaListener;
 
+import esecuzione.Struttura;
 import grafica.ExecutePage;
-import static grafica.Grafica.executePage;
-import static grafica.Grafica.progetto;
-import static grafica.Grafica.homePage;
-import static grafica.HomePage.elencoOggetti;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 
 public class StartButtonListener implements ActionListener
 {
+    private JFrame executePage;
+    private Struttura progetto;
+    private JFrame homePage;
+    private JComboBox elencoOggetti;
+    
+    public StartButtonListener(JFrame homePage, Struttura progetto, JComboBox elencoOggetti){
+        this.homePage = homePage;
+        this.progetto = progetto;
+        this.elencoOggetti = elencoOggetti;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) 
     {
@@ -23,7 +33,7 @@ public class StartButtonListener implements ActionListener
             Logger.getLogger(StartButtonListener.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        executePage = new ExecutePage();
+        executePage = new ExecutePage(progetto, homePage);
         
         homePage.dispose();
     }

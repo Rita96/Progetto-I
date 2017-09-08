@@ -1,13 +1,20 @@
 package graficaListener;
 
-import static grafica.Grafica.executePage;
-import static grafica.Grafica.progetto;
+import esecuzione.Struttura;
+import grafica.ExecutePage;
 import static graficaListener.RadioButtonListener.indice;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NextButtonListener implements ActionListener
 {
+    private ExecutePage executePage;
+    private Struttura progetto;
+    public NextButtonListener(Struttura progetto, ExecutePage executePage){
+        super();
+        this.executePage = executePage;
+        this.progetto = progetto;
+    }
     @Override
     public void actionPerformed(ActionEvent ae) 
     {   

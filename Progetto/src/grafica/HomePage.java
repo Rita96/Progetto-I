@@ -1,7 +1,7 @@
 package grafica;
 
+import esecuzione.Struttura;
 import graficaListener.StartButtonListener;
-import static grafica.Grafica.progetto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -21,13 +21,15 @@ public class HomePage extends JFrame
     private Font fontBenvenuto, fontSeleziona;
     private JPanel main, north, center, south;
     private JLabel benvenuto, seleziona;
-    public static JComboBox elencoOggetti;
+    private JComboBox elencoOggetti;
     private JButton start;
     private ImageIcon startIcon;
+    private Struttura progetto;
     
-    public HomePage()
+    public HomePage(Struttura progetto)
     {
         super("Risolutore di Problemi - Home");
+        this.progetto = progetto;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
         setHomeLocation();
         setLabels();
@@ -78,7 +80,7 @@ public class HomePage extends JFrame
     {
         start = new JButton();
         start.setPreferredSize(new Dimension(60, 30));
-        StartButtonListener sbl = new StartButtonListener();
+        StartButtonListener sbl = new StartButtonListener(this, progetto, elencoOggetti);
         start.addActionListener(sbl);
         setStartIcon();
     }

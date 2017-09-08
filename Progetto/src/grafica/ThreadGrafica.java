@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class ThreadGrafica implements Runnable{
+public class ThreadGrafica extends Thread implements Runnable {
 
     @Override
     public void run(){
