@@ -8,8 +8,7 @@ public class Main
     {
         ThreadGrafica thread = new ThreadGrafica();
         thread.run();
-        thread.run();
-        /*ThreadGrafica thread2 = new ThreadGrafica();
-        thread2.run();*/
+        ThreadGrafica thread2 = new ThreadGrafica();
+        thread2.run();
     }
 }
