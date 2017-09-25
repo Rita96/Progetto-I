@@ -22,7 +22,7 @@
 <font>Selezionare un oggetto</font>
 </div>
 
-<div id="elenco">
+<div id="contenitore" align="center">
 	<select name="popo" form="cel" style="width:150px;height: 50px">
 	<%
 	int i;
@@ -33,10 +33,10 @@
 		out.println("<option value=\""+elenco[i]+"\">"+elenco[i]+"</option>");
 	}
 	%>
-</div><div id="campo1" align="center">	
 
 
-	<input type="submit" value="Vai" id="bottonevai" >
+
+	<input type="submit" value="Vai" id="bottonevai" style="width:80px;height: 50px" >
 </div>
 
   </select>

@@ -1,0 +1,2 @@
+Lavatrice	AAA	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\lavatrice\domande.txt	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\lavatrice\risposte.txt	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\lavatrice\adiacenze.txt
+Gioco Numeri	AttributoOggeto1	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\esempio\DomandeOggetto1.txt	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\esempio\ScelteOggetto1.txt	C:\Users\Daniele\eclipse-workspace\Progetto-I-Web\esempio\AdiacenzeOggetto1.txt
