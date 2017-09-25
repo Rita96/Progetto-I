@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+
+#bottonevai
+{
+	font-size: 20px;
+	padding: 10px 30px;
+	background-color: #87ff85;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+	border: none;
+	letter-spacing: 2.5px;
+}
+
+
+#bottonevai:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #87ff25;
+	background-color: #87ba54;
+	transform: translateY(-7px);
+}
+
+
+#titolo
+{
+	text-align:center;
+	color: blue;
+	font-family: Raleway;
+}
+
+#sottoitolo
+{
+	
+}

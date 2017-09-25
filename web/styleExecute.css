@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+#domanda
+{
+	position:absolute;
+	top: 5%;
+	left: 30%;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+
+
+#go
+{
+	position:absolute;
+	left: 5%;
+	top: 80%;
+	right: 20%;
+}
+
+
+
+#scelte
+{
+	position:absolute;
+	top: 25%;
+	left :5%;
+	right: 60%;
+	bottom: 30%;
+	font-size: 22px;
+}
+
+
+
+#contenitore
+{
+	position: absolute;
+	top: 20%;
+	left: 55%;
+	right: 10%;
+	bottom: 10%;
+}
+
+
+
+
+#bottonetorna
+{
+	font-size: 20px;
+	text-align: center;
+	padding: 10px 20px;
+	/*color: red;*/
+	background-color: #fff;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+	border: none;
+	border-radius: 30px;
+	letter-spacing: 2.5px;
+}
+#bottonetorna:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #fff;
+	background-color: #2ee59d;
+	transform: translateY(-7px);
+}
+
+
+
+#home
+{
+	position:absolute;
+	left: 25%;
+	top: 80%;
+	right: 60%;
+}
+
+
+
+#bottonehome
+{
+	font-size: 20px;
+	text-align: center;
+	padding: 12px 15px;
+background-color: #fff;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+	border: none;
+	border-radius: 30px;
+	letter-spacing: 2.5px;
+}
+#bottonehome:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #fff;
+	background-color: #3385ff;
+	transform: translateY(-7px);
+}
+
+
+
+#indietro
+{
+	position:absolute;
+	left: 45%;
+	top: 80%;
+	right: 40%;
+}
+
+
+#bottoneindietro
+{
+	font-size: 20px;
+	text-align: center;
+	padding: 12px 15px;
+	background-color: #fff;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+	border: none;
+	border-radius: 30px;
+	letter-spacing: 2.5px;
+}
+#bottoneindietro:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #fff;
+	background-color: #3385ff;
+	transform: translateY(-7px);
+}
+
+#bottoneazione
+{
+	font-size: 20px;
+	text-align: center;
+	padding: 12px 15px;
+	background-color: #b5a6fa;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+	border: none;
+	border-radius: 30px;
+	letter-spacing: 2.5px;
+}
+#bottoneazione:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #fff;
+	background-color: #3385ff;
+	transform: translateY(-7px);
+}
+
+
+
+#selezione
+{
+	width: 300px;
+	height: 40px;
+}
+
+#torna
+{
+	position: absolute;
+	top: 50%;
+	left:20%;
+	right:20%;
+	bottom: 30%;
+	
+}
+
+#select
+{
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	right: 20%;
+	bottom: 60%;
+}
+
+
+#titolo{
+	text-align: center;
+	text-color: red;
+}
