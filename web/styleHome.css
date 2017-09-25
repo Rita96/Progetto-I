@@ -1,14 +1,29 @@
 @charset "UTF-8";
 
+#elenco
+{
+	position: absolute;
+	top: 35%;
+	left: 40%;
+	right: 40%;
+	bottom: 50%;
+}
+
 
 #bottonevai
 {
+	position: absolute;
+	top: 60%;
+	left: 40%;
+	right: 40%;
+	bottom: 20%;
 	font-size: 20px;
-	padding: 10px 30px;
+	padding: 20px 40px;
 	background-color: #87ff85;
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
 	outline: none;
+	border-radius: 5px;
 	box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
 	border: none;
 	letter-spacing: 2.5px;
@@ -28,10 +43,13 @@
 {
 	text-align:center;
 	color: blue;
-	font-family: Raleway;
+	font-size:300%;
+	text-shadow: 3px 2px red;
 }
 
-#sottoitolo
+#sottotitolo
 {
-	
+	color: black;
+	font-size: 150%;
+	text-align: center;
 }

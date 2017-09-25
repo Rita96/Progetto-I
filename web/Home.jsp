@@ -23,7 +23,7 @@
 </div>
 
 <div id="elenco">
-	<select name="popo" form="cel" style="width: 150px;height: 40px">
+	<select name="popo" form="cel" style="width:150px;height: 50px">
 	<%
 	int i;
 	int n=(int)request.getAttribute("num");
@@ -33,9 +33,9 @@
 		out.println("<option value=\""+elenco[i]+"\">"+elenco[i]+"</option>");
 	}
 	%>
-</div>	
+</div><div id="campo1" align="center">	
 
-<div id="campo1" align="center">
+
 	<input type="submit" value="Vai" id="bottonevai" >
 </div>
 
