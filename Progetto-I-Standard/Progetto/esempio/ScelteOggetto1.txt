@@ -1,0 +1,2 @@
+Scelta1	Si'
+Scelta2	No
