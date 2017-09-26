@@ -24,6 +24,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+
+/**
+ * ExecutePage consente di eseguire il programma una volta
+ * selezionato l'oggetto.
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice
+ *
+ */
 public class ExecutePage extends JFrame 
 {
     private Font fontDomanda, fontScelta;

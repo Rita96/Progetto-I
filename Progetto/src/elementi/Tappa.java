@@ -2,11 +2,18 @@ package elementi;
 
 import java.util.ArrayList;
 
+/**
+ * In Tappa si tiene traccia del percorso (stato  + scelta) 
+ * che fa l'utente mentre esegue il programma
+ * 
+ * scelta = risposta data dall'utente alla domanda
+ * stato = domanda fatta all'utente
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice
+ *
+ */
 public class Tappa
 {   
-    /* scelta tiene traccia della risposta data ad una domanda da parte dell'utente.
-       Nella classe Progetto un attributo tiene in memoria dell'intero percorso.
-    */
     private Stato stato;
     private Scelta scelta;
     

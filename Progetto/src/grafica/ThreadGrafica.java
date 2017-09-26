@@ -1,14 +1,20 @@
 
 package grafica;
 
-/**
- *
- * @author Gabriele Guazzardi
- */
+
 import java.io.IOException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+/**
+ * ThreadGrafica è la classe che ci permette di creare 
+ * diversi thread del nostro programma
+ *
+ * @author Gabriele Guazzardi, Francesco Giudice
+ *
+ */
 
 public class ThreadGrafica extends Thread implements Runnable {
 

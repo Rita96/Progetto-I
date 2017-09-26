@@ -3,12 +3,14 @@ package elementi;
 import java.util.ArrayList;
 
 /**
- * Stato legge dati dal file DomandeOggetto[i].txt (i = indice dell'Oggetto)
+ * In Stato carico i dati dal file "DomandeOggettotxt"
  * ed è strutturato così:
  * - codice(identificatore univoco dello stato)
  * - testo (testo della domanda o della possibile soluzione)
  * - adiacenze (stati successivi a cui si passa dopo aver effettuato una scelta)
  * - scelte (possibili risposte ad un quesito)
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice
  */
 
 public class Stato
@@ -56,12 +58,7 @@ public class Stato
         return adiacenze.get(n);
     }
     
-    /**
-    * Metodo che controlla se una stringa è uguale al codice della domanda:
-    * se è uguale, il metodo restituisce true, altrimenti false
-    * @param codice: String
-    * @return boolean
-    */
+  
     public boolean controllo(String codice)
     {
         return this.codice.equals(codice);
