@@ -1,0 +1,20 @@
+CodDom1	CodDom19	CodDom18
+CodDom2	3	CodDom3
+CodDom3	5	1
+CodDom4	7	9
+CodDom5	10	CodDom6
+CodDom6	6	8
+CodDom7	2	4
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+CodDom18	CodDom4	CodDom2
+CodDom19	CodDom5	CodDom7
+

@@ -1,0 +1,6 @@
+﻿1	Si accende ma non accetta i programmi
+2	Si accende da sola
+3	Non si accende
+4	Si'
+5	No
+6	Non scarica acqua	
