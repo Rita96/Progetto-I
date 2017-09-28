@@ -1,0 +1,19 @@
+CodDom1	Il numero e' pari?	Scelta1	Scelta2
+CodDom2	Il numero e' divisibile per 3?	Scelta1	Scelta2
+CodDom3	Il numero e' divisibile per 5?	Scelta1	Scelta2
+CodDom4	Il numero e' primo?	Scelta1	Scelta2
+CodDom5	Il numero e' di due cifre?	Scelta1	Scelta2
+CodDom6	Il numero e' divisibile per 3?	Scelta1	Scelta2
+CodDom7	Il numero e' primo?	Scelta1	Scelta2
+1	1
+2	2
+3	3
+4	4
+5	5
+6	6
+7	7
+8	8
+9	9
+10	10
+CodDom18	Il numero e' maggiore di 5?	Scelta1	Scelta2
+CodDom19	Il numero e' maggiore di 5?	Scelta1	Scelta2

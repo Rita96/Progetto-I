@@ -1,0 +1,2 @@
+Lavatrice	AAA	C:\Progetto-I-WebApplication\lavatrice\domande.txt	C:\Progetto-I-WebApplication\lavatrice\risposte.txt	C:\Progetto-I-WebApplication\lavatrice\adiacenze.txt
+Gioco Numeri	AttributoOggeto1	C:\Progetto-I-WebApplication\esempio\DomandeOggetto1.txt	C:\Progetto-I-WebApplication\esempio\ScelteOggetto1.txt	C:\Progetto-I-WebApplication\esempio\AdiacenzeOggetto1.txt
