@@ -10,6 +10,13 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+/**
+ * Permette di avviare risolutore di problemi una volta scelto l'oggetto difettoso 
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class StartButtonListener implements ActionListener
 {
     private JFrame executePage;

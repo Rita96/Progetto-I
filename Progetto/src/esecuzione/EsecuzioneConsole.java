@@ -6,7 +6,12 @@ import elementi.Tappa;
 import java.io.IOException;
 import java.util.Scanner;
 
-// EsecuzioneConsole permette l'esecuzione tramite interfaccia testuale del risolutore di problemi
+/**
+ * EsecuzioneConsole consente di eseguire il programma da console
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 
 public class EsecuzioneConsole 
 {

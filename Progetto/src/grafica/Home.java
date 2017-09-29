@@ -14,8 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
+ *	Home è la classe che si occupa di creare i diversi 
+ *	thread del programma
  *
- * @author pluto
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
  */
 public class Home extends JFrame {
     private JPanel main, north, center, south;
@@ -77,7 +79,7 @@ public class Home extends JFrame {
     
    private void setLabels()
     {
-        testo = new JLabel("Per avviare un nuovo thread schiacciare il pulsante");
+        testo = new JLabel("Per avviare il programma schiacciare il pulsante");
         testo.setHorizontalAlignment(JLabel.CENTER);
         
 

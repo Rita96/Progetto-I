@@ -4,6 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/**
+ * Superclasse per le classi di lettura da file
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class Lettura {
     
     String nomeFile;

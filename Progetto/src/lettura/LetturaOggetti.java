@@ -6,6 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+
+/**
+ * LetturaOggetti legge il file "Oggetti.txt" 
+ * così che le altre classi di lettura sappiano dove trovare i vari file
+ * da leggere.
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
+
 public class LetturaOggetti extends Lettura
 {
 
@@ -13,6 +23,14 @@ public class LetturaOggetti extends Lettura
         super(nomeFile);
     }
     
+    /**
+     * Il metodo lettura() legge effettivamtente il file "Oggetti.txt"
+     * che richiama il metodo subLetturaOggetti()
+     * 
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Oggetto> lettura() throws FileNotFoundException, IOException
     {
         ArrayList<Oggetto> oggetti = new ArrayList<>();
@@ -35,6 +53,14 @@ public class LetturaOggetti extends Lettura
         return oggetti;
     }
     
+    /**
+     * subLetturaOggetti() prende quello che gli passa il metodo lettura()
+     * e li scrive negli attributi di un oggetto, e poi aggiunge quell'oggetto ad un
+     * ArrayList.
+     * 
+     * @param st
+     * @param oggetti
+     */
     public void subLetturaOggetti(StringTokenizer st, ArrayList oggetti)
     {
         String nome = st.nextToken();

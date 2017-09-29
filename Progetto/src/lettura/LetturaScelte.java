@@ -6,6 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * LetturaScelte legge il file "ScelteOggetto.txt
+ * prende un ArrayList di Scelte vuoto e inseriscse le 
+ * scelte relative di quello stato
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class LetturaScelte extends Lettura
 {
 
@@ -13,6 +21,16 @@ public class LetturaScelte extends Lettura
         super(nomeFile);
     }
     
+    
+    /**
+     * Il metodo lettura() legge effettivamtente il file "ScelteOggetto.txt"
+     * che richiama il metodo subLetturaScelte()
+     * 
+     * 
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Scelta> lettura() throws FileNotFoundException, IOException
     {
         ArrayList<Scelta> scelte = new ArrayList<>();
@@ -34,6 +52,15 @@ public class LetturaScelte extends Lettura
         return scelte;
     }
     
+    
+    /**
+     * subLetturaScelte() prende quello che gli passa il metodo lettura()
+     * e li scrive negli attributi di una scelta e poi aggiunge quella scelta ad un
+     * ArrayList.
+     * 
+     * @param st
+     * @param scelte
+     */
     public void subLetturaScelte(StringTokenizer st, ArrayList scelte)
     {
         String codice = st.nextToken();

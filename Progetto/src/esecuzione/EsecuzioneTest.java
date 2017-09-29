@@ -5,6 +5,14 @@ import elementi.Tappa;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * EsecuzioneTest permette di eseguire i test sul funzionamento del programma
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class EsecuzioneTest {
     private Struttura p;
     private boolean controllo;

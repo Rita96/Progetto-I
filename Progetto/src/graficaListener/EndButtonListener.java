@@ -6,6 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
+/**
+ * EndButtonListener serve per terminare il programma e tornare alla HomePage
+ * e si usa solo al termine del risolutore
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class EndButtonListener implements ActionListener
 {
     private ExecutePage executePage;
@@ -19,15 +27,7 @@ public class EndButtonListener implements ActionListener
         this.progetto = progetto;
         
     }
-    /*
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        executePage.dispose();
-        progetto.clearPercorso();
-        homePage.setVisible(true);
-    }
-    */
+  
     
     @Override
     public void actionPerformed(ActionEvent e)

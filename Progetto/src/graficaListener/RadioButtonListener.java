@@ -5,6 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 
+/**
+ * Mostra le scelte possibili alla domanda, e permette di sceglierne una sola
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class RadioButtonListener implements ActionListener
 {
     public static int indice;

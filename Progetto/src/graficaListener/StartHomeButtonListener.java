@@ -5,8 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Consente di avviare più di un risolutore alla volta
+ * permettendo di usarli in modo contemporaneo
  *
- * @author DaniTava
+ *
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
  */
 public class StartHomeButtonListener implements ActionListener{
 

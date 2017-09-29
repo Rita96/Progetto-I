@@ -24,6 +24,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+
+/**
+ * ExecutePage consente di eseguire il programma una volta
+ * selezionato l'oggetto.
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class ExecutePage extends JFrame 
 {
     private Font fontDomanda, fontScelta;
@@ -111,15 +120,16 @@ public class ExecutePage extends JFrame
         HomeButtonListener hbl = new HomeButtonListener(this, progetto, homePage);
         home.addActionListener(hbl);
         
-        end = new JButton();
+        /*end = new JButton();
         end.setPreferredSize(buttonDimension);
         EndButtonListener ebl = new EndButtonListener(this, progetto, homePage);
-        end.addActionListener(ebl);
+        end.addActionListener(ebl);*/
         
         setIconButtons();
     }
     
     private void setIconButtons()
+
     {
         homeIcon = new ImageIcon("icon/home.png");
         Image icon = homeIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
@@ -136,10 +146,10 @@ public class ExecutePage extends JFrame
         backIcon.setImage(icon);
         back.setIcon(backIcon);
         
-        endIcon = new ImageIcon("icon/end.png");
+        /*endIcon = new ImageIcon("icon/end.png");
         icon = endIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         endIcon.setImage(icon);
-        end.setIcon(endIcon);
+        end.setIcon(endIcon);*/
     }
     
     private void setComboBox()
@@ -189,7 +199,7 @@ public class ExecutePage extends JFrame
             center.add(new JLabel());
             center.add(domanda);
             east.removeAll();
-            south.add(end);
+            //south.add(end);
         }
         else
         {

@@ -3,13 +3,15 @@ package elementi;
 import java.util.ArrayList;
 
 /**
- * Oggetto legge dati dal file "Oggetti.txt" strutturato nel seguente modo:
+ * In Oggetto si caricano i dati dal file "Oggetti.txt" strutturato nel seguente modo:
  * - nome (esempio: Lavatrice)
  * - attributo (esempio: Modello Lavatrice A)
  * - nome file testo delle domande (esempio: domande.txt)
  * - nome file testo delle scelte (esempio: scelte.txt)
  * - nome file testo delle adiacenze (esempio: adiacenze.txt)
  * Le adiacenze indicano quali altre domande sono collegate a ciascuna domanda
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
  */
 
 public class Oggetto
@@ -20,6 +22,7 @@ public class Oggetto
     private String fileScelte;
     private String fileAdiacenze;
     private ArrayList<Stato> stati;
+    
     
     public Oggetto(String nome, String attributo, String fileStati, String fileScelte, String fileAdiacenze)
     {

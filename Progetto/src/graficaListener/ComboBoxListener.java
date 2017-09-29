@@ -1,10 +1,19 @@
 package graficaListener;
 
 import esecuzione.Struttura;
+
 import grafica.ExecutePage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
+
+/**
+ * ComboBoxListener serve per mostrare le domande a cui si è già risposto
+ * e consente di tornarci per modificare la scelta effettuata
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 
 public class ComboBoxListener implements ActionListener
 {

@@ -16,6 +16,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+/**
+ * HomePage permette di selezionare l'oggetto desiderato 
+ * nella grafica
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class HomePage extends JFrame 
 {
     private Font fontBenvenuto, fontSeleziona;

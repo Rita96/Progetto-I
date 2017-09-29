@@ -1,6 +1,11 @@
 package graficaListener;
 
+/**
+ * La classe serve per tornare indietro nel precedente stato del percorso
 
+ * 
+ *  @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ */
 import esecuzione.Struttura;
 import grafica.ExecutePage;
 import java.awt.event.ActionEvent;

@@ -6,6 +6,13 @@ import static graficaListener.RadioButtonListener.indice;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * 	La classe NextButtonListener serve per proseguire nell'esecuzione
+ * una volta scelta la risposta
+ * 
+ * 	@author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ */
+
 public class NextButtonListener implements ActionListener
 {
     private ExecutePage executePage;

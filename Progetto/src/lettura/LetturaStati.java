@@ -7,6 +7,16 @@ import java.util.StringTokenizer;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * LetturaStati legge il file "StatiOggetto.txt
+ * prende un ArrayList di Stati vuoto e inseriscse
+ * gli stati relativi di quell'oggetto
+ * 
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class LetturaStati extends Lettura
 {
 
@@ -14,6 +24,15 @@ public class LetturaStati extends Lettura
         super(nomeFile);
     }
     
+    /**
+     * Si passa un ArrayList di stati vuoto e restituisce lo stesso ArrayList 
+     * con gli stati che ha letto da file.
+     *
+     * @param s
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Stato> lettura(ArrayList<Scelta> s) throws FileNotFoundException, IOException
     {
         ArrayList<Stato> domande = new ArrayList<>();

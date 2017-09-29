@@ -6,13 +6,32 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 
+
+/**
+ * LetturaAdiacenze legge il file "AdiacenzeOggetto.txt"
+ * e per ogni stato di un oggetto restituisce le adiacenze,
+ * ossia i possibili stati successivi.
+ * 
+ * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
+ *
+ */
 public class LetturaAdiacenze extends Lettura 
 {
 
     public LetturaAdiacenze(String nomeFile) {
         super(nomeFile);
     }
-
+    
+    
+    /**
+     * Si passa un ArrayList di stati senza adiacenze
+     * e restituisce lo stesso ArrayList con le adiacenze per ogni stato.
+     * 
+     * @param stati
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public ArrayList<Stato> lettura(ArrayList<Stato> stati) throws FileNotFoundException, IOException
     {
         ArrayList<Stato> adiacenze = new ArrayList<>();
