@@ -1,0 +1,51 @@
+#contenitore
+{
+	position: absolute;
+	height: 50px;
+    width: 230px;
+	top: 35%;
+	left: 50%;
+	margin-left: -130px;
+	bottom: 50%;
+}
+
+
+#bottonevai
+{
+	position: absolute;
+	font-size: 20px;
+	/*padding: 20px 40px;*/
+	background-color: #fff;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	border-radius: 5px;
+	box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+	border: none;
+	letter-spacing: 2.5px;
+}
+
+
+#bottonevai:hover
+{
+	box-shadow: 0px 15px 20px rgba(46,229,157,0.4);
+	color: #fff;
+	background-color: #87ff85;
+	transform: translateY(-7px);
+}
+
+
+#titolo
+{
+	text-align:center;
+	color: blue;
+	font-size:300%;
+	text-shadow: 3px 2px red;
+}
+
+#sottotitolo
+{
+	color: black;
+	font-size: 150%;
+	text-align: center;
+}
