@@ -5,14 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
- * Superclasse per le classi di lettura da file
- * 
+ * La classe Lettura è la superclasse per le classi di lettura da file.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
-public class Lettura {
-    
+public class Lettura
+{    
     String nomeFile;
     BufferedReader inputStream;
 

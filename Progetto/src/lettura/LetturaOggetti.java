@@ -6,20 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
 /**
- * LetturaOggetti legge il file "Oggetti.txt" 
- * così che le altre classi di lettura sappiano dove trovare i vari file
- * da leggere.
+ * La classe LetturaOggetti legge il file "Oggetti.txt" così che le altre classi
+ * di lettura sappiano dove trovare i vari file da leggere.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
-
 public class LetturaOggetti extends Lettura
 {
-
-    public LetturaOggetti(String nomeFile) {
+    public LetturaOggetti(String nomeFile)
+    {
         super(nomeFile);
     }
     
@@ -43,10 +39,12 @@ public class LetturaOggetti extends Lettura
         while(stringa != null)
         {
             st = new StringTokenizer(stringa, "\t\n");
+            
             while(st.hasMoreTokens())
             {
                 subLetturaOggetti(st, oggetti);
             }
+            
             stringa = inputStream.readLine();
         }
         inputStream.close();

@@ -1,15 +1,16 @@
 package Test;
 
-/**
- *
- * @author Gabriele Guazzardi
- */
 import esecuzione.Struttura;
 import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
-public class TestStruttura {
-    
+
+/**
+ *
+ * @author Gabriele Guazzardi
+ */
+public class TestStruttura
+{
     @Test
     public void testSceltaOggetti() throws IOException
     {

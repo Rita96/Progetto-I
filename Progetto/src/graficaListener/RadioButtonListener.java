@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JRadioButton;
 
 /**
- * Mostra le scelte possibili alla domanda, e permette di sceglierne una sola
+ * La classe RadioButtonListener permette di visualizzare le scelte possibili
+ * alla domanda e di selezionarne una sola.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class RadioButtonListener implements ActionListener
 {
@@ -32,7 +32,9 @@ public class RadioButtonListener implements ActionListener
         for(int i = 0; i < progetto.scelteDomandaAttualeSize(); i++)
         {
             if(s.equals(progetto.mostraSceltaDomandaAttuale(i)))
+            {
                 indice = i;
+            }
         }
     }
 }

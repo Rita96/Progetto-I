@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 
 /**
- * EsecuzioneTest permette di eseguire i test sul funzionamento del programma
- * 
+ * La classe EsecuzioneTest permette di eseguire i test sul funzionamento
+ * del programma.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
  *
  */
-public class EsecuzioneTest {
+public class EsecuzioneTest
+{
     private Struttura p;
     private boolean controllo;
     
@@ -72,7 +73,7 @@ public class EsecuzioneTest {
     
     public void esecuzioneRisolutore(int n) throws IOException
     {
-        if(p.getOggettoSelezionato()!= null)
+        if(p.getOggettoSelezionato() != null)
         {
             if(p.adiacenzeDomandaAttualeEmpty())
             {

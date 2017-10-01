@@ -6,22 +6,19 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
 
-
 /**
- * LetturaAdiacenze legge il file "AdiacenzeOggetto.txt"
+ * La classe LetturaAdiacenze legge il file "AdiacenzeOggetto.txt"
  * e per ogni stato di un oggetto restituisce le adiacenze,
  * ossia i possibili stati successivi.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class LetturaAdiacenze extends Lettura 
 {
-
-    public LetturaAdiacenze(String nomeFile) {
+    public LetturaAdiacenze(String nomeFile)
+    {
         super(nomeFile);
     }
-    
     
     /**
      * Si passa un ArrayList di stati senza adiacenze
@@ -50,17 +47,20 @@ public class LetturaAdiacenze extends Lettura
                 int n = 0;
                 int nTokens = st.countTokens();
                 String codice = st.nextToken();
-
+                
                 while (n < nTokens - 1)
                 {
                     String line = st.nextToken();
                     codici.add(line);
                     n++;
                 }
-
-                for (String c : codici) {
-                    for (Stato d : stati) { 
-                        if (d.controllo(c)) {
+                
+                for (String c : codici)
+                {
+                    for (Stato d : stati)
+                    { 
+                        if (d.controllo(c))
+                        {
                             adiacenze.add(d);
                         }
                     }
@@ -73,6 +73,7 @@ public class LetturaAdiacenze extends Lettura
                         d.addAdiacenze(adiacenze);
                     }
                 }
+                
                 codici.clear();
                 adiacenze.clear();
             }

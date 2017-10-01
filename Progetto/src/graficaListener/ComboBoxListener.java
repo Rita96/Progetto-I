@@ -8,26 +8,25 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 
 /**
- * ComboBoxListener serve per mostrare le domande a cui si è già risposto
- * e consente di tornarci per modificare la scelta effettuata
+ * La classe ComboBoxListener permette di visualizzare le domande a cui si è già 
+ * risposto e ripeterle per modificare la scelta effettuata.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
-
 public class ComboBoxListener implements ActionListener
 {
     private Struttura progetto;
     private ExecutePage executePage;
     private JComboBox percorso;
-    public ComboBoxListener(Struttura progetto, ExecutePage executePage,JComboBox percorso ){
+    
+    public ComboBoxListener(Struttura progetto, ExecutePage executePage,JComboBox percorso)
+    {
         super();
         this.progetto = progetto;
         this.executePage = executePage;
         this.percorso = percorso;
     }
-            
-            
+    
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -36,5 +35,4 @@ public class ComboBoxListener implements ActionListener
         executePage.clearFrame();
         executePage.refreshFrame();
     }
-    
 }

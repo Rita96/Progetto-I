@@ -2,7 +2,6 @@ package grafica;
 
 import esecuzione.Struttura;
 import graficaListener.NextButtonListener;
-import graficaListener.EndButtonListener;
 import graficaListener.ComboBoxListener;
 import graficaListener.HomeButtonListener;
 import graficaListener.RadioButtonListener;
@@ -24,14 +23,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-
 /**
- * ExecutePage consente di eseguire il programma una volta
+ * La classe ExecutePage permette di eseguire il programma una volta
  * selezionato l'oggetto.
  * 
- * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class ExecutePage extends JFrame 
 {
@@ -48,7 +44,7 @@ public class ExecutePage extends JFrame
     public ExecutePage(Struttura progetto, JFrame homePage)
     {
         super("Risolutore di Problemi - Domande");
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.homePage = homePage;
         this.progetto = progetto;
         setExecutePageLocation();
@@ -72,7 +68,7 @@ public class ExecutePage extends JFrame
         int screenHeight = screenSize.height; 
         int screenWidth = screenSize.width; 
         setSize(screenWidth / 2, screenHeight / 2);
-        setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
+        setLocation((screenWidth - getWidth()) / 2, (screenHeight - getHeight()) / 2);
     }
     
     private void initPanels()
@@ -192,7 +188,7 @@ public class ExecutePage extends JFrame
             east.add(percorso);
             south.add(back);
         }
-            
+        
         if(progetto.scelteDomandaAttualeEmpty())
         {
             center.add(new JLabel());

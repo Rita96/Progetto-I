@@ -16,13 +16,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 /**
- * HomePage permette di selezionare l'oggetto desiderato 
- * nella grafica
+ * La classe HomePage permette di selezionare l'oggetto desiderato nella grafica.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class HomePage extends JFrame 
 {
@@ -38,7 +35,7 @@ public class HomePage extends JFrame
     {
         super("Risolutore di Problemi - Home");
         this.progetto = progetto;
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE); //messo DISPOSE_ON_CLOSE per i thread in modo che non si chiudano tutte le finestre quando ne chiudi una
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setHomeLocation();
         setLabels();
         setComboBoxes();
@@ -57,7 +54,7 @@ public class HomePage extends JFrame
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
         setSize(screenWidth / 3, screenHeight / 3);
-        setLocation((screenWidth - getWidth())/ 2, (screenHeight - getHeight() )/ 2);
+        setLocation((screenWidth - getWidth()) / 2, (screenHeight - getHeight()) / 2);
     }
     
     private void setFonts()

@@ -7,20 +7,16 @@ import java.util.StringTokenizer;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 /**
- * LetturaStati legge il file "StatiOggetto.txt
- * prende un ArrayList di Stati vuoto e inseriscse
- * gli stati relativi di quell'oggetto
- * 
+ * La classe LetturaStati legge il file "StatiOggetto.txt, prende un ArrayList
+ * di Stati vuoto e inserisce gli stati relativi di quell'oggetto. 
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class LetturaStati extends Lettura
 {
-
-    public LetturaStati(String nomeFile) {
+    public LetturaStati(String nomeFile)
+    {
         super(nomeFile);
     }
     

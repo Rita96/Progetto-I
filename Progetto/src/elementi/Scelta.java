@@ -24,7 +24,6 @@ public class Scelta
         return codice;
     }
     
-    
     public String mostra()
     {
         return testo;

@@ -12,19 +12,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 /**
- * Struttura contiene tutte le funzioni principale 
- * per il funzionamento corretto del programma
+ * La classe Struttura contiene tutte le funzioni principali per il corretto
+ * funzionamento del programma.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class Struttura
 {
     private Stato domandaAttuale;
     private Oggetto oggettoSelezionato;
-    private ArrayList<Tappa> percorso; // percorso tiene traccia delle scelte fatte dall'utente rispondendo alle domande
+    private ArrayList<Tappa> percorso;
     private ArrayList<Oggetto> elencoOggetti;
     
     public Struttura()
@@ -35,13 +33,14 @@ public class Struttura
     
     /**
      * Il metodo letturaOggetti() legge tutti gli oggetti di cui si vuole
-     * proporre un problema all'applicazione
+     * proporre un problema all'applicazione.
      *
      * @throws IOException
      */
     public void letturaOggetti() throws IOException
     {
-        LetturaOggetti lo = new LetturaOggetti("/home/bluegecko/git/ProvaEclipse/esame/File/oggetti.txt");
+        String path = "C:\\Users\\Andrea\\Documents\\NetBeansProjects\\Progetto-I\\Progetto\\oggetti.txt";
+        LetturaOggetti lo = new LetturaOggetti(path);
         elencoOggetti = lo.lettura();
     }
     
@@ -86,7 +85,6 @@ public class Struttura
      * Il metodo esecuzioneProg(int n) consente all'utente di effettuare una scelta
      * tra quelle possibili ad un determinato stato.
      * 
-     * 
      * @param n
      */
     public void esecuzioneProgetto(int n)
@@ -101,7 +99,6 @@ public class Struttura
      * Il metodo prossimoStato(int scelta) imposta lo stato successivo in base
      * alla scelta effettuata allo stato attuale.
      * 
-     * 
      * @param scelta
      */
     public void prossimoStato(int scelta)
@@ -113,14 +110,16 @@ public class Struttura
      * Il metodo statoPrecedente(int i) ritorna ad una domanda a cui
      * si è precedente risposto.
      * 
-     * 
      * @param i
      */
     public void statoPrecedente(int i)
     {
         domandaAttuale = getTappa(i).getStato();
+        
         for(int j = percorso.size() - 1; j >= i; j--)
+        {
             percorso.remove(j);
+        }
     }
     
     /** 
@@ -129,7 +128,7 @@ public class Struttura
      * altro oggetto;
      * Dopo aver chiamato questo metodo bisogna chiamare lettura per
      * inizializzare un nuovo oggetto.
-     */    
+     */
     public void returnHome()
     {
         domandaAttuale = null;
@@ -290,13 +289,13 @@ public class Struttura
     }
     
     /** 
-     * Il metodo mostraSceltaStatoPercorso() restituisce il testo della scelta j dello stato i del percorso
+     * Il metodo mostraSceltaStatoPercorso() restituisce il testo della scelta j
+     * dello stato i del percorso.
      */
     public String mostraSceltaStatoPercorso(int i, int j)
     {
         return getTappa(i).mostraSceltaStato(j);
     }
-    
   
     public void back()
     {
@@ -304,8 +303,9 @@ public class Struttura
     }
     
     /**
-     * selezionaOggetto() permette di selezionare l'oggetto di cui
+     * Il metodo selezionaOggetto() permette di selezionare l'oggetto di cui
      * si vuole risolvere i problemi.
+     * 
      * @param n
      * @throws IOException
      */

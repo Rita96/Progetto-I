@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
  */
-
 public class Stato
 {
     private String codice;
@@ -57,7 +56,6 @@ public class Stato
     {
         return adiacenze.get(n);
     }
-    
   
     public boolean controllo(String codice)
     {
@@ -102,5 +100,4 @@ public class Stato
     public String getCodiceScelta(int n) {
         return getScelta(n).getCodice();
     }
-    
 }

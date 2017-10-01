@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestEsecuzione {
-    
+public class TestEsecuzione
+{
     @Test
     public void testPercorso() throws IOException
     {

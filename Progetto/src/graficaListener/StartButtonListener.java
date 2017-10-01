@@ -11,11 +11,10 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 /**
- * Permette di avviare risolutore di problemi una volta scelto l'oggetto difettoso 
- * 
+ * La classe StartButtonListener permette di avviare Risolutore di Problemi
+ * una volta selezionato l'oggetto difettoso.
  * 
  * @author Gabriele Guazzardi, Francesco Giudice, Daniele Tavazzi, Andrea Pompa
- *
  */
 public class StartButtonListener implements ActionListener
 {
@@ -24,7 +23,8 @@ public class StartButtonListener implements ActionListener
     private JFrame homePage;
     private JComboBox elencoOggetti;
     
-    public StartButtonListener(JFrame homePage, Struttura progetto, JComboBox elencoOggetti){
+    public StartButtonListener(JFrame homePage, Struttura progetto, JComboBox elencoOggetti)
+    {
         this.homePage = homePage;
         this.progetto = progetto;
         this.elencoOggetti = elencoOggetti;
@@ -34,14 +34,17 @@ public class StartButtonListener implements ActionListener
     public void actionPerformed(ActionEvent ae) 
     {
         int selezionato = elencoOggetti.getSelectedIndex();
-        try {
+        
+        try
+        {
             progetto.selezionaOggetto(selezionato);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex)
+        {
             Logger.getLogger(StartButtonListener.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         executePage = new ExecutePage(progetto, homePage);
-        
         homePage.dispose();
     }
 }
