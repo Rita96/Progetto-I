@@ -1,0 +1,10 @@
+1	Quale problema hai riscontrato?	6
+2	Si blocca durante il lavaggio o si accende da sola?	1	2	3
+3	Ha provato a resettare la macchina?	4	5
+4	In seguito a un eventuale blackout la spina e' stata reinserita?	4	5	
+6	Contattare l'assistenza tecnica	
+7	Arriva corrente alla presa? Ha provato a collegare un altro elettrodomestico?	4	5
+8	Staccare la spina, aspettare 10 sec, ricollegare e riprovare a programmare la macchina	
+9	Il problema persiste?	4	5
+A	Ripristinare la corrente nella presa elettrica	
+B	Problama risolto, grazie per aver scelto la nostra applicazione	

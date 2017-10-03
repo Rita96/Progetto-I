@@ -1,0 +1,21 @@
+1	Quale problema hai riscontrato?	1	2
+2	Quale tra questi malfunzionamenti hai riscontrato?	3	4	5
+3	Il blocco tasti e' attivo?	V	Z
+4	Premere per alcuni secondi l'apposito tasto per sbloccare i tasti
+5	Quale tra questi malfunzionamenti hai riscontrato?	6	7
+6	Il prodotto funziona correttamente, ma è entarto in mod. risparmio energetico
+7	Togliere l'alimentazione elettrica per 2 minuti e rialimentare il prodotto
+8	Ha effettuato un'energica pressione sulla manopola prima di ruotarla?	V	Z
+9	Riprovare l'accensione, facendo attenzione a premere la manopola decisamente fino in fondo
+A	Quale tra questi malfunzionamenti hai riscontrato?	8	9	A
+B	Succede dopo una fase di cottura?	V	Z
+C	In fase di raffreddamento la ventola di raffreddamento può riattivari per raffreddare il forno
+D	Quale tra questi malfunzionamenti hai riscontrato?	B	C	D
+E	Se disponibile disattivare la modalità DEMO
+F	Accertarsi che la manopola del timer sia disattivata
+G	Probabile blackout. Impostare nuovamente l'orario dell'orologio interno e riprovare
+H	Ha seguito esattamente le indicazioni del libretto istruzioni?	V	Z
+I	Girare la manopola del timer fino in fondo e regolare i minuti desiderati
+U	Il problema persiste?	V	Z
+V	Problema risolto, grazie per aver scelto la nostra applicazione
+Z	Contattare l'assistenza tecnica

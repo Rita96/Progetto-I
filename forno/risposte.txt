@@ -1,0 +1,15 @@
+1	Vi sono malfunzionamenti di manopole, spie o display
+2	Il programma di cottura non parte
+3	Il display non funziona o i comandi sono bloccati
+4	Il display si spegne o è poco visibile
+5	La manopola è bloccata
+6	La visualizzazione sul display appare come un orologio senza illuminazione
+7	Si è verificato un problema elettrico in casa
+8	La ventola si accende da sola
+9	Si programma ma non parte
+A	Il timer si blocca o non suona
+B	Il forno e' stato acquistato di un recente acquisto
+C	Il forno è provvisto di manopola timer con opzione fine cottura
+D	In caso di forno con display, l'ora non è ben aggiornata o lampeggia
+V	Sì
+Z	No
