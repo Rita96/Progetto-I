@@ -6,7 +6,7 @@ pageEncoding="ISO-8859-1"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Risolutore problemi</title>
-<link href="styleExecute1.css" rel="stylesheet" type="text/css"/>
+<link href="styleExecute.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <form action="Servlet2" method="Post" id="freezer">

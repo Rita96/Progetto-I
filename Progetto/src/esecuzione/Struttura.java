@@ -24,6 +24,8 @@ public class Struttura
     private Oggetto oggettoSelezionato;
     private ArrayList<Tappa> percorso;
     private ArrayList<Oggetto> elencoOggetti;
+    public static String percorsoFile = "C:\\Users\\Pippo\\git\\Progetto-I\\Progetto\\File\\";
+    private String fileOggetti = "oggetti.txt";
     
     public Struttura()
     {
@@ -39,7 +41,7 @@ public class Struttura
      */
     public void letturaOggetti() throws IOException
     {
-        String path = "C:\\Users\\Andrea\\Documents\\NetBeansProjects\\Progetto-I\\Progetto\\oggetti.txt";
+        String path = percorsoFile + fileOggetti;
         LetturaOggetti lo = new LetturaOggetti(path);
         elencoOggetti = lo.lettura();
     }

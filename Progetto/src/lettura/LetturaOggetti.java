@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import static esecuzione.Struttura.percorsoFile;
 
 /**
  * La classe LetturaOggetti legge il file "Oggetti.txt" così che le altre classi
@@ -63,9 +64,9 @@ public class LetturaOggetti extends Lettura
     {
         String nome = st.nextToken();
         String attributo = st.nextToken();
-        String fileDomande = st.nextToken();
-        String fileScelte = st.nextToken();
-        String fileAdiacenze = st.nextToken();
+        String fileDomande = percorsoFile + st.nextToken();
+        String fileScelte = percorsoFile + st.nextToken();
+        String fileAdiacenze = percorsoFile + st.nextToken();
 
         Oggetto o = new Oggetto(nome, attributo, fileDomande, fileScelte, fileAdiacenze);
         oggetti.add(o);
