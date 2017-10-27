@@ -1,0 +1,4 @@
+CodDom1	CodDom1	CodDom2	CodDom3
+CodDom2	CodDom2	CodDom4
+CodDom3	CodDom1
+CodDom4

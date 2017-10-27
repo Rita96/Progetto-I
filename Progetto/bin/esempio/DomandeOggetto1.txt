@@ -1,0 +1,4 @@
+CodDom1	TextDom1	Scelta1	Scelta2	Scelta3
+CodDom2	TextDom2	Scelta1	Scelta4
+CodDom3	TextDom3	Scelta3
+CodDom4	TextDom4
